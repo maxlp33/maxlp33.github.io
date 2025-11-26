@@ -156,7 +156,7 @@
     <!-- Contact Section -->
     <section class="contact" id="contact">
         <h2 class="section-title" data-zh="聯絡我" data-en="Contact Me">聯絡我</h2>
-        <form class="contact-form">
+        <form class="contact-form" id="contactForm">
             <div class="form-group">
                 <label for="name" class="form-label" data-zh="姓名" data-en="Name">姓名</label>
                 <input type="text" id="name" name="name" class="form-input" required>
@@ -170,7 +170,16 @@
                 <textarea id="message" name="message" class="form-textarea" required></textarea>
             </div>
             <button type="submit" class="submit-btn" data-zh="發送訊息" data-en="Send Message">發送訊息</button>
+            <div id="formStatus" class="form-status"></div>
         </form>
+        
+        <!-- Direct Contact -->
+        <div class="contact-info" style="margin-top: 2rem; text-align: center;">
+            <p style="color: #888; font-size: 0.9rem; margin-bottom: 10px;" data-zh="或者直接聯繫我：" data-en="Or contact me directly:">或者直接聯繫我：</p>
+            <a href="mailto:your.email@gmail.com" class="contact-link" style="color: #4a9eff; text-decoration: none; margin: 0 10px; padding: 8px 16px; border: 1px solid #4a9eff; border-radius: 5px; transition: all 0.3s ease;">
+                📧 your.email@gmail.com
+            </a>
+        </div>
     </section>
 
     <!-- Footer -->
@@ -788,6 +797,27 @@
         
         // Initialize starry background
         createStarryBackground();
+
+        // Contact form handling (mailto for GitHub Pages)
+        document.getElementById('contactForm').addEventListener('submit', (e) => {
+            e.preventDefault();
+            
+            const name = document.getElementById('name').value;
+            const email = document.getElementById('email').value;
+            const message = document.getElementById('message').value;
+            
+            // Create mailto link
+            const subject = `Portfolio Contact from ${name}`;
+            const body = `Name: ${name}\nEmail: ${email}\n\nMessage:\n${message}`;
+            const mailtoLink = `mailto:your.email@gmail.com?subject=${encodeURIComponent(subject)}&body=${encodeURIComponent(body)}`;
+            
+            // Open email client
+            window.location.href = mailtoLink;
+            
+            // Show success message
+            const statusDiv = document.getElementById('formStatus');
+            statusDiv.innerHTML = '<div style="color: #4ade80; padding: 10px; background: rgba(74, 222, 128, 0.1); border-radius: 5px; margin-top: 10px;">✅ Email client opened! Please send the email to complete your message.</div>';
+        });
     </script>
 </body>
 </html>
