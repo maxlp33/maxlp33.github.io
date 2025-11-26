@@ -3,15 +3,28 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="Content-Security-Policy" content="script-src 'self' 'unsafe-inline' https://fonts.googleapis.com; style-src 'self' 'unsafe-inline' https://fonts.googleapis.com;">
     <title>劉至庭 - Portfolio</title>
     <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@300;400;500;600;700&display=swap" rel="stylesheet">
     <link rel="stylesheet" href="style.css">
 </head>
 <body>
+    <!-- Starry Background -->
+    <div class="starry-bg" id="starry-bg"></div>
+
     <!-- Navigation -->
     <nav class="navbar" id="navbar">
         <div class="nav-container">
-            <a href="#" class="logo">劉至庭</a>
+            <a href="#hero" class="logo">
+                <div class="logo-cube">
+                    <div class="logo-cube-face front">ML</div>
+                    <div class="logo-cube-face back">ML</div>
+                    <div class="logo-cube-face right">M</div>
+                    <div class="logo-cube-face left">L</div>
+                    <div class="logo-cube-face top">ML</div>
+                    <div class="logo-cube-face bottom">ML</div>
+                </div>
+            </a>
             <ul class="nav-menu" id="nav-menu">
                 <li><a href="#hero" class="nav-link" data-zh="首頁" data-en="Home">首頁</a></li>
                 <li><a href="#about" class="nav-link" data-zh="關於我" data-en="About">關於我</a></li>
@@ -33,13 +46,18 @@
                 <span></span>
                 <span></span>
             </div>
+            <div class="eye-container">
+                <div class="eye">
+                    <div class="pupil"></div>
+                </div>
+            </div>
         </div>
     </nav>
 
     <!-- Hero Section -->
     <section class="hero" id="hero">
         <div class="hero-content">
-            <h1 class="hero-title" data-zh="劉至庭" data-en="Max Liu">劉至庭</h1>
+            <h1 class="hero-title" data-zh="Max Liu" data-en="Max Liu">Max Liu</h1>
             <p class="hero-subtitle" data-zh="3D建模師 & 設計師" data-en="3D Modeler & Designer">3D建模師 & 設計師</p>
             <a href="#projects" class="hero-cta" data-zh="查看我的作品" data-en="View My Work">查看我的作品</a>
         </div>
@@ -86,30 +104,49 @@
             <h2 class="section-title" data-zh="我的作品" data-en="Featured Work">我的作品</h2>
             <div class="projects-grid">
                 <div class="project-card">
-                    <img src="img/sten8.png" alt="Sten submachine gun" class="project-image">
+                    <div class="project-image-carousel">
+                        <button class="carousel-arrow carousel-prev" onclick="changeProjectImage('sten', -1)">‹</button>
+                        <img src="img/Sten8.png" alt="Sten submachine gun" class="project-image active" data-project="sten">
+                        <img src="img/Copy of Sten1.png" alt="Sten side view" class="project-image" data-project="sten">
+                        <img src="img/Copy of Sten2.png" alt="Sten detail view" class="project-image" data-project="sten">
+                        <img src="img/Copy of Sten4.png" alt="Sten alternate view" class="project-image" data-project="sten">
+                        <button class="carousel-arrow carousel-next" onclick="changeProjectImage('sten', 1)">›</button>
+                    </div>
                     <div class="project-content">
                         <div class="project-badge" data-zh="🔫 3D建模" data-en="🔫 3D MODELING">🔫 3D建模</div>
                         <h3 class="project-title">Sten Submachine Gun</h3>
                         <p class="project-description" data-zh="高擬真的二戰時期 Sten 衝鋒槍 3D 模型，完整的材質製作流程，包含金屬磨損、木質紋理和歷史考據的細節重現。專為遊戲引擎優化的低面數模型。" data-en="High-fidelity WWII-era Sten submachine gun 3D model with complete material workflow, including metal wear, wood textures, and historically accurate details. Optimized low-poly model for game engines.">高擬真的二戰時期 Sten 衝鋒槍 3D 模型，完整的材質製作流程，包含金屬磨損、木質紋理和歷史考據的細節重現。專為遊戲引擎優化的低面數模型。</p>
-                        <a href="#" class="project-link" data-zh="查看項目 →" data-en="View Project →">查看項目 →</a>
+                        <a href="project-sten.html" class="project-link" data-zh="查看項目 →" data-en="View Project →">查看項目 →</a>
                     </div>
                 </div>
                 <div class="project-card">
-                    <img src="img/m1911-3.png" alt="Colt M1911" class="project-image">
+                    <div class="project-image-carousel">
+                        <button class="carousel-arrow carousel-prev" onclick="changeProjectImage('m1911', -1)">‹</button>
+                        <img src="img/m1911-TN.png" alt="Colt M1911" class="project-image active" data-project="m1911">
+                        <img src="img/m1911-3.png" alt="M1911 side view" class="project-image" data-project="m1911">
+                        <img src="img/m1911-7.png" alt="M1911 detail view" class="project-image" data-project="m1911">
+                        <button class="carousel-arrow carousel-next" onclick="changeProjectImage('m1911', 1)">›</button>
+                    </div>
                     <div class="project-content">
                         <div class="project-badge" data-zh="🔫 3D建模" data-en="🔫 3D MODELING">🔫 3D建模</div>
                         <h3 class="project-title">Colt M1911 Pistol</h3>
                         <p class="project-description" data-zh="經典美式手槍 Colt M1911 的精密 3D 重建，注重機械結構的準確性和表面材質的真實感。使用 PBR 材質工作流程，適用於現代渲染引擎。" data-en="Precision 3D reconstruction of the classic American Colt M1911 pistol, focusing on mechanical accuracy and realistic surface materials. Built with PBR material workflow for modern rendering engines.">經典美式手槍 Colt M1911 的精密 3D 重建，注重機械結構的準確性和表面材質的真實感。使用 PBR 材質工作流程，適用於現代渲染引擎。</p>
-                        <a href="#" class="project-link" data-zh="查看項目 →" data-en="View Project →">查看項目 →</a>
+                        <a href="project-m1911.html" class="project-link" data-zh="查看項目 →" data-en="View Project →">查看項目 →</a>
                     </div>
                 </div>
                 <div class="project-card">
-                    <img src="img/caitrender.png" alt="Arcane Caitlyn" class="project-image">
+                    <div class="project-image-carousel">
+                        <button class="carousel-arrow carousel-prev" onclick="changeProjectImage('caitlyn', -1)">‹</button>
+                        <img src="img/caitRender11.png" alt="Arcane Caitlyn" class="project-image active" data-project="caitlyn">
+                        <img src="img/caitRender.png" alt="Caitlyn alternate view" class="project-image" data-project="caitlyn">
+                        <img src="img/caitRender1.png" alt="Caitlyn high poly" class="project-image" data-project="caitlyn">
+                        <button class="carousel-arrow carousel-next" onclick="changeProjectImage('caitlyn', 1)">›</button>
+                    </div>
                     <div class="project-content">
                         <div class="project-badge" data-zh="👤 角色建模" data-en="👤 CHARACTER DESIGN">👤 角色建模</div>
-                        <h3 class="project-title" data-zh="Arcane 凱特琳角色重現" data-en="Arcane Caitlyn Character Recreation">Arcane 凱特琳角色重現</h3>
-                        <p class="project-description" data-zh="基於 Netflix 動畫《Arcane》中凱特琳角色的 3D 重現項目。研究並模仿了動畫的獨特手繪風格，創建了風格化的 3D 角色模型和自訂材質系統。" data-en="3D recreation project based on Caitlyn character from Netflix's Arcane animation. Studied and replicated the show's unique hand-painted art style, creating a stylized 3D character model with custom material system.">基於 Netflix 動畫《Arcane》中凱特琳角色的 3D 重現項目。研究並模仿了動畫的獨特手繪風格，創建了風格化的 3D 角色模型和自訂材質系統。</p>
-                        <a href="#" class="project-link" data-zh="查看項目 →" data-en="View Project →">查看項目 →</a>
+                        <h3 class="project-title" data-zh="奧術凱特琳角色重現" data-en="Arcane Caitlyn Character Recreation">Arcane 凱特琳角色重現</h3>
+                        <p class="project-description" data-zh="基於 Netflix 動畫《奧術》中凱特琳角色的 3D 重現項目。研究並模仿了動畫的獨特手繪風格，創建了風格化的 3D 角色模型和自訂材質系統。" data-en="3D recreation project based on Caitlyn character from Netflix's Arcane animation. Studied and replicated the show's unique hand-painted art style, creating a stylized 3D character model with custom material system.">基於 Netflix 動畫《Arcane》中凱特琳角色的 3D 重現項目。研究並模仿了動畫的獨特手繪風格，創建了風格化的 3D 角色模型和自訂材質系統。</p>
+                        <a href="project-caitlyn.html" class="project-link" data-zh="查看項目 →" data-en="View Project →">查看項目 →</a>
                     </div>
                 </div>
             </div>
@@ -138,16 +175,16 @@
 
     <!-- Footer -->
     <footer class="footer">
-        <p data-zh="&copy; 2025 劉至庭. All rights reserved." data-en="&copy; 2025 Max Liu. All rights reserved.">&copy; 2025 劉至庭. All rights reserved.</p>
+        <p data-zh="&copy; 2025 Max Liu. All rights reserved." data-en="&copy; 2025 Max Liu. All rights reserved.">&copy; 2025 Max Liu. All rights reserved.</p>
     </footer>
 
     <script>
         // Language switching functionality
-        let currentLanguage = 'zh';
+        let currentLanguage = 'en';
         
         const translations = {
             zh: {
-                name: '劉至庭',
+                name: 'Max Liu',
                 currentLang: '中文'
             },
             en: {
@@ -159,7 +196,7 @@
         function switchLanguage(lang) {
             currentLanguage = lang;
             document.getElementById('current-lang').textContent = translations[lang].currentLang;
-            document.querySelector('.logo').textContent = translations[lang].name;
+            // Remove the line that overwrites logo content - we want to keep the cube
             
             // Update all elements with data attributes
             const elementsToTranslate = document.querySelectorAll('[data-zh][data-en]');
@@ -266,6 +303,491 @@
             el.style.transition = 'opacity 0.6s ease, transform 0.6s ease';
             observer.observe(el);
         });
+
+        // Initialize page with English as default
+        switchLanguage('en');
+
+        // Project image carousel functionality with arrow navigation
+        function changeProjectImage(projectName, direction) {
+            const carousel = document.querySelector(`[data-project="${projectName}"]`).closest('.project-image-carousel');
+            const images = carousel.querySelectorAll('.project-image');
+            const currentActive = carousel.querySelector('.project-image.active');
+            let currentIndex = Array.from(images).indexOf(currentActive);
+            
+            // Remove current active class
+            currentActive.classList.remove('active');
+            
+            // Calculate next index
+            currentIndex += direction;
+            if (currentIndex < 0) currentIndex = images.length - 1;
+            if (currentIndex >= images.length) currentIndex = 0;
+            
+            // Add active class to new image
+            images[currentIndex].classList.add('active');
+        }
+
+        // Eye cursor tracking with physics
+        const eye = document.querySelector('.eye');
+        const pupil = document.querySelector('.pupil');
+        
+        if (eye && pupil) {
+            // Debug: Check if eye elements are found
+            console.log('Eye and pupil found successfully');
+            
+            let pupilX = 0;
+            let pupilY = 0;
+            let velocityX = 0;
+            let velocityY = 0;
+            let angularVelocity = 0;
+            let currentAngle = 0;
+            let currentRadius = 0;
+            let isSpinning = false;
+            let isFollowingCursor = true;
+            let isMouseOverEye = false;
+            let spinTimeout;
+            let animationFrame;
+            
+            const friction = 0.985; // Slower friction for longer spinning
+            const gravity = 0.12; // Stronger gravity for pendulum phase
+            const maxSpeed = 10;
+            const spinForce = 15;
+            const maxDistanceFromCenter = 25; // Physics boundary
+            const cursorFollowBoundary = 15; // Cursor following boundary
+            const pendulumThreshold = 3; // Speed threshold to switch to pendulum mode
+            
+            function updatePupilPosition() {
+                if (isSpinning) {
+                    // Two-phase motion: spin first, then pendulum
+                    if (Math.abs(angularVelocity) > pendulumThreshold) {
+                        // Phase 1: Fast spinning around edge
+                        angularVelocity *= friction;
+                        currentAngle += angularVelocity;
+                        currentRadius = Math.max(currentRadius * 0.999, maxDistanceFromCenter * 0.8);
+                    } else {
+                        // Phase 2: Pendulum motion
+                        const restoreForce = Math.sin(currentAngle + Math.PI / 2) * gravity;
+                        angularVelocity += restoreForce;
+                        angularVelocity *= friction;
+                        currentAngle += angularVelocity;
+                        currentRadius *= 0.995;
+                    }
+                    
+                    // Calculate position - this creates the swinging motion
+                    pupilX = Math.cos(currentAngle) * currentRadius;
+                    pupilY = Math.sin(currentAngle) * currentRadius;
+                    
+                    pupil.style.transform = `translate(${pupilX}px, ${pupilY}px)`;
+                    
+                    // Only stop when motion is truly minimal and naturally settled
+                    if (Math.abs(angularVelocity) < 0.001 && currentRadius < 3) {
+                        // Final settle at bottom center
+                        pupilX = 0;
+                        pupilY = 10; // Bottom center of eye
+                        pupil.style.transform = `translate(${pupilX}px, ${pupilY}px)`;
+                        
+                        // Resume cursor following after delay
+                        clearTimeout(spinTimeout);
+                        spinTimeout = setTimeout(() => {
+                            isSpinning = false;
+                            isFollowingCursor = true;
+                            angularVelocity = 0;
+                        }, 1000);
+                        
+                        return;
+                    }
+                    
+                    animationFrame = requestAnimationFrame(updatePupilPosition);
+                }
+            }
+            
+            function startSpin() {
+                // Immediately disable cursor following to prevent centering
+                isFollowingCursor = false;
+                
+                // Start at the very edge of the white area (top)
+                currentAngle = -Math.PI / 2; // Start from top
+                currentRadius = maxDistanceFromCenter; // At the very edge
+                
+                // Immediately set position at the top edge of white area
+                pupilX = Math.cos(currentAngle) * currentRadius;
+                pupilY = Math.sin(currentAngle) * currentRadius;
+                pupil.style.transform = `translate(${pupilX}px, ${pupilY}px)`;
+                
+                // Add angular velocity for pendulum motion
+                const spinDirection = Math.random() > 0.5 ? 1 : -1;
+                angularVelocity = spinDirection * spinForce * 0.6;
+                
+                isSpinning = true;
+                
+                // Clear any existing timeouts
+                clearTimeout(spinTimeout);
+                if (animationFrame) {
+                    cancelAnimationFrame(animationFrame);
+                }
+                
+                // Start the pendulum animation
+                updatePupilPosition();
+            }
+            
+            // Click handler for eye spinning
+            eye.addEventListener('mousedown', function(e) {
+                // Prevent any cursor following during click
+                e.preventDefault();
+                e.stopPropagation();
+                startSpin();
+            });
+            
+            // Also handle regular click as backup
+            eye.addEventListener('click', function(e) {
+                e.preventDefault();
+                e.stopPropagation();
+                if (!isSpinning) {
+                    startSpin();
+                }
+            });
+            
+            // Track mouse over eye to prevent cursor following interference
+            eye.addEventListener('mouseenter', function() {
+                isMouseOverEye = true;
+            });
+            
+            eye.addEventListener('mouseleave', function() {
+                isMouseOverEye = false;
+            });
+            
+            // Cursor following (original functionality)
+            document.addEventListener('mousemove', (e) => {
+                if (!isFollowingCursor || isSpinning) return;
+                
+                // Don't follow cursor when mouse is directly over the eye (prevents centering before click)
+                if (isMouseOverEye) return;
+                
+                const eyeRect = eye.getBoundingClientRect();
+                const eyeCenterX = eyeRect.left + eyeRect.width / 2;
+                const eyeCenterY = eyeRect.top + eyeRect.height / 2;
+                
+                const mouseX = e.clientX;
+                const mouseY = e.clientY;
+                
+                const deltaX = mouseX - eyeCenterX;
+                const deltaY = mouseY - eyeCenterY;
+                
+                const angle = Math.atan2(deltaY, deltaX);
+                const distance = Math.min(Math.sqrt(deltaX * deltaX + deltaY * deltaY) / 10, cursorFollowBoundary);
+                
+                pupilX = Math.cos(angle) * distance;
+                pupilY = Math.sin(angle) * distance;
+                
+                pupil.style.transform = `translate(${pupilX}px, ${pupilY}px)`;
+            });
+        }
+
+        // Cube drag rotation - Simplified with auto-resume
+        const cube = document.querySelector('.cube');
+        let isDragging = false;
+        let previousMouseX = 0;
+        let previousMouseY = 0;
+        let manualRotationX = 0;
+        let manualRotationY = 0;
+        let lastInteractionTime = 0;
+        let checkInterval;
+        
+        function startAutoRotation() {
+            cube.style.transform = '';
+            manualRotationX = 0;
+            manualRotationY = 0;
+            cube.style.animation = 'autoRotate 15s infinite linear';
+        }
+        
+        function stopAutoRotation() {
+            cube.style.animation = 'none';
+        }
+        
+        function updateLastInteraction() {
+            lastInteractionTime = Date.now();
+        }
+        
+        function checkForAutoResume() {
+            if (!isDragging && Date.now() - lastInteractionTime > 2000) {
+                startAutoRotation();
+                clearInterval(checkInterval);
+                checkInterval = null;
+            }
+        }
+        
+        if (cube) {
+            // Cube setup
+            
+            cube.addEventListener('mousedown', function(e) {
+                // Mouse down on cube
+                isDragging = true;
+                cube.classList.add('dragging');
+                updateLastInteraction();
+                stopAutoRotation();
+                
+                // Clear any existing check interval
+                if (checkInterval) {
+                    clearInterval(checkInterval);
+                }
+                
+                previousMouseX = e.clientX;
+                previousMouseY = e.clientY;
+                e.preventDefault();
+            });
+            
+            document.addEventListener('mousemove', function(e) {
+                if (!isDragging) return;
+                
+                const deltaX = e.clientX - previousMouseX;
+                const deltaY = e.clientY - previousMouseY;
+                
+                manualRotationY += deltaX * 0.5;
+                manualRotationX -= deltaY * 0.5;
+                
+                cube.style.transform = 'rotateX(' + manualRotationX + 'deg) rotateY(' + manualRotationY + 'deg)';
+                
+                previousMouseX = e.clientX;
+                previousMouseY = e.clientY;
+            });
+            
+            document.addEventListener('mouseup', function() {
+                if (isDragging) {
+                    console.log('Mouse up - ending drag');
+                    isDragging = false;
+                    cube.classList.remove('dragging');
+                    updateLastInteraction();
+                    
+                    // Start checking for auto-resume every 100ms
+                    checkInterval = setInterval(checkForAutoResume, 100);
+                }
+            });
+            
+            // Also update interaction time when hovering over cube
+            cube.addEventListener('mouseenter', function() {
+                if (!isDragging) {
+                    updateLastInteraction();
+                    if (!checkInterval) {
+                        checkInterval = setInterval(checkForAutoResume, 100);
+                    }
+                }
+            });
+        }
+        
+        if (cube) {
+            let isDragging = false;
+            let previousMouseX = 0;
+            let previousMouseY = 0;
+            let manualRotationX = 0;
+            let manualRotationY = 0;
+            let dragTimeout;
+            
+            // Setting up cube drag events
+            
+            // Test if any event works
+            cube.addEventListener('click', () => {
+                // Cube clicked
+            });
+            
+            cube.addEventListener('mousedown', (e) => {
+                // Cube mousedown triggered
+                isDragging = true;
+                cube.classList.add('dragging');
+                if (heroContent) heroContent.classList.add('no-select');
+                previousMouseX = e.clientX;
+                previousMouseY = e.clientY;
+                e.preventDefault();
+                e.stopPropagation();
+                
+                // Disable text selection globally during drag
+                document.body.style.userSelect = 'none';
+                
+                // Clear any pending resume timeout
+                if (dragTimeout) {
+                    clearTimeout(dragTimeout);
+                }
+            });
+            
+            document.addEventListener('mousemove', (e) => {
+                if (!isDragging) return;
+                
+                e.preventDefault();
+                const deltaX = e.clientX - previousMouseX;
+                const deltaY = e.clientY - previousMouseY;
+                
+                manualRotationY += deltaX * 0.5;
+                manualRotationX -= deltaY * 0.5;
+                
+                cube.style.transform = `rotateX(${manualRotationX}deg) rotateY(${manualRotationY}deg)`;
+                
+                previousMouseX = e.clientX;
+                previousMouseY = e.clientY;
+            });
+            
+            document.addEventListener('mouseup', () => {
+                if (isDragging) {
+                    console.log('Mouse up - ending drag');
+                    isDragging = false;
+                    cube.classList.remove('dragging');
+                    
+                    // Re-enable text selection
+                    document.body.style.userSelect = '';
+                    
+                    // Resume automatic rotation after a short delay, starting from current position
+
+
+                    dragTimeout = setTimeout(() => {
+                        cube.style.transform = '';
+                        manualRotationX = 0;
+                        manualRotationY = 0;
+                        
+                        // Restart the animation by removing and re-adding the class
+                        cube.style.animation = 'none';
+                        requestAnimationFrame(() => {
+                            cube.style.animation = 'autoRotate 15s infinite linear';
+                        });
+                    }, 1000);
+                }
+            });
+            
+            // Touch support for mobile
+            cube.addEventListener('touchstart', (e) => {
+                isDragging = true;
+                cube.classList.add('dragging');
+                const touch = e.touches[0];
+                previousMouseX = touch.clientX;
+                previousMouseY = touch.clientY;
+                e.preventDefault();
+                
+                // Clear any pending resume timeout
+                if (dragTimeout) {
+                    clearTimeout(dragTimeout);
+                }
+            });
+            
+            document.addEventListener('touchmove', (e) => {
+                if (!isDragging) return;
+                
+                const touch = e.touches[0];
+                const deltaX = touch.clientX - previousMouseX;
+                const deltaY = touch.clientY - previousMouseY;
+                
+                manualRotationY += deltaX * 0.5;
+                manualRotationX -= deltaY * 0.5;
+                
+                cube.style.transform = `rotateX(${manualRotationX}deg) rotateY(${manualRotationY}deg)`;
+                
+                previousMouseX = touch.clientX;
+                previousMouseY = touch.clientY;
+                e.preventDefault();
+            });
+            
+            document.addEventListener('touchend', () => {
+                if (isDragging) {
+                    isDragging = false;
+                    cube.classList.remove('dragging');
+                    
+                    // Resume automatic rotation after a short delay, starting from current position
+                    dragTimeout = setTimeout(() => {
+                        cube.style.transform = '';
+                        manualRotationX = 0;
+                        manualRotationY = 0;
+                        
+                        cube.style.animation = 'none';
+                        requestAnimationFrame(() => {
+                            cube.style.animation = 'autoRotate 15s infinite linear';
+                        });
+                    }, 1000);
+                }
+            });
+        }
+        
+        // Click Spark Effect - Minimalistic Burst
+        function createSparkEffect(x, y) {
+            const sparkContainer = document.createElement('div');
+            sparkContainer.className = 'spark';
+            sparkContainer.style.left = x + 'px';
+            sparkContainer.style.top = y + 'px';
+            
+            // Create minimalistic burst with fewer particles
+            const particleCount = 8;
+            
+            for (let i = 0; i < particleCount; i++) {
+                const particle = document.createElement('div');
+                particle.className = 'spark-particle';
+                
+                // Add subtle size variation
+                const sizes = ['small', '', 'large'];
+                const randomSize = sizes[Math.floor(Math.random() * sizes.length)];
+                if (randomSize) particle.classList.add(randomSize);
+                
+                // Calculate burst direction
+                const angle = (360 / particleCount) * i + Math.random() * 20 - 10;
+                const distance = Math.random() * 40 + 20; // 20-60px travel distance
+                const radian = angle * Math.PI / 180;
+                
+                const endX = Math.cos(radian) * distance;
+                const endY = Math.sin(radian) * distance;
+                
+                // Set CSS custom properties for the animation
+                particle.style.setProperty('--end-x', endX + 'px');
+                particle.style.setProperty('--end-y', endY + 'px');
+                
+                // Small stagger for inside-to-outside effect but starts immediately
+                particle.style.animationDelay = (i * 0.02) + 's';
+                
+                sparkContainer.appendChild(particle);
+            }
+            
+            document.body.appendChild(sparkContainer);
+            
+            // Remove after animation completes
+            setTimeout(() => {
+                if (sparkContainer.parentNode) {
+                    sparkContainer.parentNode.removeChild(sparkContainer);
+                }
+            }, 2500);
+        }
+        
+        // Add click event listener for spark effect
+        document.addEventListener('click', (e) => {
+            // Don't create sparks on certain elements to avoid conflicts
+            if (!e.target.closest('.language-dropdown, .nav-menu, .carousel-arrow')) {
+                createSparkEffect(e.clientX, e.clientY);
+            }
+        });
+        
+        // Create subtle starry background
+        function createStarryBackground() {
+            const starryBg = document.getElementById('starry-bg');
+            const starCount = 150; // Subtle amount of stars
+            
+            for (let i = 0; i < starCount; i++) {
+                const star = document.createElement('div');
+                star.className = 'star';
+                
+                // Random position
+                star.style.left = Math.random() * 100 + '%';
+                star.style.top = Math.random() * 100 + '%';
+                
+                // Random size
+                const sizes = ['small', 'medium', 'large'];
+                const size = sizes[Math.floor(Math.random() * sizes.length)];
+                star.classList.add(size);
+                
+                // Random animation speed
+                const speeds = ['slow', 'fast', ''];
+                const speed = speeds[Math.floor(Math.random() * speeds.length)];
+                if (speed) star.classList.add(speed);
+                
+                // Random delay
+                star.style.animationDelay = Math.random() * 6 + 's';
+                
+                starryBg.appendChild(star);
+            }
+        }
+        
+        // Initialize starry background
+        createStarryBackground();
     </script>
 </body>
 </html>
