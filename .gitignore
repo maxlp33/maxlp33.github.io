@@ -1,6 +1,3 @@
-# Backend files (for local development only)
-backend/
-
 # Node.js
 node_modules/
 npm-debug.log*
@@ -8,7 +5,7 @@ yarn-debug.log*
 yarn-error.log*
 .npm
 
-# Database
+# Database files (generated at runtime)
 *.db
 *.sqlite
 *.sqlite3
