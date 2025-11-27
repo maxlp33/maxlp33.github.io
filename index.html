@@ -7,6 +7,7 @@
     <title>劉至庭 - Portfolio</title>
     <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@300;400;500;600;700&display=swap" rel="stylesheet">
     <link rel="stylesheet" href="style.css">
+    <link rel="stylesheet" href="enhancements.css">
 </head>
 <body>
     <!-- Starry Background -->
@@ -147,6 +148,70 @@
                         <h3 class="project-title" data-zh="奧術凱特琳角色重現" data-en="Arcane Caitlyn Character Recreation">Arcane 凱特琳角色重現</h3>
                         <p class="project-description" data-zh="基於 Netflix 動畫《奧術》中凱特琳角色的 3D 重現項目。研究並模仿了動畫的獨特手繪風格，創建了風格化的 3D 角色模型和自訂材質系統。" data-en="3D recreation project based on Caitlyn character from Netflix's Arcane animation. Studied and replicated the show's unique hand-painted art style, creating a stylized 3D character model with custom material system.">基於 Netflix 動畫《Arcane》中凱特琳角色的 3D 重現項目。研究並模仿了動畫的獨特手繪風格，創建了風格化的 3D 角色模型和自訂材質系統。</p>
                         <a href="project-caitlyn.html" class="project-link" data-zh="查看項目 →" data-en="View Project →">查看項目 →</a>
+                    </div>
+                </div>
+                
+                <div class="project-card">
+                    <div class="project-image-carousel">
+                        <button class="carousel-arrow carousel-prev" onclick="changeProjectImage('2077manufacture', -1)">‹</button>
+                        <img src="img/2077 manufactrue bench1.jpg" alt="2077 Manufacture" class="project-image active" data-project="2077manufacture">
+                        <img src="img/2077 manufactrue bench2.jpg" alt="2077 Manufacture Detail" class="project-image" data-project="2077manufacture">
+                        <img src="img/2077 manufactrue bench3.jpg" alt="2077 Manufacture Environment" class="project-image" data-project="2077manufacture">
+                        <button class="carousel-arrow carousel-next" onclick="changeProjectImage('2077manufacture', 1)">›</button>
+                    </div>
+                    <div class="project-content">
+                        <div class="project-badge" data-zh="🏭 Cyberpunk2077物品設計" data-en="🏭 Cyberpunk2077 prop design">🏭 Cyberpunk2077物品設計</div>
+                        <h3 class="project-title">2077 Manufacture</h3>
+                        <p class="project-description" data-zh="賽博龐克風格的未來製造機械設計，採用新復古（neo-kitsch）美學風格。融合了工業美學與科幻元素，創造出充滿科技感的生產設備。包含詳細的機械部件和先進的製造系統設計。" data-en="Cyberpunk-style future manufacturing machine design featuring neo-kitsch aesthetic style. Combines industrial aesthetics with sci-fi elements, creating tech-filled production equipment with detailed mechanical components and advanced manufacturing system design.">賽博龐克風格的未來製造機械設計，採用新復古（neo-kitsch）美學風格。融合了工業美學與科幻元素，創造出充滿科技感的生產設備。包含詳細的機械部件和先進的製造系統設計。</p>
+                        <a href="project-2077manufacture.html" class="project-link" data-zh="查看項目 →" data-en="View Project →">查看項目 →</a>
+                    </div>
+                </div>
+
+                <div class="project-card">
+                    <div class="project-image-carousel">
+                        <button class="carousel-arrow carousel-prev" onclick="changeProjectImage('mech', -1)">‹</button>
+                        <img src="img/mech cover.jpg" alt="Mech Robot" class="project-image active" data-project="mech">
+                        <img src="img/mech1-1.jpg" alt="Mech Details" class="project-image" data-project="mech">
+                        <img src="img/mech1-2.jpg" alt="Mech Combat Pose" class="project-image" data-project="mech">
+                        <button class="carousel-arrow carousel-next" onclick="changeProjectImage('mech', 1)">›</button>
+                    </div>
+                    <div class="project-content">
+                        <div class="project-badge" data-zh="🤖 機甲設計" data-en="🤖 MECH DESIGN">🤖 機甲設計</div>
+                        <h3 class="project-title">Battle Mech</h3>
+                        <p class="project-description" data-zh="重型戰鬥機甲的完整 3D 模型設計。注重機械結構的合理性和戰鬥功能的表現，包含武器系統、裝甲細節和可動關節設計。" data-en="Complete 3D model design of a heavy battle mech. Focuses on mechanical structure rationality and combat functionality, including weapon systems, armor details, and articulated joint design.">重型戰鬥機甲的完整 3D 模型設計。注重機械結構的合理性和戰鬥功能的表現，包含武器系統、裝甲細節和可動關節設計。</p>
+                        <a href="project-mech.html" class="project-link" data-zh="查看項目 →" data-en="View Project →">查看項目 →</a>
+                    </div>
+                </div>
+
+                <div class="project-card">
+                    <div class="project-image-carousel">
+                        <button class="carousel-arrow carousel-prev" onclick="changeProjectImage('stylizedmech', -1)">‹</button>
+                        <img src="img/stylizedmechThumbNail.png" alt="Stylized Mech" class="project-image active" data-project="stylizedmech">
+                        <img src="img/stylizedmech1.png" alt="Stylized Mech Animation" class="project-image" data-project="stylizedmech">
+                        <img src="img/stylizedmech2.png" alt="Stylized Mech Concept" class="project-image" data-project="stylizedmech">
+                        <button class="carousel-arrow carousel-next" onclick="changeProjectImage('stylizedmech', 1)">›</button>
+                    </div>
+                    <div class="project-content">
+                        <div class="project-badge" data-zh="🎨 風格化機甲設計" data-en="🎨 STYLIZED MECH DESIGN">🎨 風格化機甲設計</div>
+                        <h3 class="project-title">Stylized Mech</h3>
+                        <p class="project-description" data-zh="風格化機甲設計項目，靈感來源於《鬥陣特攻》的美術風格。採用卡通化的美術風格和誇張的比例設計。專注於色彩搭配和視覺衝擊力，適合遊戲和動畫應用。" data-en="Stylized mech design project inspired by Overwatch's art style. Features cartoon art style and exaggerated proportional design. Focuses on color coordination and visual impact, suitable for game and animation applications.">風格化機甲設計項目，靈感來源於《鬥陣特攻》的美術風格。採用卡通化的美術風格和誇張的比例設計。專注於色彩搭配和視覺衝擊力，適合遊戲和動畫應用。</p>
+                        <a href="project-stylizedmech.html" class="project-link" data-zh="查看項目 →" data-en="View Project →">查看項目 →</a>
+                    </div>
+                </div>
+
+                <div class="project-card">
+                    <div class="project-image-carousel">
+                        <button class="carousel-arrow carousel-prev" onclick="changeProjectImage('junkratlauncher', -1)">‹</button>
+                        <img src="img/junkrat launcher 1.png" alt="Junkrat Launcher" class="project-image active" data-project="junkratlauncher">
+                        <img src="img/junkrat launcher 2.png" alt="Junkrat Launcher Details" class="project-image" data-project="junkratlauncher">
+                        <img src="img/junkrat launcher 3.png" alt="Junkrat Launcher Texture" class="project-image" data-project="junkratlauncher">
+                        <button class="carousel-arrow carousel-next" onclick="changeProjectImage('junkratlauncher', 1)">›</button>
+                    </div>
+                    <div class="project-content">
+                        <div class="project-badge" data-zh="💥 武器設計" data-en="💥 WEAPON DESIGN">💥 武器設計</div>
+                        <h3 class="project-title">Junkrat Launcher</h3>
+                        <p class="project-description" data-zh="基於 Overwatch 角色炸彈鼠的榴彈發射器 3D 重現，旨在學習和模仿《鬥陣特攻》的美術風格。忠實還原遊戲中的武器設計，包含破舊金屬材質、管線細節和爆炸物裝填系統。" data-en="3D recreation of Junkrat's grenade launcher from Overwatch, created to learn and mimic Overwatch's art style. Faithful reproduction of the in-game weapon design, including weathered metal materials, piping details, and explosive loading system.">基於 Overwatch 角色炸彈鼠的榴彈發射器 3D 重現，旨在學習和模仿《鬥陣特攻》的美術風格。忠實還原遊戲中的武器設計，包含破舊金屬材質、管線細節和爆炸物裝填系統。</p>
+                        <a href="project-junkratlauncher.html" class="project-link" data-zh="查看項目 →" data-en="View Project →">查看項目 →</a>
                     </div>
                 </div>
             </div>
@@ -819,5 +884,6 @@
             statusDiv.innerHTML = '<div style="color: #4ade80; padding: 10px; background: rgba(74, 222, 128, 0.1); border-radius: 5px; margin-top: 10px;">✅ Email client opened! Please send the email to complete your message.</div>';
         });
     </script>
+    <script src="enhancements.js"></script>
 </body>
 </html>
