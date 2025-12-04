@@ -16,15 +16,15 @@ window.addEventListener('DOMContentLoaded', () => {
     gsap.set(textFill, { opacity: 1 });
     gsap.set(splashOverlay, { autoAlpha: 1 });
     // Set transform origin to center on the text (slightly left of center since text is there)
-    gsap.set(splashText, { scale: 1, x: 0, transformOrigin: '48.5% 50%' });
-    gsap.set(textOverlayContainer, { scale: 1, x: 0, transformOrigin: '48.5% 50%' });
+    gsap.set(splashText, { scale: 1, x: 0, transformOrigin: '49% 50%' });
+    gsap.set(textOverlayContainer, { scale: 1, x: 0, transformOrigin: '49% 50%' });
     gsap.set(navbar, { autoAlpha: 0 });
 
     const tl = gsap.timeline({
       scrollTrigger: {
         trigger: '.hero-section',
         start: 'top top',
-        end: '+=500%',
+        end: '+=800%',
         pin: true,
         scrub: 0.5,
         invalidateOnRefresh: true
@@ -33,25 +33,25 @@ window.addEventListener('DOMContentLoaded', () => {
     // Phase 1: Fade cream text to 0 FIRST - reveals the text-shaped hole
     .to(textFill, {
       opacity: 0,
-      duration: 0.15
-    })
+      duration: 0.05
+    }, 0.02)
     // Phase 2: THEN zoom both the SVG mask and text container together
     .to([splashText, textOverlayContainer], {
       scale: 25,
-      duration: 0.35,
+      duration: 0.10,
       ease: 'power2.in'
-    }, 0.15)
+    }, 0.07)
     // Phase 3: Fade out the entire overlay when zoomed big enough
     .to(splashOverlay, {
       autoAlpha: 0,
-      duration: 0.08
-    }, 0.45)
-    // Show navbar
+      duration: 0.03
+    }, 0.15)
+    // Show navbar - appears faster and earlier
     .to(navbar, {
       autoAlpha: 1,
       pointerEvents: 'auto',
-      duration: 0.05
-    }, 0.55);
+      duration: 0.02
+    }, 0.17);
 
     window.addEventListener('resize', () => {
       heightRatio = window.innerWidth / window.innerHeight;
