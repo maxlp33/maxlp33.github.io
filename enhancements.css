@@ -2,7 +2,7 @@
 
 /* Enhanced Glassmorphism Navigation with Glow */
 .navbar {
-    background: rgba(10, 10, 10, 0.85);
+    background: rgba(10, 10, 10, 1);
     backdrop-filter: blur(25px) saturate(180%);
     border-bottom: 1px solid rgba(255, 255, 255, 0.15);
     box-shadow: 
@@ -33,43 +33,17 @@
 
 /* Enhanced Hero Section with Dynamic Background */
 .hero {
-    background: 
-        radial-gradient(ellipse at 20% 20%, rgba(74, 158, 255, 0.15) 0%, transparent 50%),
-        radial-gradient(ellipse at 80% 80%, rgba(138, 43, 226, 0.15) 0%, transparent 50%),
-        radial-gradient(ellipse at 50% 50%, rgba(255, 20, 147, 0.1) 0%, transparent 50%);
-    animation: heroBackgroundShift 12s ease-in-out infinite alternate;
+    background: transparent; /* remove dynamic gradient background for minimal look */
 }
 
-@keyframes heroBackgroundShift {
-    0% {
-        background: 
-            radial-gradient(ellipse at 20% 20%, rgba(74, 158, 255, 0.15) 0%, transparent 50%),
-            radial-gradient(ellipse at 80% 80%, rgba(138, 43, 226, 0.15) 0%, transparent 50%);
-    }
-    100% {
-        background: 
-            radial-gradient(ellipse at 80% 30%, rgba(255, 20, 147, 0.12) 0%, transparent 50%),
-            radial-gradient(ellipse at 30% 70%, rgba(74, 158, 255, 0.12) 0%, transparent 50%);
-    }
-}
+/* removed heroBackgroundShift animation to improve performance and reduce color noise */
 
 /* Enhanced Typography with Gradient Animation */
 .hero-title {
-    background: linear-gradient(
-        135deg,
-        #ffffff 0%,
-        #4a9eff 25%,
-        #ff1493 50%,
-        #8a2be2 75%,
-        #ffffff 100%
-    );
-    background-size: 300% auto;
-    -webkit-background-clip: text;
-    background-clip: text;
-    -webkit-text-fill-color: transparent;
-    animation: textGradientShift 4s ease-in-out infinite, fadeInUp 1s ease forwards 0.5s;
-    filter: drop-shadow(0 0 30px rgba(74, 158, 255, 0.4));
+    color: #e5e5e5;
+    animation: fadeInUp 0.6s ease forwards 0.3s;
     opacity: 0; /* Ensure fadeInUp animation works */
+    filter: none;
 }
 
 @keyframes textGradientShift {
@@ -80,12 +54,7 @@
 
 /* Enhanced Section Titles */
 .section-title {
-    background: linear-gradient(135deg, #ffffff 0%, #4a9eff 50%, #ffffff 100%);
-    background-size: 200% auto;
-    -webkit-background-clip: text;
-    background-clip: text;
-    -webkit-text-fill-color: transparent;
-    animation: textGradientShift 3s ease-in-out infinite;
+    color: #ffffff;
     position: relative;
 }
 
@@ -96,21 +65,11 @@
     left: 0;
     width: 100px;
     height: 4px;
-    background: linear-gradient(90deg, #4a9eff, #8a2be2, #ff1493);
+    background: rgba(229, 229, 229, 0.25); /* minimal neutral underline */
     border-radius: 2px;
-    animation: underlineGlow 2s ease-in-out infinite alternate;
 }
 
-@keyframes underlineGlow {
-    0% { 
-        box-shadow: 0 0 10px rgba(74, 158, 255, 0.5);
-        transform: scaleX(0.8);
-    }
-    100% { 
-        box-shadow: 0 0 20px rgba(255, 20, 147, 0.8);
-        transform: scaleX(1.2);
-    }
-}
+/* removed animated gradient underline for a cleaner look */
 
 /* Enhanced Project Cards with Advanced Glassmorphism */
 .project-card {
@@ -126,32 +85,18 @@
 }
 
 .project-card::before {
-    content: '';
-    position: absolute;
-    top: 0;
-    left: -100%;
-    width: 100%;
-    height: 100%;
-    background: linear-gradient(90deg, 
-        transparent, 
-        rgba(74, 158, 255, 0.15), 
-        rgba(255, 20, 147, 0.15),
-        transparent);
-    transition: left 1.2s cubic-bezier(0.4, 0, 0.2, 1);
+    display: none;
 }
 
 .project-card:hover::before {
-    left: 100%;
+    display: none;
 }
 
 .project-card:hover {
-    transform: translateY(-12px) scale(1.02);
-    background: rgba(255, 255, 255, 0.06);
-    border-color: rgba(74, 158, 255, 0.3);
-    box-shadow: 
-        0 25px 80px rgba(74, 158, 255, 0.3),
-        0 0 60px rgba(255, 20, 147, 0.2),
-        inset 0 1px 0 rgba(255, 255, 255, 0.2);
+    transform: translateY(-8px);
+    background: rgba(255, 255, 255, 0.05);
+    border-color: rgba(255, 255, 255, 0.3);
+    box-shadow: 0 20px 40px rgba(0, 0, 0, 0.3);
 }
 
 /* Enhanced Skill Items */
@@ -294,17 +239,17 @@
 /* Floating Animation Variants */
 @keyframes floatSlow {
     0%, 100% { transform: translateY(0px) rotateZ(0deg); }
-    50% { transform: translateY(-15px) rotateZ(1deg); }
+    50% { transform: translateY(-8px) rotateZ(0.5deg); }
 }
 
 @keyframes floatMedium {
     0%, 100% { transform: translateY(0px) rotateZ(0deg); }
-    50% { transform: translateY(-12px) rotateZ(-1deg); }
+    50% { transform: translateY(-6px) rotateZ(-0.5deg); }
 }
 
 @keyframes floatFast {
     0%, 100% { transform: translateY(0px) rotateZ(0deg); }
-    50% { transform: translateY(-10px) rotateZ(0.5deg); }
+    50% { transform: translateY(-5px) rotateZ(0.25deg); }
 }
 
 .project-card:nth-child(1) { animation: floatSlow 8s ease-in-out infinite; }
@@ -318,10 +263,9 @@
 /* Enhanced Gallery Hover Effects */
 .gallery-main:hover,
 .gallery-item:hover {
-    box-shadow: 
-        0 20px 60px rgba(74, 158, 255, 0.3),
-        0 0 40px rgba(255, 20, 147, 0.2);
-    border: 1px solid rgba(74, 158, 255, 0.4);
+    box-shadow:
+        0 10px 24px rgba(74, 158, 255, 0.18);
+    border: 1px solid rgba(74, 158, 255, 0.25);
 }
 
 /* Enhanced ML Cube with Particle Effect */
@@ -388,30 +332,7 @@
     transform: translateX(0);
 }
 
-/* Enhanced Contact Section */
-.contact {
-    background: rgba(255, 255, 255, 0.02);
-    backdrop-filter: blur(10px);
-    border-radius: 30px;
-    border: 1px solid rgba(255, 255, 255, 0.1);
-    position: relative;
-    overflow: hidden;
-}
-
-.contact::before {
-    content: '';
-    position: absolute;
-    top: 0;
-    left: 0;
-    right: 0;
-    bottom: 0;
-    background: 
-        linear-gradient(135deg, 
-            rgba(74, 158, 255, 0.05) 0%, 
-            transparent 50%, 
-            rgba(138, 43, 226, 0.05) 100%);
-    opacity: 0.7;
-}
+/* Enhanced Contact Section - Removed for minimalist design */
 
 /* Mobile Enhancements */
 @media (max-width: 768px) {

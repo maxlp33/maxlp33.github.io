@@ -3,11 +3,22 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <meta http-equiv="Content-Security-Policy" content="script-src 'self' 'unsafe-inline' https://fonts.googleapis.com; style-src 'self' 'unsafe-inline' https://fonts.googleapis.com;">
+    <meta http-equiv="Content-Security-Policy" content="script-src 'self' 'unsafe-inline' https://fonts.googleapis.com https://unpkg.com https://cdn.jsdelivr.net; style-src 'self' 'unsafe-inline' https://fonts.googleapis.com;">
     <title>劉至庭 - Portfolio</title>
     <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@300;400;500;600;700&display=swap" rel="stylesheet">
     <link rel="stylesheet" href="style.css">
     <link rel="stylesheet" href="enhancements.css">
+    <link rel="stylesheet" href="slider.css">
+    <link rel="stylesheet" href="contact.css">
+    <link rel="stylesheet" href="animations.css">
+    <script type="importmap">
+    {
+        "imports": {
+            "three": "https://unpkg.com/three@0.160.0/build/three.module.js",
+            "three/addons/": "https://unpkg.com/three@0.160.0/examples/jsm/"
+        }
+    }
+    </script>
 </head>
 <body>
     <!-- Starry Background -->
@@ -34,7 +45,7 @@
             </ul>
             <div class="language-selector">
                 <button class="language-btn" id="language-btn">
-                    <span id="current-lang">中文</span>
+                    <span id="current-lang">English</span>
                     <span>▼</span>
                 </button>
                 <div class="language-dropdown" id="language-dropdown">
@@ -57,20 +68,10 @@
 
     <!-- Hero Section -->
     <section class="hero" id="hero">
+        <canvas id="three-canvas"></canvas>
         <div class="hero-content">
             <h1 class="hero-title" data-zh="Max Liu" data-en="Max Liu">Max Liu</h1>
             <p class="hero-subtitle" data-zh="3D建模師 & 設計師" data-en="3D Modeler & Designer">3D建模師 & 設計師</p>
-            <a href="#projects" class="hero-cta" data-zh="查看我的作品" data-en="View My Work">查看我的作品</a>
-        </div>
-        <div class="rotating-object">
-            <div class="cube">
-                <div class="cube-face front">M</div>
-                <div class="cube-face back">L</div>
-                <div class="cube-face right"></div>
-                <div class="cube-face left"></div>
-                <div class="cube-face top"></div>
-                <div class="cube-face bottom"></div>
-            </div>
         </div>
     </section>
 
@@ -99,151 +100,92 @@
         </div>
     </section>
 
-    <!-- Projects Section -->
-    <section class="projects" id="projects">
+    <!-- Projects Section - Slider -->
+    <section class="projects projects-slider" id="projects">
         <div class="projects-container">
             <h2 class="section-title" data-zh="我的作品" data-en="Featured Work">我的作品</h2>
-            <div class="projects-grid">
-                <div class="project-card">
-                    <div class="project-image-carousel">
-                        <button class="carousel-arrow carousel-prev" onclick="changeProjectImage('sten', -1)">‹</button>
-                        <img src="img/Sten8.png" alt="Sten submachine gun" class="project-image active" data-project="sten">
-                        <img src="img/Copy of Sten1.png" alt="Sten side view" class="project-image" data-project="sten">
-                        <img src="img/Copy of Sten2.png" alt="Sten detail view" class="project-image" data-project="sten">
-                        <img src="img/Copy of Sten4.png" alt="Sten alternate view" class="project-image" data-project="sten">
-                        <button class="carousel-arrow carousel-next" onclick="changeProjectImage('sten', 1)">›</button>
-                    </div>
-                    <div class="project-content">
-                        <div class="project-badge" data-zh="🔫 3D建模" data-en="🔫 3D MODELING">🔫 3D建模</div>
-                        <h3 class="project-title">Sten Submachine Gun</h3>
-                        <p class="project-description" data-zh="高擬真的二戰時期 Sten 衝鋒槍 3D 模型，完整的材質製作流程，包含金屬磨損、木質紋理和歷史考據的細節重現。專為遊戲引擎優化的低面數模型。" data-en="High-fidelity WWII-era Sten submachine gun 3D model with complete material workflow, including metal wear, wood textures, and historically accurate details. Optimized low-poly model for game engines.">高擬真的二戰時期 Sten 衝鋒槍 3D 模型，完整的材質製作流程，包含金屬磨損、木質紋理和歷史考據的細節重現。專為遊戲引擎優化的低面數模型。</p>
-                        <a href="project-sten.html" class="project-link" data-zh="查看項目 →" data-en="View Project →">查看項目 →</a>
-                    </div>
+            <div class="slider-wrap">
+                <button class="slider-nav" id="prev">‹</button>
+                <div class="slider-track" id="track">
+                    <article class="slider-card" data-title="Sten SMG">
+                        <img src="img/Sten8.png" alt="Sten Submachine Gun">
+                        <div class="project-content">
+                            <div class="project-badge">🔫 3D MODELING</div>
+                            <h3>Sten Submachine Gun</h3>
+                            <p class="project-description">WWII-era Sten submachine gun 3D model with complete material workflow</p>
+                            <a href="project-sten.html" class="project-link">View Project →</a>
+                        </div>
+                    </article>
+                    <article class="slider-card" data-title="M1911">
+                        <img src="img/m1911-TN.png" alt="Colt M1911">
+                        <div class="project-content">
+                            <div class="project-badge">🔫 3D MODELING</div>
+                            <h3>Colt M1911 Pistol</h3>
+                            <p class="project-description">Classic American pistol 3D reconstruction with PBR workflow</p>
+                            <a href="project-m1911.html" class="project-link">View Project →</a>
+                        </div>
+                    </article>
+                    <article class="slider-card" data-title="Caitlyn">
+                        <img src="img/caitRender11.png" alt="Arcane Caitlyn">
+                        <div class="project-content">
+                            <div class="project-badge">👤 CHARACTER DESIGN</div>
+                            <h3>Arcane Caitlyn</h3>
+                            <p class="project-description">Character recreation from Netflix's Arcane animation</p>
+                            <a href="project-caitlyn.html" class="project-link">View Project →</a>
+                        </div>
+                    </article>
+                    <article class="slider-card" data-title="2077">
+                        <img src="img/2077 manufactrue bench1.jpg" alt="Cyberpunk 2077 Manufacturer">
+                        <div class="project-content">
+                            <div class="project-badge">🏭 PROP DESIGN</div>
+                            <h3>Cyberpunk2077 Manufacturer</h3>
+                            <p class="project-description">Neo-kitsch weapon workbench design inspired by Rayfield</p>
+                            <a href="project-2077manufacture.html" class="project-link">View Project →</a>
+                        </div>
+                    </article>
+                    <article class="slider-card" data-title="Mech">
+                        <img src="img/mech cover.jpg" alt="Battle Mech">
+                        <div class="project-content">
+                            <div class="project-badge">🤖 MECH DESIGN</div>
+                            <h3>Battle Mech</h3>
+                            <p class="project-description">Heavy battle mech 3D model with weapon systems and armor details</p>
+                            <a href="project-mech.html" class="project-link">View Project →</a>
+                        </div>
+                    </article>
+                    <article class="slider-card" data-title="Stylized">
+                        <img src="img/stylizedmechThumbNail.png" alt="Stylized Mech">
+                        <div class="project-content">
+                            <div class="project-badge">🎨 STYLIZED DESIGN</div>
+                            <h3>Stylized Mech</h3>
+                            <p class="project-description">Overwatch-inspired stylized mech with cartoon art style</p>
+                            <a href="project-stylizedmech.html" class="project-link">View Project →</a>
+                        </div>
+                    </article>
+                    <article class="slider-card" data-title="Junkrat">
+                        <img src="img/junkrat launcher 1.png" alt="Junkrat Launcher">
+                        <div class="project-content">
+                            <div class="project-badge">💥 WEAPON DESIGN</div>
+                            <h3>Junkrat Launcher</h3>
+                            <p class="project-description">Overwatch grenade launcher recreation with weathered materials</p>
+                            <a href="project-junkratlauncher.html" class="project-link">View Project →</a>
+                        </div>
+                    </article>
                 </div>
-                <div class="project-card">
-                    <div class="project-image-carousel">
-                        <button class="carousel-arrow carousel-prev" onclick="changeProjectImage('m1911', -1)">‹</button>
-                        <img src="img/m1911-TN.png" alt="Colt M1911" class="project-image active" data-project="m1911">
-                        <img src="img/m1911-3.png" alt="M1911 side view" class="project-image" data-project="m1911">
-                        <img src="img/m1911-7.png" alt="M1911 detail view" class="project-image" data-project="m1911">
-                        <button class="carousel-arrow carousel-next" onclick="changeProjectImage('m1911', 1)">›</button>
-                    </div>
-                    <div class="project-content">
-                        <div class="project-badge" data-zh="🔫 3D建模" data-en="🔫 3D MODELING">🔫 3D建模</div>
-                        <h3 class="project-title">Colt M1911 Pistol</h3>
-                        <p class="project-description" data-zh="經典美式手槍 Colt M1911 的精密 3D 重建，注重機械結構的準確性和表面材質的真實感。使用 PBR 材質工作流程，適用於現代渲染引擎。" data-en="Precision 3D reconstruction of the classic American Colt M1911 pistol, focusing on mechanical accuracy and realistic surface materials. Built with PBR material workflow for modern rendering engines.">經典美式手槍 Colt M1911 的精密 3D 重建，注重機械結構的準確性和表面材質的真實感。使用 PBR 材質工作流程，適用於現代渲染引擎。</p>
-                        <a href="project-m1911.html" class="project-link" data-zh="查看項目 →" data-en="View Project →">查看項目 →</a>
-                    </div>
-                </div>
-                <div class="project-card">
-                    <div class="project-image-carousel">
-                        <button class="carousel-arrow carousel-prev" onclick="changeProjectImage('caitlyn', -1)">‹</button>
-                        <img src="img/caitRender11.png" alt="Arcane Caitlyn" class="project-image active" data-project="caitlyn">
-                        <img src="img/caitRender.png" alt="Caitlyn alternate view" class="project-image" data-project="caitlyn">
-                        <img src="img/caitRender1.png" alt="Caitlyn high poly" class="project-image" data-project="caitlyn">
-                        <button class="carousel-arrow carousel-next" onclick="changeProjectImage('caitlyn', 1)">›</button>
-                    </div>
-                    <div class="project-content">
-                        <div class="project-badge" data-zh="👤 角色建模" data-en="👤 CHARACTER DESIGN">👤 角色建模</div>
-                        <h3 class="project-title" data-zh="奧術凱特琳角色重現" data-en="Arcane Caitlyn Character Recreation">Arcane 凱特琳角色重現</h3>
-                        <p class="project-description" data-zh="基於 Netflix 動畫《奧術》中凱特琳角色的 3D 重現項目。研究並模仿了動畫的獨特手繪風格，創建了風格化的 3D 角色模型和自訂材質系統。" data-en="3D recreation project based on Caitlyn character from Netflix's Arcane animation. Studied and replicated the show's unique hand-painted art style, creating a stylized 3D character model with custom material system.">基於 Netflix 動畫《Arcane》中凱特琳角色的 3D 重現項目。研究並模仿了動畫的獨特手繪風格，創建了風格化的 3D 角色模型和自訂材質系統。</p>
-                        <a href="project-caitlyn.html" class="project-link" data-zh="查看項目 →" data-en="View Project →">查看項目 →</a>
-                    </div>
-                </div>
-                
-                <div class="project-card">
-                    <div class="project-image-carousel">
-                        <button class="carousel-arrow carousel-prev" onclick="changeProjectImage('2077manufacture', -1)">‹</button>
-                        <img src="img/2077 manufactrue bench1.jpg" alt="2077 Manufacture" class="project-image active" data-project="2077manufacture">
-                        <img src="img/2077 manufactrue bench2.jpg" alt="2077 Manufacture Detail" class="project-image" data-project="2077manufacture">
-                        <img src="img/2077 manufactrue bench3.jpg" alt="2077 Manufacture Environment" class="project-image" data-project="2077manufacture">
-                        <button class="carousel-arrow carousel-next" onclick="changeProjectImage('2077manufacture', 1)">›</button>
-                    </div>
-                    <div class="project-content">
-                        <div class="project-badge" data-zh="🏭 Cyberpunk2077物品設計" data-en="🏭 Cyberpunk2077 prop design">🏭 Cyberpunk2077物品設計</div>
-                        <h3 class="project-title">Cyberpunk2077 Manufacturer</h3>
-                        <p class="project-description" data-zh="探索如果《賽博龐克2077》遊戲中的奢華汽車品牌Rayfield製造武器工作台會是什麼樣子。採用新復古（neo-kitsch）美學風格，融合了工業美學與科幻元素，創造出充滿科技感的生產設備。" data-en="Exploring what it would look like if Rayfield, the luxury car brand from Cyberpunk 2077, made a weapon manufacturing workbench. Features neo-kitsch aesthetic style, combining industrial aesthetics with sci-fi elements to create tech-filled production equipment.">探索如果《賽博龐克2077》遊戲中的奢華汽車品牌Rayfield製造武器工作台會是什麼樣子。採用新復古（neo-kitsch）美學風格，融合了工業美學與科幻元素，創造出充滿科技感的生產設備。</p>
-                        <a href="project-2077manufacture.html" class="project-link" data-zh="查看項目 →" data-en="View Project →">查看項目 →</a>
-                    </div>
-                </div>
-
-                <div class="project-card">
-                    <div class="project-image-carousel">
-                        <button class="carousel-arrow carousel-prev" onclick="changeProjectImage('mech', -1)">‹</button>
-                        <img src="img/mech cover.jpg" alt="Mech Robot" class="project-image active" data-project="mech">
-                        <img src="img/mech1-1.jpg" alt="Mech Details" class="project-image" data-project="mech">
-                        <img src="img/mech1-2.jpg" alt="Mech Combat Pose" class="project-image" data-project="mech">
-                        <button class="carousel-arrow carousel-next" onclick="changeProjectImage('mech', 1)">›</button>
-                    </div>
-                    <div class="project-content">
-                        <div class="project-badge" data-zh="🤖 機甲設計" data-en="🤖 MECH DESIGN">🤖 機甲設計</div>
-                        <h3 class="project-title">Battle Mech</h3>
-                        <p class="project-description" data-zh="重型戰鬥機甲的完整 3D 模型設計。注重機械結構的合理性和戰鬥功能的表現，包含武器系統、裝甲細節和可動關節設計。" data-en="Complete 3D model design of a heavy battle mech. Focuses on mechanical structure rationality and combat functionality, including weapon systems, armor details, and articulated joint design.">重型戰鬥機甲的完整 3D 模型設計。注重機械結構的合理性和戰鬥功能的表現，包含武器系統、裝甲細節和可動關節設計。</p>
-                        <a href="project-mech.html" class="project-link" data-zh="查看項目 →" data-en="View Project →">查看項目 →</a>
-                    </div>
-                </div>
-
-                <div class="project-card">
-                    <div class="project-image-carousel">
-                        <button class="carousel-arrow carousel-prev" onclick="changeProjectImage('stylizedmech', -1)">‹</button>
-                        <img src="img/stylizedmechThumbNail.png" alt="Stylized Mech" class="project-image active" data-project="stylizedmech">
-                        <img src="img/stylizedmech1.png" alt="Stylized Mech Animation" class="project-image" data-project="stylizedmech">
-                        <img src="img/stylizedmech2.png" alt="Stylized Mech Concept" class="project-image" data-project="stylizedmech">
-                        <button class="carousel-arrow carousel-next" onclick="changeProjectImage('stylizedmech', 1)">›</button>
-                    </div>
-                    <div class="project-content">
-                        <div class="project-badge" data-zh="🎨 風格化機甲設計" data-en="🎨 STYLIZED MECH DESIGN">🎨 風格化機甲設計</div>
-                        <h3 class="project-title">Stylized Mech</h3>
-                        <p class="project-description" data-zh="風格化機甲設計項目，靈感來源於《鬥陣特攻》的美術風格。採用卡通化的美術風格和誇張的比例設計。專注於色彩搭配和視覺衝擊力，適合遊戲和動畫應用。" data-en="Stylized mech design project inspired by Overwatch's art style. Features cartoon art style and exaggerated proportional design. Focuses on color coordination and visual impact, suitable for game and animation applications.">風格化機甲設計項目，靈感來源於《鬥陣特攻》的美術風格。採用卡通化的美術風格和誇張的比例設計。專注於色彩搭配和視覺衝擊力，適合遊戲和動畫應用。</p>
-                        <a href="project-stylizedmech.html" class="project-link" data-zh="查看項目 →" data-en="View Project →">查看項目 →</a>
-                    </div>
-                </div>
-
-                <div class="project-card">
-                    <div class="project-image-carousel">
-                        <button class="carousel-arrow carousel-prev" onclick="changeProjectImage('junkratlauncher', -1)">‹</button>
-                        <img src="img/junkrat launcher 1.png" alt="Junkrat Launcher" class="project-image active" data-project="junkratlauncher">
-                        <img src="img/junkrat launcher 2.png" alt="Junkrat Launcher Details" class="project-image" data-project="junkratlauncher">
-                        <img src="img/junkrat launcher 3.png" alt="Junkrat Launcher Texture" class="project-image" data-project="junkratlauncher">
-                        <button class="carousel-arrow carousel-next" onclick="changeProjectImage('junkratlauncher', 1)">›</button>
-                    </div>
-                    <div class="project-content">
-                        <div class="project-badge" data-zh="💥 武器設計" data-en="💥 WEAPON DESIGN">💥 武器設計</div>
-                        <h3 class="project-title">Junkrat Launcher</h3>
-                        <p class="project-description" data-zh="基於 Overwatch 角色炸彈鼠的榴彈發射器 3D 重現，旨在學習和模仿《鬥陣特攻》的美術風格。忠實還原遊戲中的武器設計，包含破舊金屬材質、管線細節和爆炸物裝填系統。" data-en="3D recreation of Junkrat's grenade launcher from Overwatch, created to learn and mimic Overwatch's art style. Faithful reproduction of the in-game weapon design, including weathered metal materials, piping details, and explosive loading system.">基於 Overwatch 角色炸彈鼠的榴彈發射器 3D 重現，旨在學習和模仿《鬥陣特攻》的美術風格。忠實還原遊戲中的武器設計，包含破舊金屬材質、管線細節和爆炸物裝填系統。</p>
-                        <a href="project-junkratlauncher.html" class="project-link" data-zh="查看項目 →" data-en="View Project →">查看項目 →</a>
-                    </div>
-                </div>
+                <button class="slider-nav" id="next">›</button>
             </div>
+            <div class="slider-dots" id="dots"></div>
         </div>
     </section>
 
     <!-- Contact Section -->
     <section class="contact" id="contact">
-        <h2 class="section-title" data-zh="聯絡我" data-en="Contact Me">聯絡我</h2>
-        <form class="contact-form" id="contactForm">
-            <div class="form-group">
-                <label for="name" class="form-label" data-zh="姓名" data-en="Name">姓名</label>
-                <input type="text" id="name" name="name" class="form-input" required>
-            </div>
-            <div class="form-group">
-                <label for="email" class="form-label" data-zh="電子信箱" data-en="Email">電子信箱</label>
-                <input type="email" id="email" name="email" class="form-input" required>
-            </div>
-            <div class="form-group">
-                <label for="message" class="form-label" data-zh="訊息" data-en="Message">訊息</label>
-                <textarea id="message" name="message" class="form-textarea" required></textarea>
-            </div>
-            <button type="submit" class="submit-btn" data-zh="發送訊息" data-en="Send Message">發送訊息</button>
-            <div id="formStatus" class="form-status"></div>
-        </form>
-        
-        <!-- Direct Contact -->
-        <div class="contact-info" style="margin-top: 2rem; text-align: center;">
-            <p style="color: #888; font-size: 0.9rem; margin-bottom: 10px;" data-zh="或者直接聯繫我：" data-en="Or contact me directly:">或者直接聯繫我：</p>
-            <a href="mailto:your.email@gmail.com" class="contact-link" style="color: #4a9eff; text-decoration: none; margin: 0 10px; padding: 8px 16px; border: 1px solid #4a9eff; border-radius: 5px; transition: all 0.3s ease;">
-                📧 your.email@gmail.com
-            </a>
+        <div class="contact-container">
+            <h2 class="section-title" data-zh="聯絡我" data-en="Contact Me">聯絡我</h2>
+            <nav class="contact-nav">
+                <a href="https://www.instagram.com/maxliu_3d/" target="_blank" class="split">Instagram</a>
+                <a href="https://www.artstation.com/maxliu33" target="_blank" class="split">Artstation</a>
+                <a href="https://www.fiverr.com/maxliu33" target="_blank" class="split">Fiverr</a>
+            </nav>
         </div>
     </section>
 
@@ -253,63 +195,6 @@
     </footer>
 
     <script>
-        // Language switching functionality
-        let currentLanguage = 'en';
-        
-        const translations = {
-            zh: {
-                name: 'Max Liu',
-                currentLang: '中文'
-            },
-            en: {
-                name: 'Max Liu',
-                currentLang: 'English'
-            }
-        };
-
-        function switchLanguage(lang) {
-            currentLanguage = lang;
-            document.getElementById('current-lang').textContent = translations[lang].currentLang;
-            // Remove the line that overwrites logo content - we want to keep the cube
-            
-            // Update all elements with data attributes
-            const elementsToTranslate = document.querySelectorAll('[data-zh][data-en]');
-            elementsToTranslate.forEach(element => {
-                if (lang === 'zh') {
-                    element.textContent = element.getAttribute('data-zh');
-                    if (element.innerHTML.includes('&copy;')) {
-                        element.innerHTML = element.getAttribute('data-zh');
-                    }
-                } else {
-                    element.textContent = element.getAttribute('data-en');
-                    if (element.innerHTML.includes('&copy;')) {
-                        element.innerHTML = element.getAttribute('data-en');
-                    }
-                }
-            });
-            
-            // Close dropdown
-            document.getElementById('language-dropdown').classList.remove('active');
-        }
-
-        // Language selector event listeners
-        document.getElementById('language-btn').addEventListener('click', function(e) {
-            e.stopPropagation();
-            document.getElementById('language-dropdown').classList.toggle('active');
-        });
-
-        document.querySelectorAll('.language-option').forEach(option => {
-            option.addEventListener('click', function() {
-                const lang = this.getAttribute('data-lang');
-                switchLanguage(lang);
-            });
-        });
-
-        // Close dropdown when clicking outside
-        document.addEventListener('click', function() {
-            document.getElementById('language-dropdown').classList.remove('active');
-        });
-
         // Mobile menu toggle
         const menuToggle = document.getElementById('menu-toggle');
         const navMenu = document.getElementById('nav-menu');
@@ -345,16 +230,6 @@
             });
         });
 
-        // Form submission
-        document.querySelector('.contact-form').addEventListener('submit', function(e) {
-            e.preventDefault();
-            if (currentLanguage === 'zh') {
-                alert('感謝您的訊息！我會盡快回覆您。');
-            } else {
-                alert('Thank you for your message! I will get back to you soon.');
-            }
-        });
-
         // Intersection Observer for animations
         const observerOptions = {
             threshold: 0.1,
@@ -378,40 +253,13 @@
             observer.observe(el);
         });
 
-        // Initialize page with English as default
-        switchLanguage('en');
-
-        // Project image carousel functionality with arrow navigation
-        function changeProjectImage(projectName, direction) {
-            const carousel = document.querySelector(`[data-project="${projectName}"]`).closest('.project-image-carousel');
-            const images = carousel.querySelectorAll('.project-image');
-            const currentActive = carousel.querySelector('.project-image.active');
-            let currentIndex = Array.from(images).indexOf(currentActive);
-            
-            // Remove current active class
-            currentActive.classList.remove('active');
-            
-            // Calculate next index
-            currentIndex += direction;
-            if (currentIndex < 0) currentIndex = images.length - 1;
-            if (currentIndex >= images.length) currentIndex = 0;
-            
-            // Add active class to new image
-            images[currentIndex].classList.add('active');
-        }
-
         // Eye cursor tracking with physics
         const eye = document.querySelector('.eye');
         const pupil = document.querySelector('.pupil');
         
         if (eye && pupil) {
-            // Debug: Check if eye elements are found
-            console.log('Eye and pupil found successfully');
-            
             let pupilX = 0;
             let pupilY = 0;
-            let velocityX = 0;
-            let velocityY = 0;
             let angularVelocity = 0;
             let currentAngle = 0;
             let currentRadius = 0;
@@ -421,24 +269,20 @@
             let spinTimeout;
             let animationFrame;
             
-            const friction = 0.985; // Slower friction for longer spinning
-            const gravity = 0.12; // Stronger gravity for pendulum phase
-            const maxSpeed = 10;
+            const friction = 0.985;
+            const gravity = 0.12;
             const spinForce = 15;
-            const maxDistanceFromCenter = 25; // Physics boundary
-            const cursorFollowBoundary = 15; // Cursor following boundary
-            const pendulumThreshold = 3; // Speed threshold to switch to pendulum mode
+            const maxDistanceFromCenter = 25;
+            const cursorFollowBoundary = 15;
+            const pendulumThreshold = 3;
             
             function updatePupilPosition() {
                 if (isSpinning) {
-                    // Two-phase motion: spin first, then pendulum
                     if (Math.abs(angularVelocity) > pendulumThreshold) {
-                        // Phase 1: Fast spinning around edge
                         angularVelocity *= friction;
                         currentAngle += angularVelocity;
                         currentRadius = Math.max(currentRadius * 0.999, maxDistanceFromCenter * 0.8);
                     } else {
-                        // Phase 2: Pendulum motion
                         const restoreForce = Math.sin(currentAngle + Math.PI / 2) * gravity;
                         angularVelocity += restoreForce;
                         angularVelocity *= friction;
@@ -446,20 +290,16 @@
                         currentRadius *= 0.995;
                     }
                     
-                    // Calculate position - this creates the swinging motion
                     pupilX = Math.cos(currentAngle) * currentRadius;
                     pupilY = Math.sin(currentAngle) * currentRadius;
                     
                     pupil.style.transform = `translate(${pupilX}px, ${pupilY}px)`;
                     
-                    // Only stop when motion is truly minimal and naturally settled
                     if (Math.abs(angularVelocity) < 0.001 && currentRadius < 3) {
-                        // Final settle at bottom center
                         pupilX = 0;
-                        pupilY = 10; // Bottom center of eye
+                        pupilY = 10;
                         pupil.style.transform = `translate(${pupilX}px, ${pupilY}px)`;
                         
-                        // Resume cursor following after delay
                         clearTimeout(spinTimeout);
                         spinTimeout = setTimeout(() => {
                             isSpinning = false;
@@ -475,43 +315,33 @@
             }
             
             function startSpin() {
-                // Immediately disable cursor following to prevent centering
                 isFollowingCursor = false;
+                currentAngle = -Math.PI / 2;
+                currentRadius = maxDistanceFromCenter;
                 
-                // Start at the very edge of the white area (top)
-                currentAngle = -Math.PI / 2; // Start from top
-                currentRadius = maxDistanceFromCenter; // At the very edge
-                
-                // Immediately set position at the top edge of white area
                 pupilX = Math.cos(currentAngle) * currentRadius;
                 pupilY = Math.sin(currentAngle) * currentRadius;
                 pupil.style.transform = `translate(${pupilX}px, ${pupilY}px)`;
                 
-                // Add angular velocity for pendulum motion
                 const spinDirection = Math.random() > 0.5 ? 1 : -1;
                 angularVelocity = spinDirection * spinForce * 0.6;
                 
                 isSpinning = true;
                 
-                // Clear any existing timeouts
                 clearTimeout(spinTimeout);
                 if (animationFrame) {
                     cancelAnimationFrame(animationFrame);
                 }
                 
-                // Start the pendulum animation
                 updatePupilPosition();
             }
             
-            // Click handler for eye spinning
             eye.addEventListener('mousedown', function(e) {
-                // Prevent any cursor following during click
                 e.preventDefault();
                 e.stopPropagation();
                 startSpin();
             });
             
-            // Also handle regular click as backup
             eye.addEventListener('click', function(e) {
                 e.preventDefault();
                 e.stopPropagation();
@@ -520,7 +350,6 @@
                 }
             });
             
-            // Track mouse over eye to prevent cursor following interference
             eye.addEventListener('mouseenter', function() {
                 isMouseOverEye = true;
             });
@@ -529,22 +358,16 @@
                 isMouseOverEye = false;
             });
             
-            // Cursor following (original functionality)
             document.addEventListener('mousemove', (e) => {
                 if (!isFollowingCursor || isSpinning) return;
-                
-                // Don't follow cursor when mouse is directly over the eye (prevents centering before click)
                 if (isMouseOverEye) return;
                 
                 const eyeRect = eye.getBoundingClientRect();
                 const eyeCenterX = eyeRect.left + eyeRect.width / 2;
                 const eyeCenterY = eyeRect.top + eyeRect.height / 2;
                 
-                const mouseX = e.clientX;
-                const mouseY = e.clientY;
-                
-                const deltaX = mouseX - eyeCenterX;
-                const deltaY = mouseY - eyeCenterY;
+                const deltaX = e.clientX - eyeCenterX;
+                const deltaY = e.clientY - eyeCenterY;
                 
                 const angle = Math.atan2(deltaY, deltaX);
                 const distance = Math.min(Math.sqrt(deltaX * deltaX + deltaY * deltaY) / 10, cursorFollowBoundary);
@@ -555,258 +378,33 @@
                 pupil.style.transform = `translate(${pupilX}px, ${pupilY}px)`;
             });
         }
-
-        // Cube drag rotation - Simplified with auto-resume
-        const cube = document.querySelector('.cube');
-        let isDragging = false;
-        let previousMouseX = 0;
-        let previousMouseY = 0;
-        let manualRotationX = 0;
-        let manualRotationY = 0;
-        let lastInteractionTime = 0;
-        let checkInterval;
         
-        function startAutoRotation() {
-            cube.style.transform = '';
-            manualRotationX = 0;
-            manualRotationY = 0;
-            cube.style.animation = 'autoRotate 15s infinite linear';
-        }
-        
-        function stopAutoRotation() {
-            cube.style.animation = 'none';
-        }
-        
-        function updateLastInteraction() {
-            lastInteractionTime = Date.now();
-        }
-        
-        function checkForAutoResume() {
-            if (!isDragging && Date.now() - lastInteractionTime > 2000) {
-                startAutoRotation();
-                clearInterval(checkInterval);
-                checkInterval = null;
-            }
-        }
-        
-        if (cube) {
-            // Cube setup
-            
-            cube.addEventListener('mousedown', function(e) {
-                // Mouse down on cube
-                isDragging = true;
-                cube.classList.add('dragging');
-                updateLastInteraction();
-                stopAutoRotation();
-                
-                // Clear any existing check interval
-                if (checkInterval) {
-                    clearInterval(checkInterval);
-                }
-                
-                previousMouseX = e.clientX;
-                previousMouseY = e.clientY;
-                e.preventDefault();
-            });
-            
-            document.addEventListener('mousemove', function(e) {
-                if (!isDragging) return;
-                
-                const deltaX = e.clientX - previousMouseX;
-                const deltaY = e.clientY - previousMouseY;
-                
-                manualRotationY += deltaX * 0.5;
-                manualRotationX -= deltaY * 0.5;
-                
-                cube.style.transform = 'rotateX(' + manualRotationX + 'deg) rotateY(' + manualRotationY + 'deg)';
-                
-                previousMouseX = e.clientX;
-                previousMouseY = e.clientY;
-            });
-            
-            document.addEventListener('mouseup', function() {
-                if (isDragging) {
-                    console.log('Mouse up - ending drag');
-                    isDragging = false;
-                    cube.classList.remove('dragging');
-                    updateLastInteraction();
-                    
-                    // Start checking for auto-resume every 100ms
-                    checkInterval = setInterval(checkForAutoResume, 100);
-                }
-            });
-            
-            // Also update interaction time when hovering over cube
-            cube.addEventListener('mouseenter', function() {
-                if (!isDragging) {
-                    updateLastInteraction();
-                    if (!checkInterval) {
-                        checkInterval = setInterval(checkForAutoResume, 100);
-                    }
-                }
-            });
-        }
-        
-        if (cube) {
-            let isDragging = false;
-            let previousMouseX = 0;
-            let previousMouseY = 0;
-            let manualRotationX = 0;
-            let manualRotationY = 0;
-            let dragTimeout;
-            
-            // Setting up cube drag events
-            
-            // Test if any event works
-            cube.addEventListener('click', () => {
-                // Cube clicked
-            });
-            
-            cube.addEventListener('mousedown', (e) => {
-                // Cube mousedown triggered
-                isDragging = true;
-                cube.classList.add('dragging');
-                if (heroContent) heroContent.classList.add('no-select');
-                previousMouseX = e.clientX;
-                previousMouseY = e.clientY;
-                e.preventDefault();
-                e.stopPropagation();
-                
-                // Disable text selection globally during drag
-                document.body.style.userSelect = 'none';
-                
-                // Clear any pending resume timeout
-                if (dragTimeout) {
-                    clearTimeout(dragTimeout);
-                }
-            });
-            
-            document.addEventListener('mousemove', (e) => {
-                if (!isDragging) return;
-                
-                e.preventDefault();
-                const deltaX = e.clientX - previousMouseX;
-                const deltaY = e.clientY - previousMouseY;
-                
-                manualRotationY += deltaX * 0.5;
-                manualRotationX -= deltaY * 0.5;
-                
-                cube.style.transform = `rotateX(${manualRotationX}deg) rotateY(${manualRotationY}deg)`;
-                
-                previousMouseX = e.clientX;
-                previousMouseY = e.clientY;
-            });
-            
-            document.addEventListener('mouseup', () => {
-                if (isDragging) {
-                    console.log('Mouse up - ending drag');
-                    isDragging = false;
-                    cube.classList.remove('dragging');
-                    
-                    // Re-enable text selection
-                    document.body.style.userSelect = '';
-                    
-                    // Resume automatic rotation after a short delay, starting from current position
-
-
-                    dragTimeout = setTimeout(() => {
-                        cube.style.transform = '';
-                        manualRotationX = 0;
-                        manualRotationY = 0;
-                        
-                        // Restart the animation by removing and re-adding the class
-                        cube.style.animation = 'none';
-                        requestAnimationFrame(() => {
-                            cube.style.animation = 'autoRotate 15s infinite linear';
-                        });
-                    }, 1000);
-                }
-            });
-            
-            // Touch support for mobile
-            cube.addEventListener('touchstart', (e) => {
-                isDragging = true;
-                cube.classList.add('dragging');
-                const touch = e.touches[0];
-                previousMouseX = touch.clientX;
-                previousMouseY = touch.clientY;
-                e.preventDefault();
-                
-                // Clear any pending resume timeout
-                if (dragTimeout) {
-                    clearTimeout(dragTimeout);
-                }
-            });
-            
-            document.addEventListener('touchmove', (e) => {
-                if (!isDragging) return;
-                
-                const touch = e.touches[0];
-                const deltaX = touch.clientX - previousMouseX;
-                const deltaY = touch.clientY - previousMouseY;
-                
-                manualRotationY += deltaX * 0.5;
-                manualRotationX -= deltaY * 0.5;
-                
-                cube.style.transform = `rotateX(${manualRotationX}deg) rotateY(${manualRotationY}deg)`;
-                
-                previousMouseX = touch.clientX;
-                previousMouseY = touch.clientY;
-                e.preventDefault();
-            });
-            
-            document.addEventListener('touchend', () => {
-                if (isDragging) {
-                    isDragging = false;
-                    cube.classList.remove('dragging');
-                    
-                    // Resume automatic rotation after a short delay, starting from current position
-                    dragTimeout = setTimeout(() => {
-                        cube.style.transform = '';
-                        manualRotationX = 0;
-                        manualRotationY = 0;
-                        
-                        cube.style.animation = 'none';
-                        requestAnimationFrame(() => {
-                            cube.style.animation = 'autoRotate 15s infinite linear';
-                        });
-                    }, 1000);
-                }
-            });
-        }
-        
-        // Click Spark Effect - Minimalistic Burst
+        // Click Spark Effect
         function createSparkEffect(x, y) {
             const sparkContainer = document.createElement('div');
             sparkContainer.className = 'spark';
             sparkContainer.style.left = x + 'px';
             sparkContainer.style.top = y + 'px';
             
-            // Create minimalistic burst with fewer particles
             const particleCount = 8;
             
             for (let i = 0; i < particleCount; i++) {
                 const particle = document.createElement('div');
                 particle.className = 'spark-particle';
                 
-                // Add subtle size variation
                 const sizes = ['small', '', 'large'];
                 const randomSize = sizes[Math.floor(Math.random() * sizes.length)];
                 if (randomSize) particle.classList.add(randomSize);
                 
-                // Calculate burst direction
                 const angle = (360 / particleCount) * i + Math.random() * 20 - 10;
-                const distance = Math.random() * 40 + 20; // 20-60px travel distance
+                const distance = Math.random() * 40 + 20;
                 const radian = angle * Math.PI / 180;
                 
                 const endX = Math.cos(radian) * distance;
                 const endY = Math.sin(radian) * distance;
                 
-                // Set CSS custom properties for the animation
                 particle.style.setProperty('--end-x', endX + 'px');
                 particle.style.setProperty('--end-y', endY + 'px');
-                
-                // Small stagger for inside-to-outside effect but starts immediately
                 particle.style.animationDelay = (i * 0.02) + 's';
                 
                 sparkContainer.appendChild(particle);
@@ -814,7 +412,6 @@
             
             document.body.appendChild(sparkContainer);
             
-            // Remove after animation completes
             setTimeout(() => {
                 if (sparkContainer.parentNode) {
                     sparkContainer.parentNode.removeChild(sparkContainer);
@@ -822,68 +419,16 @@
             }, 2500);
         }
         
-        // Add click event listener for spark effect
         document.addEventListener('click', (e) => {
-            // Don't create sparks on certain elements to avoid conflicts
             if (!e.target.closest('.language-dropdown, .nav-menu, .carousel-arrow')) {
                 createSparkEffect(e.clientX, e.clientY);
             }
         });
-        
-        // Create subtle starry background
-        function createStarryBackground() {
-            const starryBg = document.getElementById('starry-bg');
-            const starCount = 150; // Subtle amount of stars
-            
-            for (let i = 0; i < starCount; i++) {
-                const star = document.createElement('div');
-                star.className = 'star';
-                
-                // Random position
-                star.style.left = Math.random() * 100 + '%';
-                star.style.top = Math.random() * 100 + '%';
-                
-                // Random size
-                const sizes = ['small', 'medium', 'large'];
-                const size = sizes[Math.floor(Math.random() * sizes.length)];
-                star.classList.add(size);
-                
-                // Random animation speed
-                const speeds = ['slow', 'fast', ''];
-                const speed = speeds[Math.floor(Math.random() * speeds.length)];
-                if (speed) star.classList.add(speed);
-                
-                // Random delay
-                star.style.animationDelay = Math.random() * 6 + 's';
-                
-                starryBg.appendChild(star);
-            }
-        }
-        
-        // Initialize starry background
-        createStarryBackground();
-
-        // Contact form handling (mailto for GitHub Pages)
-        document.getElementById('contactForm').addEventListener('submit', (e) => {
-            e.preventDefault();
-            
-            const name = document.getElementById('name').value;
-            const email = document.getElementById('email').value;
-            const message = document.getElementById('message').value;
-            
-            // Create mailto link
-            const subject = `Portfolio Contact from ${name}`;
-            const body = `Name: ${name}\nEmail: ${email}\n\nMessage:\n${message}`;
-            const mailtoLink = `mailto:your.email@gmail.com?subject=${encodeURIComponent(subject)}&body=${encodeURIComponent(body)}`;
-            
-            // Open email client
-            window.location.href = mailtoLink;
-            
-            // Show success message
-            const statusDiv = document.getElementById('formStatus');
-            statusDiv.innerHTML = '<div style="color: #4ade80; padding: 10px; background: rgba(74, 222, 128, 0.1); border-radius: 5px; margin-top: 10px;">✅ Email client opened! Please send the email to complete your message.</div>';
-        });
     </script>
+    <script src="scripts/language.js"></script>
     <script src="enhancements.js"></script>
+    <script type="module" src="scripts/three-scene.js"></script>
+    <script src="scripts/slider.js"></script>
+    <script src="scripts/contact.js"></script>
 </body>
 </html>

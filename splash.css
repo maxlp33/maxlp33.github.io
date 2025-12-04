@@ -1,0 +1,98 @@
+/* Splash Section - for zoom effect */
+.splash-section {
+    width: 100%;
+    height: 100vh;
+    min-height: 100svh;
+    position: relative;
+    overflow: hidden;
+    z-index: 10;
+    background: transparent; /* Allow canvas to show through text hole */
+}
+
+/* Hero Section - for model viewing */
+.hero-section {
+    width: 100%;
+    height: 100vh;
+    min-height: 100svh;
+    position: relative;
+    overflow: hidden;
+    z-index: 1;
+    background: transparent; /* Canvas is fixed behind */
+}
+
+/* Hero container at the back */
+.hero-container {
+    position: absolute;
+    inset: 0;
+    width: 100%;
+    height: 100%;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    background-color: transparent;
+    z-index: 1;
+    overflow: hidden;
+}
+
+.hero-bg-canvas {
+    position: absolute;
+    inset: 0;
+    width: 100%;
+    height: 100%;
+    z-index: 0;
+    display: block;
+}
+
+.hero-content {
+    position: relative;
+    z-index: 1;
+    text-align: center;
+    max-width: 100vw;
+    padding: 2rem;
+}
+
+/* Splash overlay - black bg with text cutout ON TOP */
+.splash-overlay {
+    position: absolute;
+    inset: 0;
+    width: 100%;
+    height: 100%;
+    z-index: 10;
+}
+
+.splash-text {
+    position: absolute;
+    inset: 0;
+    width: 100%;
+    height: 100%;
+}
+
+/* Cream text overlay centered on top */
+.text-overlay-container {
+    position: absolute;
+    inset: 0;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    pointer-events: none;
+}
+
+.text-fill {
+    font-family: 'Bebas Neue', 'Anton', sans-serif;
+    font-size: clamp(110px, 22.25vw, 365px);
+    font-weight: 700;
+    color: #f5f0e6;
+    letter-spacing: 0;
+    transform: translate(0%, 3.8%);
+}
+
+/* Hide navbar initially */
+.navbar {
+    opacity: 0;
+    pointer-events: none;
+}
+
+.navbar.visible {
+    opacity: 1;
+    pointer-events: auto;
+}

@@ -1,0 +1,316 @@
+/* Projects Slider Styles */
+
+.projects-slider {
+    min-height: 100vh;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    padding: 4rem 2rem;
+    max-width: 1200px;
+    margin: 0 auto;
+    width: 100%;
+    scroll-snap-align: start;
+    scroll-snap-stop: always;
+}
+
+.projects-container {
+    width: 100%;
+}
+
+.slider-wrap {
+    position: relative;
+    overflow: visible;
+    padding: 0 4rem;
+    margin: 2rem 0;
+}
+
+.slider-track {
+    display: flex;
+    gap: 0.5rem;
+    overflow-x: auto;
+    scroll-behavior: smooth;
+    padding: 2rem 0;
+    scrollbar-width: none;
+    -ms-overflow-style: none;
+    justify-content: center;
+}
+
+.slider-track::-webkit-scrollbar {
+    display: none;
+}
+
+.slider-card {
+    min-width: 80px;
+    width: 80px;
+    height: 500px;
+    flex: 0 0 auto;
+    background: rgba(255, 255, 255, 0.03);
+    border-radius: 12px;
+    overflow: hidden;
+    transition: all 0.5s cubic-bezier(0.4, 0, 0.2, 1);
+    cursor: pointer;
+    position: relative;
+    border: 1px solid rgba(255, 255, 255, 0.1);
+}
+
+.slider-card::after {
+    content: attr(data-title);
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%) rotate(-90deg);
+    font-size: 1.5rem;
+    font-weight: 900;
+    color: rgba(255, 255, 255, 0.95);
+    text-shadow: 0 2px 12px rgba(0, 0, 0, 0.9), 0 0 40px rgba(0, 0, 0, 0.5);
+    text-transform: uppercase;
+    letter-spacing: 0.05em;
+    white-space: nowrap;
+    opacity: 1;
+    transition: opacity 0.3s ease;
+    pointer-events: none;
+    z-index: 5;
+}
+
+.slider-card:hover::after,
+.slider-card[active]::after {
+    opacity: 0;
+}
+
+.slider-card img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    display: block;
+    opacity: 0.4;
+    transition: opacity 0.5s ease;
+}
+
+.slider-card .project-content {
+    position: absolute;
+    inset: 0;
+    padding: 1.5rem;
+    display: flex;
+    flex-direction: column;
+    justify-content: flex-end;
+    background: rgba(0, 0, 0, 0.7);
+    opacity: 0;
+    transition: opacity 0.5s ease;
+    pointer-events: none;
+}
+
+.slider-card h3 {
+    margin: 0 0 0.5rem 0;
+    font-size: 1.3rem;
+    font-weight: 600;
+    color: #fff;
+    transition: all 0.5s cubic-bezier(0.4, 0, 0.2, 1);
+}
+
+.slider-card h3::before {
+    content: attr(data-short);
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%) rotate(-90deg);
+    font-size: 1.5rem;
+    font-weight: 900;
+    color: rgba(255, 255, 255, 0.9);
+    text-shadow: 0 2px 8px rgba(0, 0, 0, 0.8);
+    opacity: 1;
+    transition: opacity 0.3s ease;
+    pointer-events: none;
+}
+
+.slider-card:hover h3::before,
+.slider-card[active] h3::before {
+    opacity: 0;
+}
+
+.slider-card .project-badge,
+.slider-card .project-description,
+.slider-card .project-link {
+    opacity: 0;
+    transition: opacity 0.5s cubic-bezier(0.4, 0, 0.2, 1);
+}
+
+.slider-card:hover,
+.slider-card[active] {
+    min-width: 400px;
+    width: 400px;
+    box-shadow: 0 12px 40px rgba(0, 0, 0, 0.4);
+    border-color: rgba(255, 255, 255, 0.3);
+}
+
+.slider-card:hover img,
+.slider-card[active] img {
+    opacity: 1;
+}
+
+.slider-card:hover .project-content,
+.slider-card[active] .project-content {
+    opacity: 1;
+    pointer-events: auto;
+}
+
+.slider-card:hover h3,
+.slider-card[active] h3 {
+    font-size: 1.3rem;
+}
+
+.slider-card:hover .project-badge,
+.slider-card[active] .project-badge,
+.slider-card:hover .project-description,
+.slider-card[active] .project-description,
+.slider-card:hover .project-link,
+.slider-card[active] .project-link {
+    opacity: 1;
+}
+
+.slider-card .project-badge {
+    font-size: 0.75rem;
+    margin-bottom: 0.5rem;
+    transition-delay: 0.2s;
+    color: rgba(255, 255, 255, 0.7);
+    text-transform: uppercase;
+    letter-spacing: 0.05em;
+}
+
+.slider-card .project-description {
+    font-size: 0.85rem;
+    line-height: 1.5;
+    margin-bottom: 1rem;
+    transition-delay: 0.25s;
+    color: rgba(255, 255, 255, 0.8);
+}
+
+.slider-card .project-link {
+    transition-delay: 0.3s;
+    display: inline-block;
+    padding: 0.6rem 1.2rem;
+    background: transparent;
+    border: 1px solid rgba(255, 255, 255, 0.4);
+    color: #fff;
+    text-decoration: none;
+    border-radius: 20px;
+    font-size: 0.85rem;
+    transition: all 0.3s ease;
+    margin-top: auto;
+}
+
+.slider-card .project-link:hover {
+    background: rgba(255, 255, 255, 0.15);
+    border-color: rgba(255, 255, 255, 0.6);
+    transform: translateY(-2px);
+}
+
+.slider-nav {
+    position: absolute;
+    top: 50%;
+    transform: translateY(-50%);
+    background: rgba(255, 255, 255, 0.1);
+    border: 1px solid rgba(255, 255, 255, 0.2);
+    color: #fff;
+    font-size: 2rem;
+    width: 48px;
+    height: 48px;
+    border-radius: 50%;
+    cursor: pointer;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    transition: all 0.3s ease;
+    z-index: 10;
+}
+
+.slider-nav:hover:not(:disabled) {
+    background: rgba(255, 255, 255, 0.2);
+    transform: translateY(-50%) scale(1.1);
+}
+
+.slider-nav:disabled {
+    opacity: 0.3;
+    cursor: not-allowed;
+}
+
+#prev {
+    left: 0.5rem;
+}
+
+#next {
+    right: 0.5rem;
+}
+
+.slider-dots {
+    display: flex;
+    gap: 0.5rem;
+    justify-content: center;
+    padding: 1rem 0;
+    position: relative;
+    z-index: 10;
+}
+
+.dot {
+    width: 12px;
+    height: 12px;
+    border-radius: 50%;
+    background: rgba(255, 255, 255, 0.3);
+    cursor: pointer;
+    transition: all 0.3s ease;
+    display: inline-block;
+}
+
+.dot:hover {
+    background: rgba(255, 255, 255, 0.5);
+}
+
+.dot.active {
+    background: #fff;
+    transform: scale(1.2);
+}
+
+@media (max-width: 767px) {
+    .slider-wrap {
+        padding: 0 1rem;
+    }
+
+    .slider-track {
+        flex-direction: row;
+        align-items: stretch;
+    }
+
+    .slider-card {
+        min-width: 60px;
+        width: 60px;
+        height: 400px;
+    }
+
+    .slider-card:hover,
+    .slider-card[active] {
+        min-width: 280px;
+        width: 280px;
+    }
+
+    .slider-card h3 {
+        font-size: 0.85rem;
+    }
+
+    .slider-card:hover h3,
+    .slider-card[active] h3 {
+        font-size: 1.1rem;
+    }
+
+    .slider-nav {
+        width: 40px;
+        height: 40px;
+        font-size: 1.5rem;
+    }
+
+    #prev {
+        left: 0.25rem;
+    }
+
+    #next {
+        right: 0.25rem;
+    }
+}

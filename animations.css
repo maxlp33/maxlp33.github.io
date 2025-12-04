@@ -1,0 +1,197 @@
+/* Additional animations to make elements pop without colors */
+
+/* Skill items - subtle pulse on hover */
+.skill-item {
+    transition: transform 0.3s ease, box-shadow 0.3s ease;
+}
+
+.skill-item:hover {
+    transform: translateY(-8px) scale(1.05);
+    box-shadow: 0 12px 40px rgba(0, 0, 0, 0.5);
+}
+
+/* Project content - removed 3D transform to prevent layout issues */
+
+/* About text - subtle slide effect */
+.about-text p {
+    transition: transform 0.3s ease, opacity 0.3s ease;
+}
+
+.about-text p:hover {
+    transform: translateX(8px);
+    opacity: 1;
+}
+
+/* Navigation links - scale bounce */
+.nav-link {
+    transition: transform 0.3s cubic-bezier(0.68, -0.55, 0.265, 1.55);
+}
+
+.nav-link:hover {
+    transform: scale(1.1);
+}
+
+/* Hero CTA - pulse effect */
+@keyframes pulse {
+    0%, 100% {
+        transform: scale(1);
+        box-shadow: 0 0 0 0 rgba(255, 255, 255, 0.3);
+    }
+    50% {
+        transform: scale(1.02);
+        box-shadow: 0 0 20px 10px rgba(255, 255, 255, 0);
+    }
+}
+
+.hero-cta {
+    animation: pulse 3s ease-in-out infinite;
+}
+
+/* Slider navigation buttons - bounce on hover */
+.slider-nav {
+    transition: transform 0.3s cubic-bezier(0.68, -0.55, 0.265, 1.55), 
+                box-shadow 0.3s ease;
+}
+
+.slider-nav:hover {
+    transform: scale(1.2);
+    box-shadow: 0 8px 30px rgba(255, 255, 255, 0.2);
+}
+
+/* Slider dots - grow effect */
+.slider-dots button {
+    transition: transform 0.3s ease, opacity 0.3s ease;
+}
+
+.slider-dots button:hover {
+    transform: scale(1.5);
+    opacity: 1;
+}
+
+/* Contact links - character lift on hover */
+.contact-nav a {
+    position: relative;
+    display: inline-block;
+}
+
+.contact-nav a span {
+    display: inline-block;
+    transition: transform 0.3s cubic-bezier(0.68, -0.55, 0.265, 1.55);
+}
+
+/* Logo cube - subtle rotation on hover */
+.logo-cube {
+    transition: transform 0.5s ease;
+}
+
+.logo:hover .logo-cube {
+    transform: rotateY(180deg) scale(1.1);
+}
+
+/* Project badges - slide in from side */
+.project-badge {
+    transition: transform 0.3s ease, box-shadow 0.3s ease;
+}
+
+.slider-card:hover .project-badge {
+    transform: translateX(-5px);
+    box-shadow: 4px 0 20px rgba(255, 255, 255, 0.1);
+}
+
+/* Section titles - subtle underline expand */
+.section-title::after {
+    transition: width 0.5s ease, opacity 0.5s ease;
+}
+
+.section-title:hover::after {
+    width: 150px;
+    opacity: 1;
+}
+
+/* Skill icons - rotate on hover */
+.skill-icon {
+    transition: transform 0.4s ease;
+}
+
+.skill-item:hover .skill-icon {
+    transform: rotate(360deg);
+}
+
+/* Menu toggle - morph animation */
+.menu-toggle span {
+    transition: transform 0.3s ease, opacity 0.3s ease;
+}
+
+.menu-toggle:hover span:nth-child(1) {
+    transform: translateY(-2px);
+}
+
+.menu-toggle:hover span:nth-child(3) {
+    transform: translateY(2px);
+}
+
+/* Eye blink animation */
+@keyframes blink {
+    0%, 90%, 100% {
+        transform: scaleY(1);
+    }
+    95% {
+        transform: scaleY(0.1);
+    }
+}
+
+.eye {
+    animation: blink 4s ease-in-out infinite;
+}
+
+/* Floating animation for various elements */
+@keyframes float {
+    0%, 100% {
+        transform: translateY(0);
+    }
+    50% {
+        transform: translateY(-10px);
+    }
+}
+
+.rotating-object {
+    animation: float 3s ease-in-out infinite;
+}
+
+/* Removed section container hover effects - keeping it clean */
+
+/* Project link - arrow slide */
+.project-link {
+    position: relative;
+    overflow: hidden;
+    transition: padding-right 0.3s ease;
+}
+
+.project-link:hover {
+    padding-right: 1.5rem;
+}
+
+.project-link::after {
+    content: '→';
+    position: absolute;
+    right: -20px;
+    opacity: 0;
+    transition: right 0.3s ease, opacity 0.3s ease;
+}
+
+.project-link:hover::after {
+    right: 5px;
+    opacity: 1;
+}
+
+/* Add perspective for 3D transforms */
+.skill-item,
+.about-container {
+    perspective: 1000px;
+}
+
+/* Ensure about section is visible by default (fallback for GSAP) */
+.about-container {
+    opacity: 1;
+    visibility: visible;
+}
