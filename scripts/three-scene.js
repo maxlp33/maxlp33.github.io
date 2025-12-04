@@ -45,6 +45,7 @@ const maxRotationX = Math.PI / 9; // ~20 degrees for X axis
 
 // Load the GLB model
 const loader = new GLTFLoader();
+
 loader.load(
     'models/scene.glb',
     (gltf) => {
@@ -61,9 +62,14 @@ loader.load(
         
         scene.add(model);
         console.log('Model loaded successfully');
+        
+        // Hide loading screen
+        if (window.hideLoadingScreen) window.hideLoadingScreen();
     },
     (progress) => {
-        console.log('Loading:', (progress.loaded / progress.total * 100).toFixed(1) + '%');
+        const percent = (progress.loaded / progress.total * 100).toFixed(0);
+        console.log('Loading:', percent + '%');
+        if (window.updateLoadingProgress) window.updateLoadingProgress(percent);
     },
     (error) => {
         console.error('Error loading model:', error);

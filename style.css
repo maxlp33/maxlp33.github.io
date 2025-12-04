@@ -37,6 +37,124 @@
     box-sizing: border-box;
 }
 
+/* Loading Screen */
+.loading-screen {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background: #0a0a0a;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    z-index: 10000;
+    transition: opacity 0.6s ease, visibility 0.6s ease;
+}
+
+.loading-screen.hidden {
+    opacity: 0;
+    visibility: hidden;
+    pointer-events: none;
+}
+
+.loading-content {
+    text-align: center;
+}
+
+.loading-indicator {
+    display: flex;
+    gap: 8px;
+    justify-content: center;
+    margin-bottom: 2rem;
+}
+
+.loading-line {
+    width: 2px;
+    height: 30px;
+    background: #fff;
+    animation: loadingPulse 1s ease-in-out infinite;
+}
+
+.loading-line:nth-child(1) { animation-delay: 0s; }
+.loading-line:nth-child(2) { animation-delay: 0.15s; }
+.loading-line:nth-child(3) { animation-delay: 0.3s; }
+
+@keyframes loadingPulse {
+    0%, 100% { 
+        transform: scaleY(0.3);
+        opacity: 0.3;
+    }
+    50% { 
+        transform: scaleY(1);
+        opacity: 1;
+    }
+}
+
+.loading-bar-container {
+    width: 120px;
+    height: 1px;
+    background: rgba(255, 255, 255, 0.1);
+    margin: 0 auto 1.5rem;
+    overflow: hidden;
+}
+
+.loading-bar {
+    height: 100%;
+    width: 0%;
+    background: #fff;
+    transition: width 0.2s ease;
+}
+
+.loading-text {
+    font-size: 0.7rem;
+    font-weight: 400;
+    letter-spacing: 0.4em;
+    color: rgba(255, 255, 255, 0.6);
+    font-family: monospace;
+    position: relative;
+}
+
+.loading-text::before,
+.loading-text::after {
+    content: attr(data-text);
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+}
+
+.loading-text::before {
+    animation: glitch1 0.3s infinite;
+    color: #0ff;
+    opacity: 0.8;
+    clip-path: polygon(0 0, 100% 0, 100% 35%, 0 35%);
+}
+
+.loading-text::after {
+    animation: glitch2 0.3s infinite;
+    color: #f0f;
+    opacity: 0.8;
+    clip-path: polygon(0 65%, 100% 65%, 100% 100%, 0 100%);
+}
+
+@keyframes glitch1 {
+    0%, 100% { transform: translateX(0); }
+    20% { transform: translateX(-2px); }
+    40% { transform: translateX(2px); }
+    60% { transform: translateX(-1px); }
+    80% { transform: translateX(1px); }
+}
+
+@keyframes glitch2 {
+    0%, 100% { transform: translateX(0); }
+    20% { transform: translateX(2px); }
+    40% { transform: translateX(-2px); }
+    60% { transform: translateX(1px); }
+    80% { transform: translateX(-1px); }
+}
+
 body {
     font-family: 'Montserrat', sans-serif;
     background: linear-gradient(135deg, #0a0a0a 0%, #121418 50%, #0c0f13 100%);
