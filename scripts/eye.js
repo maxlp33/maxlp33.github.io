@@ -1,0 +1,128 @@
+// Eye cursor tracking with physics (moved from index.html)
+// Wrapped in DOMContentLoaded to ensure DOM elements exist
+document.addEventListener('DOMContentLoaded', () => {
+    const eye = document.querySelector('.eye');
+    const pupil = document.querySelector('.pupil');
+    
+    if (eye && pupil) {
+        let pupilX = 0;
+        let pupilY = 0;
+        let angularVelocity = 0;
+        let currentAngle = 0;
+        let currentRadius = 0;
+        let isSpinning = false;
+        let isFollowingCursor = true;
+        let isMouseOverEye = false;
+        let spinTimeout;
+        let animationFrame;
+        
+        const friction = 0.985;
+        const gravity = 0.12;
+        const spinForce = 15;
+        const maxDistanceFromCenter = 25;
+        const cursorFollowBoundary = 15;
+        const pendulumThreshold = 3;
+        
+        function updatePupilPosition() {
+            if (isSpinning) {
+                if (Math.abs(angularVelocity) > pendulumThreshold) {
+                    angularVelocity *= friction;
+                    currentAngle += angularVelocity;
+                    currentRadius = Math.max(currentRadius * 0.999, maxDistanceFromCenter * 0.8);
+                } else {
+                    const restoreForce = Math.sin(currentAngle + Math.PI / 2) * gravity;
+                    angularVelocity += restoreForce;
+                    angularVelocity *= friction;
+                    currentAngle += angularVelocity;
+                    currentRadius *= 0.995;
+                }
+                
+                pupilX = Math.cos(currentAngle) * currentRadius;
+                pupilY = Math.sin(currentAngle) * currentRadius;
+                
+                pupil.style.transform = `translate(${pupilX}px, ${pupilY}px)`;
+                
+                if (Math.abs(angularVelocity) < 0.001 && currentRadius < 3) {
+                    pupilX = 0;
+                    pupilY = 10;
+                    pupil.style.transform = `translate(${pupilX}px, ${pupilY}px)`;
+                    
+                    clearTimeout(spinTimeout);
+                    spinTimeout = setTimeout(() => {
+                        isSpinning = false;
+                        isFollowingCursor = true;
+                        angularVelocity = 0;
+                    }, 1000);
+                    
+                    return;
+                }
+                
+                animationFrame = requestAnimationFrame(updatePupilPosition);
+            }
+        }
+        
+        function startSpin() {
+            isFollowingCursor = false;
+            currentAngle = -Math.PI / 2;
+            currentRadius = maxDistanceFromCenter;
+            
+            pupilX = Math.cos(currentAngle) * currentRadius;
+            pupilY = Math.sin(currentAngle) * currentRadius;
+            pupil.style.transform = `translate(${pupilX}px, ${pupilY}px)`;
+            
+            const spinDirection = Math.random() > 0.5 ? 1 : -1;
+            angularVelocity = spinDirection * spinForce * 0.6;
+            
+            isSpinning = true;
+            
+            clearTimeout(spinTimeout);
+            if (animationFrame) {
+                cancelAnimationFrame(animationFrame);
+            }
+            
+            updatePupilPosition();
+        }
+        
+        eye.addEventListener('mousedown', function(e) {
+            e.preventDefault();
+            e.stopPropagation();
+            startSpin();
+        });
+        
+        eye.addEventListener('click', function(e) {
+            e.preventDefault();
+            e.stopPropagation();
+            if (!isSpinning) {
+                startSpin();
+            }
+        });
+        
+        eye.addEventListener('mouseenter', function() {
+            isMouseOverEye = true;
+        });
+        
+        eye.addEventListener('mouseleave', function() {
+            isMouseOverEye = false;
+        });
+        
+        document.addEventListener('mousemove', (e) => {
+            if (!isFollowingCursor || isSpinning) return;
+            if (isMouseOverEye) return;
+            
+            const eyeRect = eye.getBoundingClientRect();
+            const eyeCenterX = eyeRect.left + eyeRect.width / 2;
+            const eyeCenterY = eyeRect.top + eyeRect.height / 2;
+            
+            const deltaX = e.clientX - eyeCenterX;
+            const deltaY = e.clientY - eyeCenterY;
+            
+            const angle = Math.atan2(deltaY, deltaX);
+            const distance = Math.min(Math.sqrt(deltaX * deltaX + deltaY * deltaY) / 10, cursorFollowBoundary);
+            
+            pupilX = Math.cos(angle) * distance;
+            pupilY = Math.sin(angle) * distance;
+            
+            pupil.style.transform = `translate(${pupilX}px, ${pupilY}px)`;
+        });
+    }
+});
