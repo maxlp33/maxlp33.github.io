@@ -15,6 +15,11 @@ const translations = {
 function switchLanguage(lang) {
     currentLanguage = lang;
     document.getElementById('current-lang').textContent = translations[lang].currentLang;
+    // 更新 hero 標題為 translations 中的 name
+    const heroTitle = document.querySelector('.hero-title');
+    if (heroTitle && translations[lang] && translations[lang].name) {
+        heroTitle.textContent = translations[lang].name;
+    }
     
     // Update all elements with data attributes
     const elementsToTranslate = document.querySelectorAll('[data-zh][data-en]');

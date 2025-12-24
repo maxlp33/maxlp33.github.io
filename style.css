@@ -1,5 +1,8 @@
 .contact-wheel {
     /* ensure anchors don't inherit default blue link color */
+    width: 100%;
+    max-width: 1000px;
+    margin: 0 auto;
 }
 .contact-item,
 .contact-item:link,
@@ -20,7 +23,6 @@
 }
 
 /* Improve layout so items sit on separate rows nicely */
-    background: #fff;
 .contact-wheel {
     width: 100%;
     max-width: 1000px;
@@ -279,41 +281,6 @@ body {
 
 .nav-container {
     display: flex;
-
-    .contact-wheel {
-        display: flex;
-        flex-direction: column;
-        align-items: center;
-        gap: 1.25rem;
-        padding: 2.5rem 0;
-    }
-
-    .contact-item {
-        color: #e5e5e5;
-        text-decoration: none;
-        font-weight: 900; /* extra thicc */
-        font-size: clamp(2rem, 6vw, 5rem); /* HUGE responsive */
-        line-height: 1.05;
-        letter-spacing: -0.02em;
-        padding: 0.2rem 0.4rem; /* minimal padding to let type dominate */
-        border: none; /* minimal, no border */
-        border-radius: 12px;
-        transition: transform 0.2s ease, opacity 0.2s ease;
-        opacity: 0.96;
-    }
-
-    .contact-item:hover {
-        transform: translateY(-2px) scale(1.02);
-        opacity: 1;
-    }
-
-    /* Optional subtle accent underline on focus/hover to emphasize */
-    .contact-item:focus-visible {
-        outline: none;
-        text-decoration: underline;
-        text-decoration-color: rgba(74, 158, 255, 0.6);
-        text-decoration-thickness: 0.08em;
-    }
     justify-content: space-between;
     align-items: center;
     max-width: 1200px;
@@ -321,81 +288,46 @@ body {
 }
 
 .logo {
-    font-size: 1.5rem;
     font-weight: 700;
-    color: #e5e5e5;
+    font-size: 1.5rem;
+    color: #fff;
     text-decoration: none;
-    transition: color 0.3s ease;
     display: flex;
     align-items: center;
-    gap: 0.5rem;
+    gap: 10px;
 }
 
-.logo:hover {
-    color: #ffffff;
-}
-
-/* ML Cube Logo */
 .logo-cube {
-    width: 35px;
-    height: 35px;
+    width: 30px;
+    height: 30px;
     position: relative;
     transform-style: preserve-3d;
-    animation: logoCubeRotate 8s infinite linear;
-    margin: 5px;
+    animation: rotate 10s infinite linear;
 }
 
 .logo-cube-face {
     position: absolute;
-    width: 35px;
-    height: 35px;
+    width: 30px;
+    height: 30px;
+    background: rgba(255, 255, 255, 0.1);
+    border: 1px solid rgba(255, 255, 255, 0.5);
     display: flex;
     align-items: center;
     justify-content: center;
-    font-size: 14px;
-    font-weight: bold;
-    color: #ffffff;
-    border: 2px solid rgba(200, 200, 200, 0.6);
-    box-shadow: 0 0 15px rgba(255, 255, 255, 0.1);
-    text-shadow: 1px 1px 2px rgba(0, 0, 0, 0.8);
+    font-size: 0.8rem;
+    color: #fff;
 }
 
-.logo-cube-face.front {
-    background: linear-gradient(135deg, #606060, #404040);
-    transform: translateZ(17.5px);
-}
+.logo-cube-face.front  { transform: translateZ(15px); }
+.logo-cube-face.back   { transform: rotateY(180deg) translateZ(15px); }
+.logo-cube-face.right  { transform: rotateY(90deg) translateZ(15px); }
+.logo-cube-face.left   { transform: rotateY(-90deg) translateZ(15px); }
+.logo-cube-face.top    { transform: rotateX(90deg) translateZ(15px); }
+.logo-cube-face.bottom { transform: rotateX(-90deg) translateZ(15px); }
 
-.logo-cube-face.back {
-    background: linear-gradient(135deg, #404040, #303030);
-    transform: rotateY(180deg) translateZ(17.5px);
-}
-
-.logo-cube-face.right {
-    background: linear-gradient(135deg, #707070, #606060);
-    transform: rotateY(90deg) translateZ(17.5px);
-}
-
-.logo-cube-face.left {
-    background: linear-gradient(135deg, #303030, #202020);
-    transform: rotateY(-90deg) translateZ(17.5px);
-}
-
-.logo-cube-face.top {
-    background: linear-gradient(135deg, #808080, #707070);
-    transform: rotateX(90deg) translateZ(17.5px);
-}
-
-.logo-cube-face.bottom {
-    background: linear-gradient(135deg, #202020, #101010);
-    transform: rotateX(-90deg) translateZ(17.5px);
-}
-
-@keyframes logoCubeRotate {
-    0% { transform: rotateX(0) rotateY(0); }
-    25% { transform: rotateX(90deg) rotateY(0); }
-    50% { transform: rotateX(90deg) rotateY(90deg); }
-    75% { transform: rotateX(0) rotateY(90deg); }
-    100% { transform: rotateX(0) rotateY(360deg); }
+@keyframes rotate {
+    from { transform: rotateX(0deg) rotateY(0deg); }
+    to { transform: rotateX(360deg) rotateY(360deg); }
 }
 
 .nav-menu {
@@ -408,12 +340,10 @@ body {
     color: #e5e5e5;
     text-decoration: none;
     font-weight: 500;
-    position: relative;
+    font-size: 0.9rem;
+    letter-spacing: 1px;
     transition: color 0.3s ease;
-}
-
-.nav-link:hover {
-    color: #ffffff;
+    position: relative;
 }
 
 .nav-link::after {
@@ -423,115 +353,119 @@ body {
     left: 0;
     width: 0;
     height: 2px;
-    background: #e5e5e5;
+    background: #fff;
     transition: width 0.3s ease;
+}
+
+.nav-link:hover {
+    color: #fff;
 }
 
 .nav-link:hover::after {
     width: 100%;
 }
 
+.menu-toggle {
+    display: none;
+    flex-direction: column;
+    gap: 6px;
+    cursor: pointer;
+}
+
+.menu-toggle span {
+    width: 25px;
+    height: 2px;
+    background: #fff;
+    transition: all 0.3s ease;
+}
+
 /* Language Selector */
 .language-selector {
     position: relative;
-    margin-left: 1rem;
+    margin-left: 20px;
 }
 
 .language-btn {
     background: transparent;
-    border: 1px solid #e5e5e5;
-    color: #e5e5e5;
-    padding: 0.5rem 1rem;
-    border-radius: 5px;
+    border: 1px solid rgba(255, 255, 255, 0.3);
+    color: #fff;
+    padding: 5px 10px;
+    border-radius: 4px;
     cursor: pointer;
-    font-family: 'Montserrat', sans-serif;
-    font-weight: 500;
-    transition: all 0.3s ease;
     display: flex;
     align-items: center;
-    gap: 0.5rem;
+    gap: 5px;
+    font-size: 0.8rem;
+    transition: all 0.3s ease;
 }
 
 .language-btn:hover {
-    background: #e5e5e5;
-    color: #000000;
+    background: rgba(255, 255, 255, 0.1);
+    border-color: #fff;
 }
 
 .language-dropdown {
     position: absolute;
     top: 100%;
     right: 0;
-    background: rgba(0, 0, 0, 0.95);
-    border: 1px solid #e5e5e5;
-    border-radius: 5px;
-    min-width: 100px;
+    background: #1a1a1a;
+    border: 1px solid rgba(255, 255, 255, 0.1);
+    border-radius: 4px;
+    margin-top: 5px;
     display: none;
-    z-index: 1001;
+    flex-direction: column;
+    min-width: 100px;
+    overflow: hidden;
 }
 
-.language-dropdown.active {
-    display: block;
+.language-dropdown.show {
+    display: flex;
 }
 
 .language-option {
-    padding: 0.7rem 1rem;
-    color: #e5e5e5;
-    cursor: pointer;
-    transition: background 0.3s ease;
-    border: none;
     background: transparent;
-    width: 100%;
+    border: none;
+    color: #ccc;
+    padding: 8px 15px;
     text-align: left;
-    font-family: 'Montserrat', sans-serif;
+    cursor: pointer;
+    transition: all 0.2s ease;
 }
 
 .language-option:hover {
-    background: rgba(229, 229, 229, 0.1);
+    background: rgba(255, 255, 255, 0.1);
+    color: #fff;
 }
 
-/* Eye Container */
+/* Eye Animation */
 .eye-container {
-    position: relative;
-    margin-left: 2rem;
-}
-
-.eye {
-    width: 60px;
-    height: 60px;
-    background: #e5e5e5;
-    border-radius: 50%;
-    position: relative;
+    width: 30px;
+    height: 30px;
+    margin-left: 15px;
     display: flex;
     align-items: center;
     justify-content: center;
-    border: 2px solid #ffffff;
-    box-shadow: 0 0 15px rgba(229, 229, 229, 0.3);
-    transition: all 0.1s ease;
+}
+
+.eye {
+    width: 24px;
+    height: 24px;
+    background: #fff;
+    border-radius: 50%;
+    position: relative;
+    overflow: hidden;
+    box-shadow: 0 0 10px rgba(255, 255, 255, 0.5);
 }
 
 .pupil {
-    width: 20px;
-    height: 20px;
-    background: #000000;
+    width: 10px;
+    height: 10px;
+    background: #000;
     border-radius: 50%;
-    position: relative;
-    transition: all 0.1s ease;
-    box-shadow: 0 0 4px rgba(0, 0, 0, 0.3);
-}
-
-/* Mobile Menu Toggle */
-.menu-toggle {
-    display: none;
-    flex-direction: column;
-    cursor: pointer;
-    gap: 4px;
-}
-
-.menu-toggle span {
-    width: 25px;
-    height: 3px;
-    background: #e5e5e5;
-    transition: 0.3s;
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
 }
 
 /* Hero Section */
@@ -568,13 +502,6 @@ body {
     width: 100%;
     pointer-events: none;
     margin-top: 40vh;
-}
-
-.hero-content.no-select {
-    user-select: none;
-    -webkit-user-select: none;
-    -moz-user-select: none;
-    -ms-user-select: none;
 }
 
 .hero-content.no-select {
@@ -627,95 +554,9 @@ body {
     border: 1px solid rgba(229, 229, 229, 0.6);
 }
 
-/* 3D Rotating Object */
-.rotating-object {
-    position: absolute;
-    top: 50%;
-    right: 10%;
-    transform: translateY(-50%);
-    perspective: 1000px;
-    width: 300px;
-    height: 300px;
-    cursor: grab;
-    user-select: none;
-    -webkit-user-select: none;
-    -moz-user-select: none;
-    -ms-user-select: none;
-    display: flex;
-    align-items: center;
-    justify-content: center;
-    z-index: 10;
-}
-
-.rotating-object.dragging {
-    cursor: grabbing;
-}
-
-.cube {
-    width: 200px;
-    height: 200px;
-    position: relative;
-    transform-style: preserve-3d;
-    transition: transform 0.1s ease;
-    animation: autoRotate 15s infinite linear;
-    user-select: none;
-    -webkit-user-select: none;
-    -moz-user-select: none;
-    -ms-user-select: none;
-    cursor: grab;
-}
-
-.cube.dragging {
-    animation: none;
-    cursor: grabbing;
-}
-
-@keyframes autoRotate {
-    from {
-        transform: rotateX(0deg) rotateY(0deg);
-    }
-    to {
-        transform: rotateX(360deg) rotateY(360deg);
-    }
-}
-
-.cube-face {
-    position: absolute;
-    width: 200px;
-    height: 200px;
-    border: 2px solid #e5e5e5;
-    background: rgba(229, 229, 229, 0.1);
-    backdrop-filter: blur(5px);
-    display: flex;
-    justify-content: center;
-    align-items: center;
-    font-size: 4rem;
-    font-weight: 700;
-    color: #e5e5e5;
-    font-family: 'Montserrat', sans-serif;
-    text-shadow: 0 0 20px rgba(229, 229, 229, 0.3);
-    animation: colorChange 6s infinite ease-in-out;
-    user-select: none;
-    -webkit-user-select: none;
-    -moz-user-select: none;
-    -ms-user-select: none;
-}
-
-.cube-face.front { transform: rotateY(0deg) translateZ(100px); }
-.cube-face.back { transform: rotateY(180deg) translateZ(100px); }
-.cube-face.right { transform: rotateY(90deg) translateZ(100px); }
-.cube-face.left { transform: rotateY(-90deg) translateZ(100px); }
-.cube-face.top { transform: rotateX(90deg) translateZ(100px); }
-.cube-face.bottom { transform: rotateX(-90deg) translateZ(100px); }
-
-@keyframes rotate {
-    from {
-        transform: rotateX(0deg) rotateY(0deg);
-    }
-    to {
-        transform: rotateX(360deg) rotateY(360deg);
-    }
-}
+/* Floating 3D cube (page) removed — keep navbar logo-cube only */
+/* Removed: .rotating-object, .cube, .cube-face and related animations to
+   eliminate unused styles without affecting the navbar logo cube. */
 
 /* About Section */
 .about {
@@ -866,45 +707,8 @@ body {
     transform: translateY(-50%) scale(1.1);
 }
 
-.carousel-prev {
-    left: 10px;
-}
-
-.carousel-next {
-    right: 10px;
-}
-
-.carousel-arrow {
-    position: absolute;
-    top: 50%;
-    transform: translateY(-50%);
-    background: rgba(0, 0, 0, 0.7);
-    color: white;
-    border: none;
-    width: 40px;
-    height: 40px;
-    border-radius: 50%;
-    font-size: 20px;
-    cursor: pointer;
-    z-index: 10;
-    transition: all 0.3s ease;
-    display: flex;
-    align-items: center;
-    justify-content: center;
-}
-
-.carousel-arrow:hover {
-    background: rgba(0, 0, 0, 0.9);
-    transform: translateY(-50%) scale(1.1);
-}
-
-.carousel-prev {
-    left: 10px;
-}
-
-.carousel-next {
-    right: 10px;
-}
+.carousel-prev { left: 10px; }
+.carousel-next { right: 10px; }
 
 .project-image {
     position: absolute;
@@ -1066,69 +870,15 @@ body {
     transform: translateX(2px);
 }
 
-/* Contact Section */
+/* Contact Section: feedback form removed because not used in the site.
+   Kept only the container (.contact) for potential future layout, removed
+   all form-control rules: .contact-form, .form-group, .form-label,
+   .form-input, .form-textarea, .submit-btn and related focus/hover rules. */
 .contact {
     padding: 5rem 2rem;
     max-width: 1200px;
     margin: 0 auto;
     text-align: center;
-}
-
-.contact-form {
-    max-width: 600px;
-    margin: 0 auto;
-    display: grid;
-    gap: 1.5rem;
-}
-
-.form-group {
-    display: flex;
-    flex-direction: column;
-    gap: 0.5rem;
-}
-
-.form-label {
-    font-weight: 500;
-}
-
-.form-input,
-.form-textarea {
-    background: rgba(229, 229, 229, 0.1);
-    border: 1px solid rgba(229, 229, 229, 0.3);
-    color: #e5e5e5;
-    padding: 1rem;
-    border-radius: 8px;
-    font-family: 'Montserrat', sans-serif;
-    transition: border-color 0.3s ease;
-}
-
-.form-input:focus,
-.form-textarea:focus {
-    outline: none;
-    border-color: #e5e5e5;
-}
-
-.form-textarea {
-    resize: vertical;
-    min-height: 120px;
-}
-
-.submit-btn {
-    background: #e5e5e5;
-    color: #000000;
-    border: none;
-    padding: 1rem 2rem;
-    font-size: 1.1rem;
-    font-weight: 600;
-    cursor: pointer;
-    border-radius: 8px;
-    transition: all 0.3s ease;
-    font-family: 'Montserrat', sans-serif;
-}
-
-.submit-btn:hover {
-    background: #ffffff;
-    transform: translateY(-2px);
 }
 
 /* Footer */
@@ -1148,60 +898,6 @@ body {
     to {
         opacity: 1;
         transform: translateY(0);
-    }
-}
-
-@keyframes rotate {
-    from {
-        transform: rotateX(0deg) rotateY(0deg);
-    }
-    to {
-        transform: rotateX(360deg) rotateY(360deg);
-    }
-}
-
-@keyframes colorChange {
-    0% {
-        background: rgba(255, 75, 75, 0.2);
-        border-color: #ff4b4b;
-        color: #ff4b4b;
-        text-shadow: 0 0 20px rgba(255, 75, 75, 0.4);
-    }
-    16.67% {
-        background: rgba(255, 165, 0, 0.2);
-        border-color: #ffa500;
-        color: #ffa500;
-        text-shadow: 0 0 20px rgba(255, 165, 0, 0.4);
-    }
-    33.33% {
-        background: rgba(255, 255, 75, 0.2);
-        border-color: #ffff4b;
-        color: #ffff4b;
-        text-shadow: 0 0 20px rgba(255, 255, 75, 0.4);
-    }
-    50% {
-        background: rgba(75, 255, 75, 0.2);
-        border-color: #4bff4b;
-        color: #4bff4b;
-        text-shadow: 0 0 20px rgba(75, 255, 75, 0.4);
-    }
-    66.67% {
-        background: rgba(75, 175, 255, 0.2);
-        border-color: #4bafff;
-        color: #4bafff;
-        text-shadow: 0 0 20px rgba(75, 175, 255, 0.4);
-    }
-    83.33% {
-        background: rgba(138, 43, 226, 0.2);
-        border-color: #8a2be2;
-        color: #8a2be2;
-        text-shadow: 0 0 20px rgba(138, 43, 226, 0.4);
-    }
-    100% {
-        background: rgba(255, 75, 75, 0.2);
-        border-color: #ff4b4b;
-        color: #ff4b4b;
-        text-shadow: 0 0 20px rgba(255, 75, 75, 0.4);
     }
 }
 
@@ -1278,25 +974,6 @@ body {
         text-align: center;
         margin-bottom: 3rem;
     }
-
-    .cube {
-        width: 120px;
-        height: 120px;
-    }
-
-    .cube-face {
-        width: 120px;
-        height: 120px;
-        font-size: 2.5rem;
-    }
-
-    .cube-face.front,
-    .cube-face.back { transform: rotateY(0deg) translateZ(60px); }
-    .cube-face.back { transform: rotateY(180deg) translateZ(60px); }
-    .cube-face.right { transform: rotateY(90deg) translateZ(60px); }
-    .cube-face.left { transform: rotateY(-90deg) translateZ(60px); }
-    .cube-face.top { transform: rotateX(90deg) translateZ(60px); }
-    .cube-face.bottom { transform: rotateX(-90deg) translateZ(60px); }
 }
 
 
