@@ -99,12 +99,12 @@
                 "zh": "重現《奧術》系列中凱特琳·吉拉曼的粉絲藝術項目，專注於在 3D 中捕捉獨特的繪畫風格。"
             },
             "process": {
-                "en": "Sculpted in ZBrush, retopologized in Maya, and hand-painted textures to match the show's aesthetic.",
-                "zh": "在 ZBrush 中雕刻，在 Maya 中重新拓撲，並手繪材質以匹配劇集的審美。"
+                "en": "Sculpted in Blender, retopologized in Blender, and hand-painted textures to match the show's aesthetic.",
+                "zh": "在 Blender 中雕刻，在 Blender 中重新拓撲，並手繪材質以匹配劇集的審美。"
             }
         },
         "specs": [
-            { "en": "🔧 ZBrush - Sculpting", "zh": "🔧 ZBrush - 雕刻" },
+            { "en": "🔧 Blender - Sculpting", "zh": "🔧 ZBrush - 雕刻" },
             { "en": "🎨 Hand-painted Textures", "zh": "🎨 手繪材質" },
             { "en": "📐 Character Topology", "zh": "📐 角色拓撲" }
         ],
@@ -133,7 +133,7 @@
             { "icon": "🏭", "text": "Prop Design" },
             { "icon": "⏱️", "text": "5 Weeks" },
             { "icon": "🎯", "text": "Environment Art" },
-            { "icon": "🛠️", "text": "Blender & UE5" }
+            { "icon": "🛠️", "text": "Blender" }
         ],
         "description": {
             "overview": {
@@ -146,8 +146,6 @@
             }
         },
         "specs": [
-            { "en": "🔧 Modular Design", "zh": "🔧 模組化設計" },
-            { "en": "🎨 Trim Sheet Workflow", "zh": "🎨 修剪表工作流程" },
             { "en": "📐 Environment Asset", "zh": "📐 環境資產" }
         ],
         "images": [
@@ -189,7 +187,6 @@
         "specs": [
             { "en": "🔧 Hard Surface Modeling", "zh": "🔧 硬表面建模" },
             { "en": "🎨 Weathered Textures", "zh": "🎨 風化材質" },
-            { "en": "📐 Rigged for Animation", "zh": "📐 已綁定動畫" }
         ],
         "images": [
             { "src": "img/projects/mech/mech cover.jpg", "alt": "Mech Cover" },
@@ -235,7 +232,6 @@
             { "en": "Stylized Modeling - Blender 3.6", "zh": "風格化建模 - Blender 3.6" },
             { "en": "Toon Shading - Custom Materials", "zh": "卡通渲染 - Custom Materials" },
             { "en": "Color Design - Vibrant Palette", "zh": "色彩設計 - Vibrant Palette" },
-            { "en": "Animation Ready - Rigged & Weighted", "zh": "動畫就緒 - Rigged & Weighted" }
         ],
         "images": [
             { "src": "img/projects/stylized/stylizedmechThumbNail.png", "alt": "Stylized Mech Thumbnail" },
