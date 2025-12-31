@@ -1,0 +1,65 @@
+[
+    {
+        "id": "sten",
+        "title": "Sten Submachine Gun",
+        "badge": "🔫 3D MODELING",
+        "description": "WWII-era Sten submachine gun 3D model with complete material workflow",
+        "image": "img/projects/sten/Sten8.png",
+        "link": "project-sten.html",
+        "date": "2023-01-01"
+    },
+    {
+        "id": "m1911",
+        "title": "Colt M1911 Pistol",
+        "badge": "🔫 3D MODELING",
+        "description": "Classic American pistol 3D reconstruction with PBR workflow",
+        "image": "img/projects/m1911/m1911-TN.png",
+        "link": "project-m1911.html",
+        "date": "2023-02-01"
+    },
+    {
+        "id": "caitlyn",
+        "title": "Arcane Caitlyn",
+        "badge": "👤 CHARACTER DESIGN",
+        "description": "Character recreation from Netflix's Arcane animation",
+        "image": "img/projects/caitlyn/caitRender11.png",
+        "link": "project-caitlyn.html",
+        "date": "2023-03-01"
+    },
+    {
+        "id": "2077",
+        "title": "Cyberpunk2077 Manufacturer",
+        "badge": "🏭 PROP DESIGN",
+        "description": "Neo-kitsch weapon workbench design inspired by Rayfield",
+        "image": "img/projects/2077/2077 manufactrue bench1.jpg",
+        "link": "project-2077manufacture.html",
+        "date": "2023-04-01"
+    },
+    {
+        "id": "mech",
+        "title": "Battle Mech",
+        "badge": "🤖 MECH DESIGN",
+        "description": "Heavy battle mech 3D model with weapon systems and armor details",
+        "image": "img/projects/mech/mech cover.jpg",
+        "link": "project-mech.html",
+        "date": "2023-05-01"
+    },
+    {
+        "id": "stylized",
+        "title": "Stylized Mech",
+        "badge": "🎨 STYLIZED DESIGN",
+        "description": "Overwatch-inspired stylized mech with cartoon art style",
+        "image": "img/projects/stylized/stylizedmechThumbNail.png",
+        "link": "project-stylizedmech.html",
+        "date": "2023-06-01"
+    },
+    {
+        "id": "junkrat",
+        "title": "Junkrat Launcher",
+        "badge": "💥 WEAPON DESIGN",
+        "description": "Overwatch grenade launcher recreation with weathered materials",
+        "image": "img/projects/junkrat/junkrat launcher 1.png",
+        "link": "project-junkratlauncher.html",
+        "date": "2023-07-01"
+    }
+]
