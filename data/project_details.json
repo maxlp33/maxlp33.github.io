@@ -1,0 +1,299 @@
+{
+    "sten": {
+        "title": "Sten Submachine Gun",
+        "subtitle": {
+            "en": "High-Fidelity 3D Reconstruction of WWII-Era Submachine Gun",
+            "zh": "二戰時期經典衝鋒槍的高擬真 3D 重建"
+        },
+        "meta": [
+            { "icon": "🔫", "text": "3D Modeling" },
+            { "icon": "⏱️", "text": "6 Weeks" },
+            { "icon": "🎯", "text": "Game Asset" },
+            { "icon": "🛠️", "text": "Blender & Substance" }
+        ],
+        "description": {
+            "overview": {
+                "en": "This is a 3D modeling project focused on the British Sten submachine gun from WWII. I concentrated on recreating every detail of this historical weapon, from metal surface wear patterns to gun body textures, all carefully crafted to achieve maximum visual realism.",
+                "zh": "這是一個以二戰時期英國 Sten 衝鋒槍為主題的 3D 建模項目。我專注於重現這把歷史武器的每一個細節，從金屬表面的磨損痕跡到槍身的紋理質感，都經過精心製作以達到最高的視覺真實度。"
+            },
+            "process": {
+                "en": "The project began with extensive research, gathering historical documentation, technical drawings, and reference photographs. The modeling phase used a high-to-low poly workflow, ensuring detail integrity while meeting game performance requirements. Material creation focused on realistic metal aging effects and natural wood surface wear.",
+                "zh": "項目從廣泛的研究開始，收集歷史資料、技術圖紙和參考照片。建模階段採用先高模後優化的方式，確保細節的完整性同時滿足遊戲性能要求。材質製作特別注重真實的金屬老化效果和木質表面的自然磨損。"
+            }
+        },
+        "specs": [
+            { "en": "🔧 Blender 4.4 - Primary Modeling Tool", "zh": "🔧 Blender 4.4 - 主要建模工具" },
+            { "en": "🎨 Substance Painter - Texture Creation", "zh": "🎨 Substance Painter - 材質製作" },
+            { "en": "📐 Optimized (80,000 triangles)", "zh": "📐 面數優化 (80,000 面)" },
+            { "en": "🖼️ 4K PBR Texture Maps", "zh": "🖼️ 4K PBR 材質貼圖" },
+            { "en": "⚙️ Game Engine Ready Format", "zh": "⚙️ 遊戲引擎就緒格式" },
+            { "en": "📏 Historically Accurate Proportions", "zh": "📏 精確歷史比例" }
+        ],
+        "images": [
+            { "src": "img/projects/sten/Sten8.png", "alt": "Sten Gun Main View" },
+            { "src": "img/projects/sten/Copy of Sten1.png", "alt": "Sten Gun Detail 1" },
+            { "src": "img/projects/sten/Copy of Sten2.png", "alt": "Sten Gun Detail 2" },
+            { "src": "img/projects/sten/Copy of Sten4.png", "alt": "Sten Gun Technical" },
+            { "src": "img/projects/sten/Copy of Sten5.png", "alt": "Sten Gun Wireframe" },
+            { "src": "img/projects/sten/Copy of Sten6.png", "alt": "Sten Gun UV Map" },
+            { "src": "img/projects/sten/Copy of Sten10.png", "alt": "Sten Gun Model 10" },
+            { "src": "img/projects/sten/Copy of Sten_highpoly_AO.png", "alt": "Sten High Poly AO" },
+            { "src": "img/projects/sten/Copy of Sten_wireframe.png", "alt": "Sten Wireframe View" },
+            { "src": "img/projects/sten/Copy of StenUV.png", "alt": "Sten UV Mapping" }
+        ]
+    },
+    "m1911": {
+        "title": "Colt M1911 Pistol",
+        "subtitle": {
+            "en": "Classic American pistol 3D reconstruction with PBR workflow",
+            "zh": "經典美式手槍的 PBR 流程 3D 重建"
+        },
+        "meta": [
+            { "icon": "🔫", "text": "3D Modeling" },
+            { "icon": "⏱️", "text": "4 Weeks" },
+            { "icon": "🎯", "text": "Game Asset" },
+            { "icon": "🛠️", "text": "Blender & Substance" }
+        ],
+        "description": {
+            "overview": {
+                "en": "A detailed recreation of the legendary Colt M1911 pistol. This project focuses on hard-surface modeling techniques and realistic material definition.",
+                "zh": "傳奇柯爾特 M1911 手槍的詳細重建。本項目專注於硬表面建模技術和逼真的材質定義。"
+            },
+            "process": {
+                "en": "Modeled in Blender using boolean workflows for complex shapes, then textured in Substance Painter with a focus on edge wear and surface imperfections.",
+                "zh": "在 Blender 中使用布林運算流程製作複雜形狀，然後在 Substance Painter 中進行材質繪製，重點在於邊緣磨損和表面瑕疵。"
+            }
+        },
+        "specs": [
+            { "en": "🔧 Blender - Modeling", "zh": "🔧 Blender - 建模" },
+            { "en": "🎨 Substance Painter - Texturing", "zh": "🎨 Substance Painter - 材質" },
+            { "en": "📐 Game Ready Topology", "zh": "📐 遊戲就緒拓撲" }
+        ],
+        "images": [
+            { "src": "img/projects/m1911/m1911-TN.png", "alt": "M1911 Main View" },
+            { "src": "img/projects/m1911/m1911-1.png", "alt": "M1911 Side View" },
+            { "src": "img/projects/m1911/m1911-2.png", "alt": "M1911 Perspective" },
+            { "src": "img/projects/m1911/m1911-3.png", "alt": "M1911 Detail" },
+            { "src": "img/projects/m1911/m1911-4.png", "alt": "M1911 Wireframe" },
+            { "src": "img/projects/m1911/m1911-5.png", "alt": "M1911 Clay Render" },
+            { "src": "img/projects/m1911/m1911-6.png", "alt": "M1911 UV Layout" },
+            { "src": "img/projects/m1911/m1911-7.png", "alt": "M1911 Close up" },
+            { "src": "img/projects/m1911/m1911-8.png", "alt": "M1911 Back View" }
+        ]
+    },
+    "caitlyn": {
+        "title": "Arcane Caitlyn",
+        "subtitle": {
+            "en": "Character recreation from Netflix's Arcane animation",
+            "zh": "Netflix 動畫《奧術》角色凱特琳的重製"
+        },
+        "meta": [
+            { "icon": "👤", "text": "Character Design" },
+            { "icon": "⏱️", "text": "8 Weeks" },
+            { "icon": "🎯", "text": "Fan Art" },
+            { "icon": "🛠️", "text": "ZBrush & Maya" }
+        ],
+        "description": {
+            "overview": {
+                "en": "A fan art project recreating Caitlyn Kiramman from the Arcane series, focusing on capturing the unique painterly style in 3D.",
+                "zh": "重現《奧術》系列中凱特琳·吉拉曼的粉絲藝術項目，專注於在 3D 中捕捉獨特的繪畫風格。"
+            },
+            "process": {
+                "en": "Sculpted in ZBrush, retopologized in Maya, and hand-painted textures to match the show's aesthetic.",
+                "zh": "在 ZBrush 中雕刻，在 Maya 中重新拓撲，並手繪材質以匹配劇集的審美。"
+            }
+        },
+        "specs": [
+            { "en": "🔧 ZBrush - Sculpting", "zh": "🔧 ZBrush - 雕刻" },
+            { "en": "🎨 Hand-painted Textures", "zh": "🎨 手繪材質" },
+            { "en": "📐 Character Topology", "zh": "📐 角色拓撲" }
+        ],
+        "images": [
+            { "src": "img/projects/caitlyn/caitRender11.png", "alt": "Caitlyn Main" },
+            { "src": "img/projects/caitlyn/caitRender.png", "alt": "Caitlyn Full Body" },
+            { "src": "img/projects/caitlyn/caitRender1.png", "alt": "Caitlyn Face Detail" },
+            { "src": "img/projects/caitlyn/caitRender2.png", "alt": "Caitlyn Side View" },
+            { "src": "img/projects/caitlyn/caitRender3.png", "alt": "Caitlyn Back View" },
+            { "src": "img/projects/caitlyn/caitRender4.png", "alt": "Caitlyn Weapon" },
+            { "src": "img/projects/caitlyn/caitRender5.png", "alt": "Caitlyn Pose 1" },
+            { "src": "img/projects/caitlyn/caitRender6.png", "alt": "Caitlyn Pose 2" },
+            { "src": "img/projects/caitlyn/caitRender7.png", "alt": "Caitlyn Wireframe" },
+            { "src": "img/projects/caitlyn/caitRender8.png", "alt": "Caitlyn High Poly" },
+            { "src": "img/projects/caitlyn/caitRender9.png", "alt": "Caitlyn Clay" },
+            { "src": "img/projects/caitlyn/caitRender10.png", "alt": "Caitlyn Close up" }
+        ]
+    },
+    "2077": {
+        "title": "Cyberpunk 2077 Manufacturer",
+        "subtitle": {
+            "en": "Neo-kitsch weapon workbench design inspired by Rayfield",
+            "zh": "受 Rayfield 啟發的新刻奇風格武器工作台設計"
+        },
+        "meta": [
+            { "icon": "🏭", "text": "Prop Design" },
+            { "icon": "⏱️", "text": "5 Weeks" },
+            { "icon": "🎯", "text": "Environment Art" },
+            { "icon": "🛠️", "text": "Blender & UE5" }
+        ],
+        "description": {
+            "overview": {
+                "en": "This is a concept design project exploring what it would look like if Rayfield, the luxury car brand from Cyberpunk 2077, made a weapon manufacturing workbench. Featuring neo-kitsch aesthetic style, I combined Rayfield's luxury design language with industrial manufacturing aesthetics to create high-end, tech-filled weapon production equipment, showcasing a vision of luxury manufacturing in 2077.",
+                "zh": "這是一個概念設計項目，探索如果《賽博龐克2077》遊戲中的奢華汽車品牌Rayfield製造武器工作台會是什麼樣子。採用新復古（neo-kitsch）美學風格，我融合了Rayfield的奢華設計語言與工業製造美學，創造出充滿科技感的高端武器生產設備，展現了2077年奢華製造業的願景。"
+            },
+            "process": {
+                "en": "Through in-depth research of modern manufacturing and industrial design in sci-fi works, I established a design language that perfectly combines practicality with futurism. Used layered lighting and material variations to enhance machine depth and realism.",
+                "zh": "通過深入研究現代製造業和科幻作品中的工業設計，我建立了一套設計語言，將實用性與未來感完美融合。使用分層照明和材質變化來增強機械的深度和真實感。"
+            }
+        },
+        "specs": [
+            { "en": "🔧 Modular Design", "zh": "🔧 模組化設計" },
+            { "en": "🎨 Trim Sheet Workflow", "zh": "🎨 修剪表工作流程" },
+            { "en": "📐 Environment Asset", "zh": "📐 環境資產" }
+        ],
+        "images": [
+            { "src": "img/projects/2077/2077 manufactrue bench1.jpg", "alt": "Workbench Main" },
+            { "src": "img/projects/2077/2077 manufactrue bench2.jpg", "alt": "Workbench Angle" },
+            { "src": "img/projects/2077/2077 manufactrue bench3.jpg", "alt": "Workbench Detail 1" },
+            { "src": "img/projects/2077/2077 manufactrue bench4.jpg", "alt": "Workbench Detail 2" },
+            { "src": "img/projects/2077/2077 manufactrue bench5.jpg", "alt": "Workbench Screen" },
+            { "src": "img/projects/2077/2077 manufactrue bench6.jpg", "alt": "Workbench Tools" },
+            { "src": "img/projects/2077/2077 manufactrue bench7.jpg", "alt": "Workbench Side" },
+            { "src": "img/projects/2077/2077 manufactrue bench8.jpg", "alt": "Workbench Back" },
+            { "src": "img/projects/2077/2077 manufactrue bench9.jpg", "alt": "Workbench Top" },
+            { "src": "img/projects/2077/2077 manufactrue bench10.jpg", "alt": "Workbench Wireframe" },
+            { "src": "img/projects/2077/2077 manufactrue bench11.jpg", "alt": "Workbench Clay" }
+        ]
+    },
+    "mech": {
+        "title": "Battle Mech",
+        "subtitle": {
+            "en": "Heavy battle mech 3D model with weapon systems and armor details",
+            "zh": "具有武器系統和裝甲細節的重型戰鬥機甲 3D 模型"
+        },
+        "meta": [
+            { "icon": "🤖", "text": "Mech Design" },
+            { "icon": "⏱️", "text": "7 Weeks" },
+            { "icon": "🎯", "text": "Hard Surface" },
+            { "icon": "🛠️", "text": "Blender" }
+        ],
+        "description": {
+            "overview": {
+                "en": "This is a complete 3D model design project for a heavy battle mech. I focused on the rationality of mechanical structure and combat functionality, including weapon systems, armor details, and articulated joint design. The entire mech design considers both visual impact and practicality based on engineering principles.",
+                "zh": "這是一個重型戰鬥機甲的完整 3D 模型設計項目。我專注於機械結構的合理性和戰鬥功能的表現，包含武器系統、裝甲細節和可動關節設計。整個機甲設計既考慮了視覺衝擊力，也注重實用性和工程學原理。"
+            },
+            "process": {
+                "en": "Successfully achieved 3D modeling of complex mechanical structures with over 500 independent parts. Each joint is precisely calculated to ensure natural movement in animation. The material system supports various surface effects, from polished metal to weathered paint.",
+                "zh": "成功實現了複雜機械結構的 3D 建模，包含超過 500 個獨立零件。每個關節都經過精確計算，確保在動畫中能夠自然運動。材質系統支援多種表面效果，從拋光金屬到磨損塗裝。"
+            }
+        },
+        "specs": [
+            { "en": "🔧 Hard Surface Modeling", "zh": "🔧 硬表面建模" },
+            { "en": "🎨 Weathered Textures", "zh": "🎨 風化材質" },
+            { "en": "📐 Rigged for Animation", "zh": "📐 已綁定動畫" }
+        ],
+        "images": [
+            { "src": "img/projects/mech/mech cover.jpg", "alt": "Mech Cover" },
+            { "src": "img/projects/mech/mech1.jpg", "alt": "Mech Front" },
+            { "src": "img/projects/mech/mech2.jpg", "alt": "Mech Side" },
+            { "src": "img/projects/mech/mech3.jpg", "alt": "Mech Back" },
+            { "src": "img/projects/mech/mech4.jpg", "alt": "Mech Detail 1" },
+            { "src": "img/projects/mech/mech5.jpg", "alt": "Mech Detail 2" },
+            { "src": "img/projects/mech/mech6.jpg", "alt": "Mech Weapon" },
+            { "src": "img/projects/mech/mech1-1.jpg", "alt": "Mech Render 1" },
+            { "src": "img/projects/mech/mech1-2.jpg", "alt": "Mech Render 2" },
+            { "src": "img/projects/mech/mech1-3.jpg", "alt": "Mech Render 3" },
+            { "src": "img/projects/mech/mech1-4.jpg", "alt": "Mech Render 4" },
+            { "src": "img/projects/mech/mech1-5.jpg", "alt": "Mech Render 5" },
+            { "src": "img/projects/mech/mech1-6.jpg", "alt": "Mech Render 6" },
+            { "src": "img/projects/mech/mech1-7.jpg", "alt": "Mech Render 7" },
+            { "src": "img/projects/mech/mech1-8.jpg", "alt": "Mech Render 8" }
+        ]
+    },
+    "stylized": {
+        "title": "Stylized Mech",
+        "subtitle": {
+            "en": "Stylized Mech Design Project with Cartoon Art Style",
+            "zh": "風格化機甲設計項目，採用卡通化的美術風格"
+        },
+        "meta": [
+            { "icon": "🎨", "text": "Stylized Design" },
+            { "icon": "⏱️", "text": "1 Week" },
+            { "icon": "🎯", "text": "Cartoon Style" },
+            { "icon": "🛠️", "text": "Blender & Substance" }
+        ],
+        "description": {
+            "overview": {
+                "en": "Stylized mech design project inspired by Overwatch art style and exaggerated proportions. Focuses on color scheme and visual impact, suitable for games, combining elements of cuteness and power. Through simplified geometric shapes and vivid color contrasts, creates an easily recognizable and expressive visual effect.",
+                "zh": "機甲設計項目，靈感來源於《鬥陣特攻》的美術風格和誇張的比例設計。專注於色彩搭配和視覺衝擊力，適合遊戲，結合了可愛與力量的元素。通過簡化的幾何形狀和鮮明的色彩對比，創造出易於識別且富有表現力的視覺效果。"
+            },
+            "process": {
+                "en": "Perfect for mobile games, animated shorts, and toy design. Its stylized art direction makes it highly adaptable across various media platforms, while being easy to produce derivative products and merchandise. The design focuses on creating approachability and cuteness while maintaining the mech's sense of power.",
+                "zh": "適合手機遊戲、動畫短片和玩具設計。其風格在各種媒體平台上都具有良好的適應性，同時易於製作衍生產品和週邊商品。設計方向專注於創造親和力和可愛感，同時保持機甲的力量感。"
+            }
+        },
+        "specs": [
+            { "en": "Stylized Modeling - Blender 3.6", "zh": "風格化建模 - Blender 3.6" },
+            { "en": "Toon Shading - Custom Materials", "zh": "卡通渲染 - Custom Materials" },
+            { "en": "Color Design - Vibrant Palette", "zh": "色彩設計 - Vibrant Palette" },
+            { "en": "Animation Ready - Rigged & Weighted", "zh": "動畫就緒 - Rigged & Weighted" }
+        ],
+        "images": [
+            { "src": "img/projects/stylized/stylizedmechThumbNail.png", "alt": "Stylized Mech Thumbnail" },
+            { "src": "img/projects/stylized/stylizedmech.png", "alt": "Stylized Mech Main" },
+            { "src": "img/projects/stylized/stylizedmech1.png", "alt": "Stylized Mech View 1" },
+            { "src": "img/projects/stylized/stylizedmech2.png", "alt": "Stylized Mech View 2" },
+            { "src": "img/projects/stylized/stylizedmech3.png", "alt": "Stylized Mech View 3" },
+            { "src": "img/projects/stylized/stylizedmech4.png", "alt": "Stylized Mech View 4" },
+            { "src": "img/projects/stylized/stylizedmech5.png", "alt": "Stylized Mech View 5" },
+            { "src": "img/projects/stylized/stylizedmech6.png", "alt": "Stylized Mech View 6" },
+            { "src": "img/projects/stylized/stylizedmech7.png", "alt": "Stylized Mech View 7" },
+            { "src": "img/projects/stylized/stylizedmech8.png", "alt": "Stylized Mech View 8" },
+            { "src": "img/projects/stylized/stylizedmech9.png", "alt": "Stylized Mech View 9" },
+            { "src": "img/projects/stylized/stylizedmech10.png", "alt": "Stylized Mech View 10" },
+            { "src": "img/projects/stylized/stylizedmech11.png", "alt": "Stylized Mech View 11" },
+            { "src": "img/projects/stylized/stylizedmechClay.png", "alt": "Stylized Mech Clay Render" },
+            { "src": "img/projects/stylized/stylizedmechViewport.png", "alt": "Stylized Mech Viewport" }
+        ]
+    },
+    "junkrat": {
+        "title": "Junkrat Launcher",
+        "subtitle": {
+            "en": "3D Recreation of Junkrat's Grenade Launcher from Overwatch",
+            "zh": "基於 Overwatch 角色炸彈鼠的榴彈發射器 3D 重現"
+        },
+        "meta": [
+            { "icon": "💥", "text": "Weapon Design" },
+            { "icon": "⏱️", "text": "1 Week" },
+            { "icon": "🎯", "text": "Game Prop" },
+            { "icon": "🛠️", "text": "Blender & Substance" }
+        ],
+        "description": {
+            "overview": {
+                "en": "This is a 3D recreation project based on the grenade launcher of the Overwatch character Junkrat. I deeply analyzed the game's art style, focusing on the exaggerated design and realistic mechanical logic. The project aimed to capture the key visual features while simplifying unnecessary complex structures, creating a model that is both faithful to the original and suitable for production.",
+                "zh": "這是基於 Overwatch 角色炸彈鼠（Junkrat）的榴彈發射器 3D 重現項目。我深入分析了遊戲的美術風格，專注於其誇張的設計與現實的機械邏輯。項目旨在捕捉關鍵的視覺特徵同時簡化了一些不必要的複雜結構，創造出既忠於原作又適合製作的模型。"
+            },
+            "process": {
+                "en": "Extensive reference gathering was conducted before starting, including in-game models, concept art, and fan creations. During modeling, I paid special attention to the silhouette and proportion exaggeration. The texturing process involved detailed hand-painting and procedural generation to simulate the unique wear and tear style of the Junkers.",
+                "zh": "在開始前進行了大量的參考資料收集，包括遊戲內模型、概念圖和粉絲創作。建模過程中特別注意輪廓和比例的誇張處理。材質製作結合了細緻的手繪和程序化生成，以模擬 Junkers 獨特的磨損風格。"
+            }
+        },
+        "specs": [
+            { "en": "Hard Surface Modeling - Blender 3.6", "zh": "硬表面建模 - Blender 3.6" },
+            { "en": "Material Creation - Substance Painter", "zh": "材質製作 - Substance Painter" },
+            { "en": "Weathering Effects - Procedural Textures", "zh": "磨損效果 - Procedural Textures" },
+            { "en": "Game Optimization - Low-Mid Poly", "zh": "遊戲優化 - Low-Mid Poly" },
+            { "en": "PBR Workflow - Industry Standard", "zh": "PBR工作流程 - Industry Standard" }
+        ],
+        "images": [
+            { "src": "img/projects/junkrat/junkrat launcher 1.png", "alt": "Junkrat Launcher Main View" },
+            { "src": "img/projects/junkrat/junkrat launcher 2.png", "alt": "Junkrat Launcher Side View" },
+            { "src": "img/projects/junkrat/junkrat launcher 3.png", "alt": "Junkrat Launcher Detail View" },
+            { "src": "img/projects/junkrat/junkrat launcher 4.png", "alt": "Junkrat Launcher Technical View" },
+            { "src": "img/projects/junkrat/junkrat launcher 5.png", "alt": "Junkrat Launcher Close-up" },
+            { "src": "img/projects/junkrat/junkrat launcher 1.jpg", "alt": "Junkrat Launcher Alt 1" },
+            { "src": "img/projects/junkrat/junkrat launcher 2.jpg", "alt": "Junkrat Launcher Alt 2" },
+            { "src": "img/projects/junkrat/junkrat launcher 3.jpg", "alt": "Junkrat Launcher Alt 3" },
+            { "src": "img/projects/junkrat/junkrat launcher 4.jpg", "alt": "Junkrat Launcher Alt 4" }
+        ]
+    }
+}

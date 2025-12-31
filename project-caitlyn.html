@@ -99,42 +99,12 @@
         <div class="project-gallery">
             <div class="gallery-container">
                 <div class="gallery-main-display">
-                    <img id="main-gallery-image" src="img/caitRender11.png" alt="Caitlyn Main Render" class="main-gallery-image">
+                    <img id="main-gallery-image" src="" alt="" class="main-gallery-image">
+                    <div class="gallery-nav prev">❮</div>
+                    <div class="gallery-nav next">❯</div>
                 </div>
                 <div class="gallery-thumbnails">
-                    <div class="thumbnail-item active" data-src="img/caitRender11.png" data-alt="Caitlyn Main Render">
-                        <img src="img/caitRender11.png" alt="Caitlyn Main Render">
-                    </div>
-                    <div class="thumbnail-item" data-src="img/caitRender1.png" data-alt="Caitlyn Alternative View">
-                        <img src="img/caitRender1.png" alt="Caitlyn Alternative View">
-                    </div>
-                    <div class="thumbnail-item" data-src="img/caitRender2.png" data-alt="Caitlyn Profile View">
-                        <img src="img/caitRender2.png" alt="Caitlyn Profile View">
-                    </div>
-                    <div class="thumbnail-item" data-src="img/caitRender3.png" data-alt="Caitlyn Close-up">
-                        <img src="img/caitRender3.png" alt="Caitlyn Close-up">
-                    </div>
-                    <div class="thumbnail-item" data-src="img/caitRender4.png" data-alt="Caitlyn Expression">
-                        <img src="img/caitRender4.png" alt="Caitlyn Expression">
-                    </div>
-                    <div class="thumbnail-item" data-src="img/caitRender5.png" data-alt="Caitlyn Lighting Test">
-                        <img src="img/caitRender5.png" alt="Caitlyn Lighting Test">
-                    </div>
-                    <div class="thumbnail-item" data-src="img/caitRender6.png" data-alt="Caitlyn Render 6">
-                        <img src="img/caitRender6.png" alt="Caitlyn Render 6">
-                    </div>
-                    <div class="thumbnail-item" data-src="img/caitRender7.png" data-alt="Caitlyn Render 7">
-                        <img src="img/caitRender7.png" alt="Caitlyn Render 7">
-                    </div>
-                    <div class="thumbnail-item" data-src="img/caitRender8.png" data-alt="Caitlyn Render 8">
-                        <img src="img/caitRender8.png" alt="Caitlyn Render 8">
-                    </div>
-                    <div class="thumbnail-item" data-src="img/caitRender9.png" data-alt="Caitlyn Render 9">
-                        <img src="img/caitRender9.png" alt="Caitlyn Render 9">
-                    </div>
-                    <div class="thumbnail-item" data-src="img/caitRender10.png" data-alt="Caitlyn Render 10">
-                        <img src="img/caitRender10.png" alt="Caitlyn Render 10">
-                    </div>
+                    <!-- Thumbnails will be loaded dynamically -->
                 </div>
             </div>
         </div>
@@ -170,7 +140,7 @@
             <div class="detail-section">
                 <h3 data-zh="技術規格" data-en="Technical Specifications">Technical Specifications</h3>
                 <ul class="tech-list">
-                    <li data-zh="🔧 Blender 4.1 - 角色建模" data-en="🔧 Blender 4.1 - Character Modeling">🔧 Blender 4.1 - Character Modeling</li>
+                    <li data-zh="🔧 Blender 4.1 - 角色建模" data-en="🔧 Blender 4. 4.1 - Character Modeling">🔧 Blender 4.1 - Character Modeling</li>
                     <li data-zh="🎨 手繪風格材質" data-en="🎨 Hand-Painted Style Material">🎨 Hand-Painted Style Material</li>
                     <li data-zh="📐 動畫就緒拓撲 (18,000 面)" data-en="📐 Animation Ready Topology (18,000 triangles)">📐 Animation Ready Topology (18,000 triangles)</li>
                     <li data-zh="🖼️ 自訂 Toon Shader" data-en="🖼️ Custom Toon Shader">🖼️ Custom Toon Shader</li>
@@ -186,6 +156,8 @@
         </div>
     </section>
 
+    <script src="enhancements.js"></script>
+    <script src="scripts/project-detail.js"></script>
     <script>
         // Language switching functionality
         let currentLanguage = 'en';

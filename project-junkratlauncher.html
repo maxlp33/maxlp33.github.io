@@ -100,101 +100,80 @@
         <div class="project-gallery">
             <div class="gallery-container">
                 <div class="gallery-main-display">
-                    <img id="main-gallery-image" src="img/junkrat launcher 1.png" alt="Junkrat Launcher Main View" class="main-gallery-image">
+                    <img id="main-gallery-image" src="" alt="" class="main-gallery-image">
+                    <div class="gallery-nav prev">❮</div>
+                    <div class="gallery-nav next">❯</div>
                 </div>
                 <div class="gallery-thumbnails">
-                    <div class="thumbnail-item active" data-src="img/junkrat launcher 1.png" data-alt="Junkrat Launcher Main View">
-                        <img src="img/junkrat launcher 1.png" alt="Junkrat Launcher Main View">
-                    </div>
-                    <div class="thumbnail-item" data-src="img/junkrat launcher 2.png" data-alt="Junkrat Launcher Side View">
-                        <img src="img/junkrat launcher 2.png" alt="Junkrat Launcher Side View">
-                    </div>
-                    <div class="thumbnail-item" data-src="img/junkrat launcher 3.png" data-alt="Junkrat Launcher Detail View">
-                        <img src="img/junkrat launcher 3.png" alt="Junkrat Launcher Detail View">
-                    </div>
-                    <div class="thumbnail-item" data-src="img/junkrat launcher 4.png" data-alt="Junkrat Launcher Technical View">
-                        <img src="img/junkrat launcher 4.png" alt="Junkrat Launcher Technical View">
-                    </div>
-                    <div class="thumbnail-item" data-src="img/junkrat launcher 5.png" data-alt="Junkrat Launcher Close-up">
-                        <img src="img/junkrat launcher 5.png" alt="Junkrat Launcher Close-up">
-                    </div>
-                    <div class="thumbnail-item" data-src="img/junkrat launcher 1.jpg" data-alt="Junkrat Launcher Alt 1">
-                        <img src="img/junkrat launcher 1.jpg" alt="Junkrat Launcher Alt 1">
-                    </div>
-                    <div class="thumbnail-item" data-src="img/junkrat launcher 2.jpg" data-alt="Junkrat Launcher Alt 2">
-                        <img src="img/junkrat launcher 2.jpg" alt="Junkrat Launcher Alt 2">
-                    </div>
-                    <div class="thumbnail-item" data-src="img/junkrat launcher 3.jpg" data-alt="Junkrat Launcher Alt 3">
-                        <img src="img/junkrat launcher 3.jpg" alt="Junkrat Launcher Alt 3">
-                    </div>
-                    <div class="thumbnail-item" data-src="img/junkrat launcher 4.jpg" data-alt="Junkrat Launcher Alt 4">
-                        <img src="img/junkrat launcher 4.jpg" alt="Junkrat Launcher Alt 4">
-                    </div>
+                    <!-- Thumbnails will be loaded dynamically -->
                 </div>
             </div>
         </div>
 
-        <!-- Lightbox Modal -->
-        <div id="lightbox" class="lightbox">
-            <div class="lightbox-content">
-                <span class="lightbox-close">&times;</span>
-                <button class="lightbox-arrow lightbox-prev" onclick="changeLightboxImage(-1)">‹</button>
-                <img id="lightbox-image" src="" alt="">
-                <button class="lightbox-arrow lightbox-next" onclick="changeLightboxImage(1)">›</button>
-                <div class="lightbox-counter">
-                    <span id="current-image">1</span> / <span id="total-images">9</span>
+        <!-- Project Info -->
+        <div class="project-info">
+            <!-- Lightbox Modal -->
+            <div id="lightbox" class="lightbox">
+                <div class="lightbox-content">
+                    <span class="lightbox-close">&times;</span>
+                    <button class="lightbox-arrow lightbox-prev" onclick="changeLightboxImage(-1)">‹</button>
+                    <img id="lightbox-image" src="" alt="">
+                    <button class="lightbox-arrow lightbox-next" onclick="changeLightboxImage(1)">›</button>
+                    <div class="lightbox-counter">
+                        <span id="current-image">1</span> / <span id="total-images">9</span>
+                    </div>
                 </div>
             </div>
-        </div>
 
-        <!-- Project Details -->
-        <div class="project-details">
-            <div class="detail-section">
-                <h3 data-zh="項目概述" data-en="Project Overview">Project Overview</h3>
-                <p data-zh="這是基於 Overwatch 角色炸彈鼠（Junkrat）的榴彈發射器 3D 重現項目，旨在學習和模仿《鬥陣特攻》的美術風格。我忠實還原了遊戲中的武器設計，包含破舊金屬材質、管線細節和爆炸物裝填系統。整個建模過程注重細節的準確性和材質的真實感表現。" data-en="This is a 3D recreation project based on Junkrat's grenade launcher from Overwatch, created to learn and mimic Overwatch's art style. I faithfully reproduced the in-game weapon design, including weathered metal materials, piping details, and explosive loading system. The entire modeling process focuses on detail accuracy and realistic material representation.">This is a 3D recreation project based on Junkrat's grenade launcher from Overwatch, created to learn and mimic Overwatch's art style. I faithfully reproduced the in-game weapon design, including weathered metal materials, piping details, and explosive loading system. The entire modeling process focuses on detail accuracy and realistic material representation.</p>
+            <!-- Project Details -->
+            <div class="project-details">
+                <div class="detail-section">
+                    <h3 data-zh="項目概述" data-en="Project Overview">Project Overview</h3>
+                    <p data-zh="這是基於 Overwatch 角色炸彈鼠（Junkrat）的榴彈發射器 3D 重現項目，旨在學習和模仿《鬥陣特攻》的美術風格。我忠實還原了遊戲中的武器設計，包含破舊金屬材質、管線細節和爆炸物裝填系統。整個建模過程注重細節的準確性和材質的真實感表現。" data-en="This is a 3D recreation project based on Junkrat's grenade launcher from Overwatch, created to learn and mimic Overwatch's art style. I faithfully reproduced the in-game weapon design, including weathered metal materials, piping details, and explosive loading system. The entire modeling process focuses on detail accuracy and realistic material representation.">This is a 3D recreation project based on Junkrat's grenade launcher from Overwatch, created to learn and mimic Overwatch's art style. I faithfully reproduced the in-game weapon design, including weathered metal materials, piping details, and explosive loading system. The entire modeling process focuses on detail accuracy and realistic material representation.</p>
+                    
+                    <p data-zh="作為一個學習和模仿《鬥陣特攻》美術風格的項目，我深入研究了原始設計的每一個細節，從機械結構到表面磨損，都力求完美重現。這個項目展示了我對遊戲美術和硬表面建模的理解能力。" data-en="As a project to learn and mimic Overwatch's art style, I thoroughly studied every detail of the original design, from mechanical structure to surface wear, striving for perfect reproduction. This project demonstrates my understanding of game art and hard surface modeling capabilities.">As a project to learn and mimic Overwatch's art style, I thoroughly studied every detail of the original design, from mechanical structure to surface wear, striving for perfect reproduction. This project demonstrates my understanding of game art and hard surface modeling capabilities.</p>
+                </div>
                 
-                <p data-zh="作為一個學習和模仿《鬥陣特攻》美術風格的項目，我深入研究了原始設計的每一個細節，從機械結構到表面磨損，都力求完美重現。這個項目展示了我對遊戲美術和硬表面建模的理解能力。" data-en="As a project to learn and mimic Overwatch's art style, I thoroughly studied every detail of the original design, from mechanical structure to surface wear, striving for perfect reproduction. This project demonstrates my understanding of game art and hard surface modeling capabilities.">As a project to learn and mimic Overwatch's art style, I thoroughly studied every detail of the original design, from mechanical structure to surface wear, striving for perfect reproduction. This project demonstrates my understanding of game art and hard surface modeling capabilities.</p>
-            </div>
-            
-            <div class="detail-section">
-                <h3 data-zh="技術特點" data-en="Technical Features">Technical Features</h3>
-                <div class="tech-stack">
-                    <ul class="tech-list">
-                        <li>
-                            <span data-zh="硬表面建模" data-en="Hard Surface Modeling">Hard Surface Modeling</span>
-                            <span>Blender 3.6</span>
-                        </li>
-                        <li>
-                            <span data-zh="材質製作" data-en="Material Creation">Material Creation</span>
-                            <span>Substance Painter</span>
-                        </li>
-                        <li>
-                            <span data-zh="磨損效果" data-en="Weathering Effects">Weathering Effects</span>
-                            <span>Procedural Textures</span>
-                        </li>
-                        <li>
-                            <span data-zh="遊戲優化" data-en="Game Optimization">Game Optimization</span>
-                            <span>Low-Mid Poly</span>
-                        </li>
-                        <li>
-                            <span data-zh="PBR工作流程" data-en="PBR Workflow">PBR Workflow</span>
-                            <span>Industry Standard</span>
-                        </li>
-                    </ul>
+                <div class="detail-section">
+                    <h3 data-zh="技術特點" data-en="Technical Features">Technical Features</h3>
+                    <div class="tech-stack">
+                        <ul class="tech-list">
+                            <li>
+                                <span data-zh="硬表面建模" data-en="Hard Surface Modeling">Hard Surface Modeling</span>
+                                <span>Blender 3.6</span>
+                            </li>
+                            <li>
+                                <span data-zh="材質製作" data-en="Material Creation">Material Creation</span>
+                                <span>Substance Painter</span>
+                            </li>
+                            <li>
+                                <span data-zh="磨損效果" data-en="Weathering Effects">Weathering Effects</span>
+                                <span>Procedural Textures</span>
+                            </li>
+                            <li>
+                                <span data-zh="遊戲優化" data-en="Game Optimization">Game Optimization</span>
+                                <span>Low-Mid Poly</span>
+                            </li>
+                            <li>
+                                <span data-zh="PBR工作流程" data-en="PBR Workflow">PBR Workflow</span>
+                                <span>Industry Standard</span>
+                            </li>
+                        </ul>
+                    </div>
                 </div>
             </div>
-        </div>>
-        
-        <!-- Research and Reference -->
-        <div class="project-details">
-            <div class="detail-section">
-                <h3 data-zh="研究與參考" data-en="Research & Reference">Research & Reference</h3>
-                <p data-zh="項目開始前進行了大量的參考資料收集，包括遊戲內模型、概念藝術和官方宣傳材料。通過多角度的參考圖像分析，確保了模型的準確性和一致性。同時研究了真實世界的榴彈發射器機制，為設計增添了可信度。" data-en="Extensive reference material collection was conducted before the project began, including in-game models, concept art, and official promotional materials. Through multi-angle reference image analysis, ensured model accuracy and consistency. Also studied real-world grenade launcher mechanisms to add credibility to the design.">Extensive reference material collection was conducted before the project began, including in-game models, concept art, and official promotional materials. Through multi-angle reference image analysis, ensured model accuracy and consistency. Also studied real-world grenade launcher mechanisms to add credibility to the design.</p>
-            </div>
             
-            <div class="detail-section">
-                <h3 data-zh="挑戰與解決" data-en="Challenges & Solutions">Challenges & Solutions</h3>
-                <p data-zh="最大的挑戰是平衡遊戲風格的誇張設計與現實的機械邏輯。我通過保持關鍵的視覺特徵同時簡化了一些不必要的複雜結構，創造出既忠於原作又適合製作的最終模型。材質製作中的磨損效果也需要精確控制，以避免過度或不足的表現。" data-en="The biggest challenge was balancing the exaggerated game-style design with realistic mechanical logic. I maintained key visual features while simplifying some unnecessary complex structures, creating a final model that is both faithful to the original and suitable for production. Weathering effects in material creation also required precise control to avoid over or under-representation.">The biggest challenge was balancing the exaggerated game-style design with realistic mechanical logic. I maintained key visual features while simplifying some unnecessary complex structures, creating a final model that is both faithful to the original and suitable for production. Weathering effects in material creation also required precise control to avoid over or under-representation.</p>
+            <!-- Research and Reference -->
+            <div class="project-details">
+                <div class="detail-section">
+                    <h3 data-zh="研究與參考" data-en="Research & Reference">Research & Reference</h3>
+                    <p data-zh="項目開始前進行了大量的參考資料收集，包括遊戲內模型、概念藝術和官方宣傳材料。通過多角度的參考圖像分析，確保了模型的準確性和一致性。同時研究了真實世界的榴彈發射器機制，為設計增添了可信度。" data-en="Extensive reference material collection was conducted before the project began, including in-game models, concept art, and official promotional materials. Through multi-angle reference image analysis, ensured model accuracy and consistency. Also studied real-world grenade launcher mechanisms to add credibility to the design.">Extensive reference material collection was conducted before the project began, including in-game models, concept art, and official promotional materials. Through multi-angle reference image analysis, ensured model accuracy and consistency. Also studied real-world grenade launcher mechanisms to add credibility to the design.</p>
+                </div>
+                
+                <div class="detail-section">
+                    <h3 data-zh="挑戰與解決" data-en="Challenges & Solutions">Challenges & Solutions</h3>
+                    <p data-zh="最大的挑戰是平衡遊戲風格的誇張設計與現實的機械邏輯。我通過保持關鍵的視覺特徵同時簡化了一些不必要的複雜結構，創造出既忠於原作又適合製作的最終模型。材質製作中的磨損效果也需要精確控制，以避免過度或不足的表現。" data-en="The biggest challenge was balancing the exaggerated game-style design with realistic mechanical logic. I maintained key visual features while simplifying some unnecessary complex structures, creating a final model that is both faithful to the original and suitable for production. Weathering effects in material creation also required precise control to avoid over or under-representation.">The biggest challenge was balancing the exaggerated game-style design with realistic mechanical logic. I maintained key visual features while simplifying some unnecessary complex structures, creating a final model that is both faithful to the original and suitable for production. Weathering effects in material creation also required precise control to avoid over or under-representation.</p>
+                </div>
             </div>
         </div>
     </section>

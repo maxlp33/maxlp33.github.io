@@ -100,121 +100,82 @@
         <div class="project-gallery">
             <div class="gallery-container">
                 <div class="gallery-main-display">
-                    <img id="main-gallery-image" src="img/stylizedmechThumbNail.png" alt="Stylized Mech Main View" class="main-gallery-image">
+                    <img id="main-gallery-image" src="" alt="" class="main-gallery-image">
+                    <div class="gallery-nav prev">❮</div>
+                    <div class="gallery-nav next">❯</div>
                 </div>
                 <div class="gallery-thumbnails">
-                    <div class="thumbnail-item active" data-src="img/stylizedmechThumbNail.png" data-alt="Stylized Mech Thumbnail">
-                        <img src="img/stylizedmechThumbNail.png" alt="Stylized Mech Thumbnail">
-                    </div>
-                    <div class="thumbnail-item" data-src="img/stylizedmech.png" data-alt="Stylized Mech Main">
-                        <img src="img/stylizedmech.png" alt="Stylized Mech Main">
-                    </div>
-                    <div class="thumbnail-item" data-src="img/stylizedmech1.png" data-alt="Stylized Mech View 1">
-                        <img src="img/stylizedmech1.png" alt="Stylized Mech View 1">
-                    </div>
-                    <div class="thumbnail-item" data-src="img/stylizedmech2.png" data-alt="Stylized Mech View 2">
-                        <img src="img/stylizedmech2.png" alt="Stylized Mech View 2">
-                    </div>
-                    <div class="thumbnail-item" data-src="img/stylizedmech3.png" data-alt="Stylized Mech View 3">
-                        <img src="img/stylizedmech3.png" alt="Stylized Mech View 3">
-                    </div>
-                    <div class="thumbnail-item" data-src="img/stylizedmech4.png" data-alt="Stylized Mech View 4">
-                        <img src="img/stylizedmech4.png" alt="Stylized Mech View 4">
-                    </div>
-                    <div class="thumbnail-item" data-src="img/stylizedmech5.png" data-alt="Stylized Mech View 5">
-                        <img src="img/stylizedmech5.png" alt="Stylized Mech View 5">
-                    </div>
-                    <div class="thumbnail-item" data-src="img/stylizedmech6.png" data-alt="Stylized Mech View 6">
-                        <img src="img/stylizedmech6.png" alt="Stylized Mech View 6">
-                    </div>
-                    <div class="thumbnail-item" data-src="img/stylizedmech7.png" data-alt="Stylized Mech View 7">
-                        <img src="img/stylizedmech7.png" alt="Stylized Mech View 7">
-                    </div>
-                    <div class="thumbnail-item" data-src="img/stylizedmech8.png" data-alt="Stylized Mech View 8">
-                        <img src="img/stylizedmech8.png" alt="Stylized Mech View 8">
-                    </div>
-                    <div class="thumbnail-item" data-src="img/stylizedmech9.png" data-alt="Stylized Mech View 9">
-                        <img src="img/stylizedmech9.png" alt="Stylized Mech View 9">
-                    </div>
-                    <div class="thumbnail-item" data-src="img/stylizedmech10.png" data-alt="Stylized Mech View 10">
-                        <img src="img/stylizedmech10.png" alt="Stylized Mech View 10">
-                    </div>
-                    <div class="thumbnail-item" data-src="img/stylizedmech11.png" data-alt="Stylized Mech View 11">
-                        <img src="img/stylizedmech11.png" alt="Stylized Mech View 11">
-                    </div>
-                    <div class="thumbnail-item" data-src="img/stylizedmechClay.png" data-alt="Stylized Mech Clay Render">
-                        <img src="img/stylizedmechClay.png" alt="Stylized Mech Clay Render">
-                    </div>
-                    <div class="thumbnail-item" data-src="img/stylizedmechViewport.png" data-alt="Stylized Mech Viewport">
-                        <img src="img/stylizedmechViewport.png" alt="Stylized Mech Viewport">
-                    </div>
+                    <!-- Thumbnails will be loaded dynamically -->
                 </div>
             </div>
         </div>
 
-        <!-- Lightbox Modal -->
-        <div id="lightbox" class="lightbox">
-            <div class="lightbox-content">
-                <span class="lightbox-close">&times;</span>
-                <button class="lightbox-arrow lightbox-prev" onclick="changeLightboxImage(-1)">‹</button>
-                <img id="lightbox-image" src="" alt="">
-                <button class="lightbox-arrow lightbox-next" onclick="changeLightboxImage(1)">›</button>
-                <div class="lightbox-counter">
-                    <span id="current-image">1</span> / <span id="total-images">15</span>
+        <!-- Project Info -->
+        <div class="project-info">
+            <!-- Lightbox Modal -->
+            <div id="lightbox" class="lightbox">
+                <div class="lightbox-content">
+                    <span class="lightbox-close">&times;</span>
+                    <button class="lightbox-arrow lightbox-prev" onclick="changeLightboxImage(-1)">‹</button>
+                    <img id="lightbox-image" src="" alt="">
+                    <button class="lightbox-arrow lightbox-next" onclick="changeLightboxImage(1)">›</button>
+                    <div class="lightbox-counter">
+                        <span id="current-image">1</span> / <span id="total-images">15</span>
+                    </div>
                 </div>
             </div>
-        </div>
 
-        <!-- Project Details -->
-        <div class="project-details">
-            <div class="detail-section">
-                <h3 data-zh="項目概述" data-en="Project Overview">Project Overview</h3>
-                <p data-zh="這是一個風格化機甲設計項目，靈感來源於《鬥陣特攻》的美術風格。採用卡通化的美術風格和誇張的比例設計。專注於色彩搭配和視覺衝擊力，適合遊戲和動畫應用。整個設計過程強調創意表達而非現實主義，創造出充滿個性和魅力的機械角色。" data-en="This is a stylized mech design project inspired by Overwatch's art style. Features cartoon art style and exaggerated proportional design. Focuses on color coordination and visual impact, suitable for game and animation applications. The entire design process emphasizes creative expression over realism, creating a mechanical character full of personality and charm.">This is a stylized mech design project inspired by Overwatch's art style. Features cartoon art style and exaggerated proportional design. Focuses on color coordination and visual impact, suitable for game and animation applications. The entire design process emphasizes creative expression over realism, creating a mechanical character full of personality and charm.</p>
-                
-                <p data-zh="設計靈感來源於日本動畫和遊戲中的機甲角色，結合了可愛與力量的元素。通過簡化的幾何形狀和鮮明的色彩對比，創造出易於識別且富有表現力的視覺效果。" data-en="Design inspiration comes from mech characters in Japanese anime and games, combining elements of cuteness and power. Through simplified geometric shapes and vivid color contrasts, creates an easily recognizable and expressive visual effect.">Design inspiration comes from mech characters in Japanese anime and games, combining elements of cuteness and power. Through simplified geometric shapes and vivid color contrasts, creates an easily recognizable and expressive visual effect.</p>
-            </div>
-            
-            <div class="detail-section">
-                <h3 data-zh="技術特點" data-en="Technical Features">Technical Features</h3>
-                <div class="tech-stack">
-                    <ul class="tech-list">
-                        <li>
-                            <span data-zh="風格化建模" data-en="Stylized Modeling">Stylized Modeling</span>
-                            <span>Blender 3.6</span>
-                        </li>
-                        <li>
-                            <span data-zh="卡通渲染" data-en="Toon Shading">Toon Shading</span>
-                            <span>Custom Materials</span>
-                        </li>
-                        <li>
-                            <span data-zh="色彩設計" data-en="Color Design">Color Design</span>
-                            <span>Vibrant Palette</span>
-                        </li>
-                        <li>
-                            <span data-zh="動畫就緒" data-en="Animation Ready">Animation Ready</span>
-                            <span>Rigged & Weighted</span>
-                        </li>
-                        <li>
-                            <span data-zh="遊戲優化" data-en="Game Optimized">Game Optimized</span>
-                            <span>Low Poly</span>
-                        </li>
-                    </ul>
+            <!-- Project Details -->
+            <div class="project-details">
+                <div class="detail-section">
+                    <h3 data-zh="項目概述" data-en="Project Overview">Project Overview</h3>
+                    <p data-zh="這是一個風格化機甲設計項目，靈感來源於《鬥陣特攻》的美術風格。採用卡通化的美術風格和誇張的比例設計。專注於色彩搭配和視覺衝擊力，適合遊戲和動畫應用。整個設計過程強調創意表達而非現實主義，創造出充滿個性和魅力的機械角色。" data-en="This is a stylized mech design project inspired by Overwatch's art style. Features cartoon art style and exaggerated proportional design. Focuses on color coordination and visual impact, suitable for game and animation applications. The entire design process emphasizes creative expression over realism, creating a mechanical character full of personality and charm.">This is a stylized mech design project inspired by Overwatch's art style. Features cartoon art style and exaggerated proportional design. Focuses on color coordination and visual impact, suitable for game and animation applications. The entire design process emphasizes creative expression over realism, creating a mechanical character full of personality and charm.</p>
+                    
+                    <p data-zh="設計靈感來源於日本動畫和遊戲中的機甲角色，結合了可愛與力量的元素。通過簡化的幾何形狀和鮮明的色彩對比，創造出易於識別且富有表現力的視覺效果。" data-en="Design inspiration comes from mech characters in Japanese anime and games, combining elements of cuteness and power. Through simplified geometric shapes and vivid color contrasts, creates an easily recognizable and expressive visual effect.">Design inspiration comes from mech characters in Japanese anime and games, combining elements of cuteness and power. Through simplified geometric shapes and vivid color contrasts, creates an easily recognizable and expressive visual effect.</p>
                 </div>
                 
-                <p data-zh="採用非寫實渲染技術，創造出類似手繪動畫的視覺效果。材質系統專門為卡通風格優化，支持平面著色和輪廓線渲染，完美適合各種媒體應用。" data-en="Uses non-photorealistic rendering techniques to create visual effects similar to hand-drawn animation. The material system is specifically optimized for cartoon style, supporting flat shading and outline rendering, perfect for various media applications.">Uses non-photorealistic rendering techniques to create visual effects similar to hand-drawn animation. The material system is specifically optimized for cartoon style, supporting flat shading and outline rendering, perfect for various media applications.</p>
-            </div>
-        </div>
-        
-        <!-- Art Direction -->
-        <div class="project-details">
-            <div class="detail-section">
-                <h3 data-zh="美術指導" data-en="Art Direction">Art Direction</h3>
-                <p data-zh="美術方向專注於創造親和力和可愛感，同時保持機甲的力量感。使用圓潤的邊緣和柔和的曲線來軟化機械的硬朗線條，創造出平衡的視覺語言。色彩選擇偏向明亮和飽和，增強整體的活力感。" data-en="Art direction focuses on creating approachability and cuteness while maintaining the mech's sense of power. Uses rounded edges and soft curves to soften the hard lines of machinery, creating a balanced visual language. Color choices lean towards bright and saturated tones, enhancing the overall sense of vitality.">Art direction focuses on creating approachability and cuteness while maintaining the mech's sense of power. Uses rounded edges and soft curves to soften the hard lines of machinery, creating a balanced visual language. Color choices lean towards bright and saturated tones, enhancing the overall sense of vitality.</p>
+                <div class="detail-section">
+                    <h3 data-zh="技術特點" data-en="Technical Features">Technical Features</h3>
+                    <div class="tech-stack">
+                        <ul class="tech-list">
+                            <li>
+                                <span data-zh="風格化建模" data-en="Stylized Modeling">Stylized Modeling</span>
+                                <span>Blender 3.6</span>
+                            </li>
+                            <li>
+                                <span data-zh="卡通渲染" data-en="Toon Shading">Toon Shading</span>
+                                <span>Custom Materials</span>
+                            </li>
+                            <li>
+                                <span data-zh="色彩設計" data-en="Color Design">Color Design</span>
+                                <span>Vibrant Palette</span>
+                            </li>
+                            <li>
+                                <span data-zh="動畫就緒" data-en="Animation Ready">Animation Ready</span>
+                                <span>Rigged & Weighted</span>
+                            </li>
+                            <li>
+                                <span data-zh="遊戲優化" data-en="Game Optimized">Game Optimized</span>
+                                <span>Low Poly</span>
+                            </li>
+                        </ul>
+                    </div>
+                    
+                    <p data-zh="採用非寫實渲染技術，創造出類似手繪動畫的視覺效果。材質系統專門為卡通風格優化，支持平面著色和輪廓線渲染，完美適合各種媒體應用。" data-en="Uses non-photorealistic rendering techniques to create visual effects similar to hand-drawn animation. The material system is specifically optimized for cartoon style, supporting flat shading and outline rendering, perfect for various media applications.">Uses non-photorealistic rendering techniques to create visual effects similar to hand-drawn animation. The material system is specifically optimized for cartoon style, supporting flat shading and outline rendering, perfect for various media applications.</p>
+                </div>
             </div>
             
-            <div class="detail-section">
-                <h3 data-zh="應用場景" data-en="Applications">Applications</h3>
-                <p data-zh="這個設計特別適合手機遊戲、動畫短片和玩具設計。其風格化的特性使其在各種媒體平台上都具有良好的適應性，同時易於製作衍生產品和週邊商品。" data-en="This design is particularly suitable for mobile games, animated shorts, and toy design. Its stylized characteristics make it highly adaptable across various media platforms, while being easy to produce derivative products and merchandise.">This design is particularly suitable for mobile games, animated shorts, and toy design. Its stylized characteristics make it highly adaptable across various media platforms, while being easy to produce derivative products and merchandise.</p>
+            <!-- Art Direction -->
+            <div class="project-details">
+                <div class="detail-section">
+                    <h3 data-zh="美術指導" data-en="Art Direction">Art Direction</h3>
+                    <p data-zh="美術方向專注於創造親和力和可愛感，同時保持機甲的力量感。使用圓潤的邊緣和柔和的曲線來軟化機械的硬朗線條，創造出平衡的視覺語言。色彩選擇偏向明亮和飽和，增強整體的活力感。" data-en="Art direction focuses on creating approachability and cuteness while maintaining the mech's sense of power. Uses rounded edges and soft curves to soften the hard lines of machinery, creating a balanced visual language. Color choices lean towards bright and saturated tones, enhancing the overall sense of vitality.">Art direction focuses on creating approachability and cuteness while maintaining the mech's sense of power. Uses rounded edges and soft curves to soften the hard lines of machinery, creating a balanced visual language. Color choices lean towards bright and saturated tones, enhancing the overall sense of vitality.</p>
+                </div>
+                
+                <div class="detail-section">
+                    <h3 data-zh="應用場景" data-en="Applications">Applications</h3>
+                    <p data-zh="這個設計特別適合手機遊戲、動畫短片和玩具設計。其風格化的特性使其在各種媒體平台上都具有良好的適應性，同時易於製作衍生產品和週邊商品。" data-en="This design is particularly suitable for mobile games, animated shorts, and toy design. Its stylized characteristics make it highly adaptable across various media platforms, while being easy to produce derivative products and merchandise.">This design is particularly suitable for mobile games, animated shorts, and toy design. Its stylized characteristics make it highly adaptable across various media platforms, while being easy to produce derivative products and merchandise.</p>
+                </div>
             </div>
         </div>
     </section>
