@@ -36,27 +36,29 @@ document.addEventListener('DOMContentLoaded', () => {
                     currentAngle += angularVelocity;
                     currentRadius *= 0.995;
                 }
-                
+
                 pupilX = Math.cos(currentAngle) * currentRadius;
                 pupilY = Math.sin(currentAngle) * currentRadius;
-                
-                pupil.style.transform = `translate(${pupilX}px, ${pupilY}px)`;
-                
+
+                // keep the CSS centering (-50%,-50%) and offset by pixels
+                pupil.style.transform = `translate(calc(-50% + ${pupilX}px), calc(-50% + ${pupilY}px))`;
+
                 if (Math.abs(angularVelocity) < 0.001 && currentRadius < 3) {
+                    // restore to perfectly centered when spin ends
                     pupilX = 0;
-                    pupilY = 10;
-                    pupil.style.transform = `translate(${pupilX}px, ${pupilY}px)`;
-                    
+                    pupilY = 0;
+                    pupil.style.transform = `translate(calc(-50% + ${pupilX}px), calc(-50% + ${pupilY}px))`;
+
                     clearTimeout(spinTimeout);
                     spinTimeout = setTimeout(() => {
                         isSpinning = false;
                         isFollowingCursor = true;
                         angularVelocity = 0;
                     }, 1000);
-                    
+
                     return;
                 }
-                
+
                 animationFrame = requestAnimationFrame(updatePupilPosition);
             }
         }
@@ -68,7 +70,8 @@ document.addEventListener('DOMContentLoaded', () => {
             
             pupilX = Math.cos(currentAngle) * currentRadius;
             pupilY = Math.sin(currentAngle) * currentRadius;
-            pupil.style.transform = `translate(${pupilX}px, ${pupilY}px)`;
+            // ensure transform preserves centering
+            pupil.style.transform = `translate(calc(-50% + ${pupilX}px), calc(-50% + ${pupilY}px))`;
             
             const spinDirection = Math.random() > 0.5 ? 1 : -1;
             angularVelocity = spinDirection * spinForce * 0.6;
@@ -107,7 +110,7 @@ document.addEventListener('DOMContentLoaded', () => {
         
         document.addEventListener('mousemove', (e) => {
             if (!isFollowingCursor || isSpinning) return;
-            if (isMouseOverEye) return;
+            // allow following even when mouse is over the eye element
             
             const eyeRect = eye.getBoundingClientRect();
             const eyeCenterX = eyeRect.left + eyeRect.width / 2;
@@ -116,13 +119,23 @@ document.addEventListener('DOMContentLoaded', () => {
             const deltaX = e.clientX - eyeCenterX;
             const deltaY = e.clientY - eyeCenterY;
             
+            // small deadzone to avoid sub-pixel offsets when cursor is nearly centered
+            const deadzone = 4; // pixels
+            if (Math.abs(deltaX) < deadzone && Math.abs(deltaY) < deadzone) {
+                pupilX = 0;
+                pupilY = 0;
+                pupil.style.transform = `translate(calc(-50% + ${pupilX}px), calc(-50% + ${pupilY}px))`;
+                return;
+            }
+            
             const angle = Math.atan2(deltaY, deltaX);
             const distance = Math.min(Math.sqrt(deltaX * deltaX + deltaY * deltaY) / 10, cursorFollowBoundary);
             
             pupilX = Math.cos(angle) * distance;
             pupilY = Math.sin(angle) * distance;
             
-            pupil.style.transform = `translate(${pupilX}px, ${pupilY}px)`;
+            // preserve CSS centering when moving the pupil
+            pupil.style.transform = `translate(calc(-50% + ${pupilX}px), calc(-50% + ${pupilY}px))`;
         });
     }
 });

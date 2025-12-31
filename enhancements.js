@@ -168,12 +168,12 @@ document.addEventListener('DOMContentLoaded', function() {
     if (logoCube) {
         logoCube.addEventListener('mouseenter', function() {
             this.style.filter = 'drop-shadow(0 0 25px rgba(74, 158, 255, 0.8))';
-            this.style.animation = 'logoCubeRotate 1s infinite linear';
+            this.style.animation = 'rotate 1s infinite linear';
         });
         
         logoCube.addEventListener('mouseleave', function() {
             this.style.filter = '';
-            this.style.animation = 'logoCubeRotate 8s infinite linear';
+            this.style.animation = 'rotate 8s infinite linear';
         });
     }
 });

@@ -84,8 +84,13 @@
     transition: transform 0.5s ease;
 }
 
+/* Previously the hover rule applied a transform which conflicted with the rotation animation.
+   Instead, only speed up the animation and add a glow so rotation isn't interrupted. */
 .logo:hover .logo-cube {
-    transform: rotateY(180deg) scale(1.1);
+    /* speed up rotation on hover */
+    animation-duration: 1s;
+    /* add glow without changing transform so animation keeps running */
+    box-shadow: 0 8px 30px rgba(74, 158, 255, 0.15);
 }
 
 /* Project badges - slide in from side */
