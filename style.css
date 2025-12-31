@@ -439,8 +439,8 @@ body {
 
 /* Eye Animation */
 .eye-container {
-    width: 30px;
-    height: 30px;
+    width: 44px;
+    height: 44px;
     margin-left: 15px;
     display: flex;
     align-items: center;
@@ -448,18 +448,18 @@ body {
 }
 
 .eye {
-    width: 24px;
-    height: 24px;
+    width: 36px;
+    height: 36px;
     background: #fff;
     border-radius: 50%;
     position: relative;
     overflow: hidden;
-    box-shadow: 0 0 10px rgba(255, 255, 255, 0.5);
+    box-shadow: 0 0 12px rgba(255, 255, 255, 0.5);
 }
 
 .pupil {
-    width: 10px;
-    height: 10px;
+    width: 14px;
+    height: 14px;
     background: #000;
     border-radius: 50%;
     position: absolute;

@@ -38,13 +38,14 @@ function switchLanguage(lang) {
     });
     
     // Close dropdown
-    document.getElementById('language-dropdown').classList.remove('active');
+    document.getElementById('language-dropdown').classList.remove('show');
 }
 
 // Language selector event listeners
 document.getElementById('language-btn').addEventListener('click', function(e) {
     e.stopPropagation();
-    document.getElementById('language-dropdown').classList.toggle('active');
+    // toggle the class used by CSS to show/hide the dropdown
+    document.getElementById('language-dropdown').classList.toggle('show');
 });
 
 document.querySelectorAll('.language-option').forEach(option => {
@@ -56,7 +57,7 @@ document.querySelectorAll('.language-option').forEach(option => {
 
 // Close dropdown when clicking outside
 document.addEventListener('click', function() {
-    document.getElementById('language-dropdown').classList.remove('active');
+    document.getElementById('language-dropdown').classList.remove('show');
 });
 
 // Apply English on page load
