@@ -275,25 +275,44 @@
 }
 
 @media (max-width: 767px) {
+    .projects-slider {
+        padding: 4rem 0.5rem; /* Reduced padding for mobile */
+        justify-content: flex-start; /* Align top on mobile to avoid vertical cut-off */
+        min-height: auto; /* Allow auto height */
+    }
+
     .slider-wrap {
-        padding: 0 1rem;
+        padding: 0 0.5rem;
+        margin: 1rem 0;
+        width: 100%;
+        overflow-x: hidden; /* Prevent body scroll */
     }
 
     .slider-track {
         flex-direction: row;
         align-items: stretch;
+        justify-content: flex-start; /* Align left to allow scrolling */
+        overflow-x: auto; /* Enable horizontal scrolling */
+        padding: 1rem 0.5rem; /* Add some padding for shadow/hover */
+        width: 100%;
+        gap: 0.5rem;
+        /* Scroll snap for better experience */
+        scroll-snap-type: x mandatory;
     }
 
     .slider-card {
-        min-width: 60px;
-        width: 60px;
-        height: 400px;
+        min-width: 45px; /* Smaller inactive cards */
+        width: 45px;
+        height: 60vh; /* Relative height */
+        max-height: 500px;
+        scroll-snap-align: center; /* Snap to center */
     }
 
     .slider-card:hover,
     .slider-card[active] {
-        min-width: 280px;
-        width: 280px;
+        min-width: 70vw; /* Responsive active width */
+        width: 70vw;
+        max-width: 320px;
     }
 
     .slider-card h3 {
@@ -305,17 +324,33 @@
         font-size: 1.1rem;
     }
 
+    .slider-card .project-badge {
+        font-size: 0.7rem;
+        margin-bottom: 0.3rem;
+    }
+
+    .slider-card .project-description {
+        font-size: 0.75rem;
+        margin-bottom: 0.8rem;
+    }
+
+    .slider-card .project-link {
+        font-size: 0.75rem;
+        padding: 0.4rem 0.8rem;
+    }
+
     .slider-nav {
-        width: 40px;
-        height: 40px;
-        font-size: 1.5rem;
+        width: 36px;
+        height: 36px;
+        font-size: 1.2rem;
+        background: rgba(0, 0, 0, 0.5); /* Better visibility on mobile */
     }
 
     #prev {
-        left: 0.25rem;
+        left: 0;
     }
 
     #next {
-        right: 0.25rem;
+        right: 0;
     }
 }

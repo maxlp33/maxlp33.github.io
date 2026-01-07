@@ -143,3 +143,18 @@
         font-size: 2.5rem;
     }
 }
+
+@media (max-width: 767px) {
+    .contact {
+        padding: 4rem 1rem;
+    }
+    
+    .contact-nav a {
+        font-size: 2.5rem; /* Smaller font for mobile */
+    }
+
+    /* Adjust hover effects for touch devices if needed or keep as is */
+    .contact-nav a:hover span {
+        transform: translateY(-0.8em); /* Slightly less vertical movement */
+    }
+}

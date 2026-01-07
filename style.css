@@ -969,6 +969,12 @@ body {
         padding: 5rem 1.5rem;
     }
 
+    /* Add padding for the slider container on mobile to prevent overflow issues */
+    .projects-slider {
+        padding: 4rem 1rem;
+        overflow: hidden;
+    }
+
     .projects-grid {
         grid-template-columns: 1fr;
         gap: 2rem;

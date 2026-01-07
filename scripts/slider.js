@@ -29,13 +29,30 @@
     function center(i) {
       const card = cards[i];
       if (!card) return;
-      const axis = isMobile() ? "top" : "left";
-      const size = isMobile() ? "clientHeight" : "clientWidth";
-      const start = isMobile() ? card.offsetTop : card.offsetLeft;
-      wrap.scrollTo({
-        [axis]: start - (wrap[size] / 2 - card[size] / 2),
-        behavior: "smooth",
-      });
+      
+      // On mobile, we use horizontal scrolling now
+      const isMobileView = isMobile();
+      
+      if (isMobileView) {
+        // For mobile, we scroll the track container horizontally
+        // Center the selected card in the viewport
+        const cardRect = card.getBoundingClientRect();
+        const trackRect = track.getBoundingClientRect();
+        const scrollLeft = card.offsetLeft - (track.clientWidth / 2) + (card.clientWidth / 2);
+        
+        track.scrollTo({
+          left: scrollLeft,
+          behavior: 'smooth'
+        });
+      } else {
+        // Desktop logic remains similar but uses the wrapper
+        const start = card.offsetLeft;
+        const size = "clientWidth";
+        wrap.scrollTo({
+          left: start - (wrap[size] / 2 - card[size] / 2),
+          behavior: "smooth",
+        });
+      }
     }
 
     function toggleUI(i) {
@@ -89,12 +106,13 @@
       (e) => {
         const dx = e.changedTouches[0].clientX - sx;
         const dy = e.changedTouches[0].clientY - sy;
-        if (isMobile() ? Math.abs(dy) > 60 : Math.abs(dx) > 60)
-          go((isMobile() ? dy : dx) > 0 ? -1 : 1);
+        if (isMobile() ? Math.abs(dx) > 40 : Math.abs(dx) > 60)
+          go((isMobile() ? dx : dx) > 0 ? -1 : 1);
       },
       { passive: true }
     );
-    if (window.matchMedia("(max-width:767px)").matches && dotsBox) dotsBox.hidden = true;
+    // Show dots on mobile now that we fixed the layout
+    // if (window.matchMedia("(max-width:767px)").matches && dotsBox) dotsBox.hidden = true;
 
     // We can't easily remove anonymous event listeners for resize/keydown in this structure without refactoring more.
     // But since we only expect one init after load, it's acceptable for now.
