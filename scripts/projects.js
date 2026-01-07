@@ -6,9 +6,11 @@ document.addEventListener('DOMContentLoaded', () => {
     // Only run if we're on a page with the slider track
     if (!track) return;
 
-    // Fetch project data
-    fetch('data/projects.json')
-        .then(response => response.json())
+    // Use the Database Service if available, otherwise fallback to direct fetch
+    // 這展示了從直接 Fetch 轉向使用 "資料庫服務" 的架構更新
+    const loadProjects = window.DB ? window.DB.getAllProjects() : fetch('data/projects.json').then(r => r.json());
+
+    loadProjects
         .then(projects => {
             // Clear existing static content (optional, but good for clean slate)
             track.innerHTML = '';

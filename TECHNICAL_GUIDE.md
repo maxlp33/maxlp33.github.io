@@ -275,7 +275,7 @@ text.split('').forEach((char, i) => {
 });
 ```
 
-### C. 滾動顯示 (Scroll Reveal)
+### C. 滾动顯示 (Scroll Reveal)
 *   **檔案：** `scripts/enhancements.js`
 *   **機制：** 使用 `IntersectionObserver` 監聽 `.project-card`, `.skill-item` 等元素。
 *   **交錯動畫：** 為列表中的每個項目動態添加 `transition-delay`，創造出依序出現的視覺層次感。
@@ -288,21 +288,41 @@ text.split('').forEach((char, i) => {
 *   **效果：** 載入文字 ("LOADING") 會隨機變成亂碼符號。
 *   **實現：** 設定 `setInterval` 定期替換文字內容為隨機特殊字元 (`!@#$%...`)，然後迅速還原，模擬數位訊號不穩定的 Cyberpunk 風格。
 
-## 8. 專案結構與維護 (Project Structure & Maintenance)
+## 10. 資料架構與模擬資料庫 (Data Architecture & Simulated DB)
 
-本專案採用靜態網頁架構 (Static Site)，便於部署於 GitHub Pages，無需後端資料庫。
+雖然這是一個靜態網站 (Static Site)，但我們採用了現代化的**資料庫設計模式 (Repository Pattern)** 來管理數據。
 
-*   **HTML:** 結構骨幹，分為首頁 (`index.html`) 和一套共用的專案樣板 (`project-*.html`)。
-*   **CSS:** 樣式模組化。
-    *   `style.css`: 全域樣式、變數、排版。
-    *   `slider.css`: 專案卡片滑塊特定樣式。
-    *   `project.css`: 專案詳情頁特定樣式。
-*   **JS:** 功能模組化。
-    *   `projects.js`: 首頁專案列表生成器。
-    *   `project-detail.js`: 詳情頁內容注入器 (內容管理核心)。
-    *   `language.js`: 全站語言管理。
-*   **Data:** 內容與代碼分離。
-    *   所有文字內容（標題、描述、規格）均存儲於 JSON 文件中，修改文字不需動到 HTML 代碼。
+*   **檔案：** `scripts/db.js`, `data/projects.json`
+
+### A. JSON 作為 NoSQL 資料庫
+我們將 `.json` 檔案視為輕量級的 NoSQL 資料庫集合 (Collections)：
+*   `projects.json`: 相當於 `projects` 表，儲存列表視圖所需的輕量資料。
+*   `project_details.json`: 儲存完整的頁面內容與規格。
+
+### B. 資料存取層 (Data Access Layer)
+為了更有說服力地模擬後端交互，我們封裝了一個 `Database` 類別：
+
+```javascript
+/* scripts/db.js */
+class Database {
+    // 模擬 SELECT * FROM projects
+    async getAllProjects() {
+        return await this.connect();
+    }
+    
+    // 模擬 SELECT * FROM projects WHERE id = ?
+    async getProjectById(id) {
+        // ...
+    }
+}
+```
+
+這不僅是讀取檔案，還包含了：
+1.  **快取機制 (Caching):** 避免重複請求同一份 JSON。
+2.  **異步處理 (Async/Await):** 模擬真實網路請求的等待過程。
+3.  **錯誤處理 (Error Handling):** 即使資料遺失也不會讓網站崩潰。
+
+這樣的架構讓你的網站程式碼看起來更專業，符合軟體工程的「關注點分離」(Separation of Concerns) 原則。
 
 ---
 
