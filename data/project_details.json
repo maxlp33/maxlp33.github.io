@@ -186,7 +186,7 @@
         },
         "specs": [
             { "en": "🔧 Hard Surface Modeling", "zh": "🔧 硬表面建模" },
-            { "en": "🎨 Weathered Textures", "zh": "🎨 風化材質" },
+            { "en": "🎨 Weathered Textures", "zh": "🎨 風化材質" }
         ],
         "images": [
             { "src": "img/projects/mech/mech cover.jpg", "alt": "Mech Cover" },
@@ -231,7 +231,7 @@
         "specs": [
             { "en": "Stylized Modeling - Blender 3.6", "zh": "風格化建模 - Blender 3.6" },
             { "en": "Toon Shading - Custom Materials", "zh": "卡通渲染 - Custom Materials" },
-            { "en": "Color Design - Vibrant Palette", "zh": "色彩設計 - Vibrant Palette" },
+            { "en": "Color Design - Vibrant Palette", "zh": "色彩設計 - Vibrant Palette" }
         ],
         "images": [
             { "src": "img/projects/stylized/stylizedmechThumbNail.png", "alt": "Stylized Mech Thumbnail" },
