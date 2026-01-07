@@ -98,6 +98,33 @@ document.addEventListener('DOMContentLoaded', () => {
             document.body.style.overflow = 'hidden';
             document.body.classList.add('lightbox-open');
         }
+
+        // Close Lightbox Logic
+        const closeBtn = document.querySelector('.lightbox-close');
+        
+        function closeLightbox() {
+            lightbox.style.display = 'none';
+            document.body.style.overflow = '';
+            document.body.classList.remove('lightbox-open');
+        }
+
+        if (closeBtn) {
+            closeBtn.onclick = closeLightbox;
+        }
+
+        // Close on background click
+        lightbox.onclick = (e) => {
+            if (e.target === lightbox || e.target.classList.contains('lightbox-content')) {
+                closeLightbox();
+            }
+        };
+
+        // Close on Escape key
+        document.addEventListener('keydown', (e) => {
+            if (e.key === 'Escape' && lightbox.style.display === 'block') {
+                closeLightbox();
+            }
+        });
         
         window.changeLightboxImage = function(direction) {
             currentImageIndex += direction;
