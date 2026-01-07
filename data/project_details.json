@@ -6,7 +6,7 @@
             "zh": "二戰時期經典衝鋒槍的高擬真 3D 重建"
         },
         "meta": [
-            { "icon": "🔫", "text": "3D Modeling" },
+            { "icon": "🔫", "text": "Weapon Modeling" },
             { "icon": "⏱️", "text": "6 Weeks" },
             { "icon": "🎯", "text": "Game Asset" },
             { "icon": "🛠️", "text": "Blender & Substance" }
@@ -49,7 +49,7 @@
             "zh": "經典美式手槍的 PBR 流程 3D 重建"
         },
         "meta": [
-            { "icon": "🔫", "text": "3D Modeling" },
+            { "icon": "🔫", "text": "Weapon Modeling" },
             { "icon": "⏱️", "text": "4 Weeks" },
             { "icon": "🎯", "text": "Game Asset" },
             { "icon": "🛠️", "text": "Blender & Substance" }
@@ -88,7 +88,7 @@
             "zh": "Netflix 動畫《奧術》角色凱特琳的重製"
         },
         "meta": [
-            { "icon": "👤", "text": "Character Design" },
+            { "icon": "👤", "text": "Character Modeling" },
             { "icon": "⏱️", "text": "8 Weeks" },
             { "icon": "🎯", "text": "Fan Art" },
             { "icon": "🛠️", "text": "Blender & SubstancePainter" }
@@ -104,7 +104,7 @@
             }
         },
         "specs": [
-            { "en": "🔧 Blender - Sculpting", "zh": "🔧 ZBrush - 雕刻" },
+            { "en": "🔧 Blender - Sculpting", "zh": "🔧 Blender - 雕刻" },
             { "en": "🎨 Hand-painted Textures", "zh": "🎨 手繪材質" },
             { "en": "📐 Character Topology", "zh": "📐 角色拓撲" }
         ],
@@ -258,7 +258,7 @@
             "zh": "基於 Overwatch 角色炸彈鼠的榴彈發射器 3D 重現"
         },
         "meta": [
-            { "icon": "💥", "text": "Weapon Design" },
+            { "icon": "💥", "text": "Weapon Modeling" },
             { "icon": "⏱️", "text": "1 Week" },
             { "icon": "🎯", "text": "Game Prop" },
             { "icon": "🛠️", "text": "Blender & Substance" }
