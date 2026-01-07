@@ -24,10 +24,10 @@ document.addEventListener('DOMContentLoaded', () => {
                 card.innerHTML = `
                     <img src="${project.image}" alt="${project.title}">
                     <div class="project-content">
-                        <div class="project-badge">${project.badge}</div>
-                        <h3>${project.title}</h3>
-                        <p class="project-description">${project.description}</p>
-                        <a href="${project.link}" class="project-link">View Project →</a>
+                        <div class="project-badge" data-zh="${project.badge_zh}" data-en="${project.badge}">${project.badge}</div>
+                        <h3 data-zh="${project.title_zh}" data-en="${project.title}">${project.title}</h3>
+                        <p class="project-description" data-zh="${project.description_zh}" data-en="${project.description}">${project.description}</p>
+                        <a href="${project.link}" class="project-link" data-zh="查看專案 →" data-en="View Project →">View Project →</a>
                     </div>
                 `;
                 track.appendChild(card);

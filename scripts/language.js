@@ -41,23 +41,38 @@ function switchLanguage(lang) {
     document.getElementById('language-dropdown').classList.remove('show');
 }
 
-// Language selector event listeners
-document.getElementById('language-btn').addEventListener('click', function(e) {
-    e.stopPropagation();
-    // toggle the class used by CSS to show/hide the dropdown
-    document.getElementById('language-dropdown').classList.toggle('show');
-});
+// Language switcher event listeners
+document.addEventListener('DOMContentLoaded', function() {
+    const languageBtn = document.getElementById('language-btn');
+    const languageDropdown = document.getElementById('language-dropdown');
+    
+    if (languageBtn && languageDropdown) {
+        languageBtn.addEventListener('click', function(e) {
+            e.stopPropagation();
+            languageDropdown.classList.toggle('show');
+        });
 
-document.querySelectorAll('.language-option').forEach(option => {
-    option.addEventListener('click', function() {
-        const lang = this.getAttribute('data-lang');
-        switchLanguage(lang);
-    });
+        // Add event listener to new items if projects are loaded dynamically
+        document.addEventListener('projectsLoaded', function() {
+            // Re-apply current language to newly added project cards
+            switchLanguage(currentLanguage);
+        });
+
+        document.querySelectorAll('.language-option').forEach(option => {
+            option.addEventListener('click', function() {
+                const lang = this.getAttribute('data-lang');
+                switchLanguage(lang);
+            });
+        });
+    }
 });
 
 // Close dropdown when clicking outside
 document.addEventListener('click', function() {
-    document.getElementById('language-dropdown').classList.remove('show');
+    const dropdown = document.getElementById('language-dropdown');
+    if (dropdown && dropdown.classList.contains('show')) {
+        dropdown.classList.remove('show');
+    }
 });
 
 // Apply English on page load

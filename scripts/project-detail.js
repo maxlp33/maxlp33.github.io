@@ -24,6 +24,58 @@ document.addEventListener('DOMContentLoaded', () => {
             const project = data[projectId];
             if (!project) return;
 
+            // Apply translations to static elements if data exists
+            if (project.title) {
+                const titleEl = document.querySelector('.project-title-main');
+                if (titleEl) {
+                    titleEl.textContent = project.title;
+                    // Store for language switching
+                    titleEl.setAttribute('data-en', project.title);
+                    if (project.title_zh) titleEl.setAttribute('data-zh', project.title_zh); // If exists in JSON
+                }
+            }
+
+            if (project.subtitle) {
+                const subtitleEl = document.querySelector('.project-subtitle');
+                if (subtitleEl) {
+                    subtitleEl.textContent = project.subtitle[currentLanguage] || project.subtitle.en;
+                    subtitleEl.setAttribute('data-en', project.subtitle.en);
+                    subtitleEl.setAttribute('data-zh', project.subtitle.zh);
+                }
+            }
+
+            // Update Overview
+            if (project.description && project.description.overview) {
+                const overviewSection = document.querySelector('.detail-section:first-of-type');
+                if (overviewSection) {
+                    const overviewP = overviewSection.querySelector('p:nth-of-type(1)');
+                    if (overviewP) {
+                        overviewP.textContent = project.description.overview[currentLanguage] || project.description.overview.en;
+                        overviewP.setAttribute('data-en', project.description.overview.en);
+                        overviewP.setAttribute('data-zh', project.description.overview.zh);
+                    }
+                    // Handle second paragraph if process exists
+                    const processP = overviewSection.querySelector('p:nth-of-type(2)');
+                    if (processP && project.description.process) {
+                        processP.textContent = project.description.process[currentLanguage] || project.description.process.en;
+                        processP.setAttribute('data-en', project.description.process.en);
+                        processP.setAttribute('data-zh', project.description.process.zh);
+                    }
+                }
+            }
+            
+            // Update Specs List
+            if (project.specs) {
+                const techList = document.querySelector('.tech-list');
+                if (techList) {
+                    techList.innerHTML = project.specs.map(spec => {
+                        return `<li>
+                            <span data-zh="${spec.zh}" data-en="${spec.en}">${spec[currentLanguage] || spec.en}</span>
+                        </li>`;
+                    }).join('');
+                }
+            }
+
             // Update Gallery
             const mainImage = document.getElementById('main-gallery-image');
             const thumbnailsContainer = document.querySelector('.gallery-thumbnails');
@@ -89,6 +141,24 @@ document.addEventListener('DOMContentLoaded', () => {
             });
         }
         
+        // Lightbox Navigation Buttons
+        const lbPrevBtn = document.querySelector('.lightbox-prev');
+        const lbNextBtn = document.querySelector('.lightbox-next');
+
+        if (lbPrevBtn) {
+            lbPrevBtn.addEventListener('click', (e) => {
+                e.stopPropagation();
+                changeLightboxImage(-1);
+            });
+        }
+
+        if (lbNextBtn) {
+            lbNextBtn.addEventListener('click', (e) => {
+                e.stopPropagation();
+                changeLightboxImage(1);
+            });
+        }
+        
         mainImage.onclick = () => openLightbox(currentImageIndex);
         
         window.openLightbox = function(index) {
@@ -99,7 +169,21 @@ document.addEventListener('DOMContentLoaded', () => {
             document.body.classList.add('lightbox-open');
         }
 
-        // Close Lightbox Logic
+        function changeLightboxImage(direction) {
+            currentImageIndex += direction;
+            if (currentImageIndex >= galleryImages.length) currentImageIndex = 0;
+            if (currentImageIndex < 0) currentImageIndex = galleryImages.length - 1;
+            updateLightbox();
+        }
+
+        function updateLightbox() {
+            const img = galleryImages[currentImageIndex];
+            lightboxImage.src = img.src;
+            lightboxImage.alt = img.alt;
+            currentImageSpan.textContent = currentImageIndex + 1;
+        }
+
+        // Close functions
         const closeBtn = document.querySelector('.lightbox-close');
         
         function closeLightbox() {
@@ -112,36 +196,28 @@ document.addEventListener('DOMContentLoaded', () => {
             closeBtn.onclick = closeLightbox;
         }
 
-        // Close on background click
-        lightbox.onclick = (e) => {
-            if (e.target === lightbox || e.target.classList.contains('lightbox-content')) {
+        lightbox.addEventListener('click', (e) => {
+            if (e.target === lightbox) {
                 closeLightbox();
             }
-        };
+        });
 
-        // Close on Escape key
         document.addEventListener('keydown', (e) => {
             if (e.key === 'Escape' && lightbox.style.display === 'block') {
                 closeLightbox();
             }
+            // Add arrow key navigation
+            if (lightbox.style.display === 'block') {
+                if (e.key === 'ArrowLeft') changeLightboxImage(-1);
+                if (e.key === 'ArrowRight') changeLightboxImage(1);
+            }
         });
-        
-        window.changeLightboxImage = function(direction) {
-            currentImageIndex += direction;
-            if (currentImageIndex < 0) currentImageIndex = galleryImages.length - 1;
-            if (currentImageIndex >= galleryImages.length) currentImageIndex = 0;
-            updateLightbox();
-        };
 
-        function updateLightbox() {
-            lightboxImage.src = galleryImages[currentImageIndex].src;
-            lightboxImage.alt = galleryImages[currentImageIndex].alt;
-            currentImageSpan.textContent = currentImageIndex + 1;
-            
-            // Sync main gallery
-            mainImage.src = galleryImages[currentImageIndex].src;
-            thumbnails.forEach(t => t.classList.remove('active'));
-            thumbnails[currentImageIndex].classList.add('active');
+        // Trigger initial translation update just in case language was switched before fetch completed
+        if (window.switchLanguage && typeof currentLanguage !== 'undefined') {
+             // We need to wait slightly for the DOM updates above to settle? 
+             // Actually, since we set content directly based on currentLanguage, it should be fine.
+             // But we might need to refresh the "Language" UI state or re-run switchLanguage to be sure.
         }
     }
 });

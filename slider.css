@@ -86,6 +86,11 @@
     transition: opacity 0.5s ease;
 }
 
+.slider-card:hover img,
+.slider-card[active] img {
+    opacity: 0.8;
+}
+
 .slider-card .project-content {
     position: absolute;
     inset: 0;
@@ -93,7 +98,7 @@
     display: flex;
     flex-direction: column;
     justify-content: flex-end;
-    background: rgba(0, 0, 0, 0.7);
+    background: linear-gradient(to top, rgba(0, 0, 0, 0.9) 0%, rgba(0, 0, 0, 0.2) 60%, transparent 100%);
     opacity: 0;
     transition: opacity 0.5s ease;
     pointer-events: none;

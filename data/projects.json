@@ -2,8 +2,11 @@
     {
         "id": "sten",
         "title": "Sten Submachine Gun",
+        "title_zh": "Sten 衝鋒槍",
         "badge": "🔫 3D MODELING",
+        "badge_zh": "🔫 3D 建模",
         "description": "WWII-era Sten submachine gun 3D model with complete material workflow",
+        "description_zh": "二戰時期 Sten 衝鋒槍 3D 模型，包含完整的材質流程",
         "image": "img/projects/sten/Sten8.png",
         "link": "project-sten.html",
         "date": "2023-01-01"
@@ -11,8 +14,11 @@
     {
         "id": "m1911",
         "title": "Colt M1911 Pistol",
+        "title_zh": "Colt M1911 手槍",
         "badge": "🔫 3D MODELING",
+        "badge_zh": "🔫 3D 建模",
         "description": "Classic American pistol 3D reconstruction with PBR workflow",
+        "description_zh": "經典美式手槍 3D 重建，使用 PBR 流程",
         "image": "img/projects/m1911/m1911-TN.png",
         "link": "project-m1911.html",
         "date": "2023-02-01"
@@ -20,8 +26,11 @@
     {
         "id": "caitlyn",
         "title": "Arcane Caitlyn",
+        "title_zh": "奧術 Caitlyn",
         "badge": "👤 CHARACTER DESIGN",
+        "badge_zh": "👤 角色設計",
         "description": "Character recreation from Netflix's Arcane animation",
+        "description_zh": "Netflix 動畫《奧術》角色重製",
         "image": "img/projects/caitlyn/caitRender11.png",
         "link": "project-caitlyn.html",
         "date": "2023-03-01"
@@ -29,8 +38,11 @@
     {
         "id": "2077",
         "title": "Cyberpunk2077 Manufacturer",
+        "title_zh": "電馭叛客 2077 製造台",
         "badge": "🏭 PROP DESIGN",
+        "badge_zh": "🏭 道具設計",
         "description": "Neo-kitsch weapon workbench design inspired by Rayfield",
+        "description_zh": "受 Rayfield 啟發的 Neo-kitsch 風格武器工作台設計",
         "image": "img/projects/2077/2077 manufactrue bench1.jpg",
         "link": "project-2077manufacture.html",
         "date": "2023-04-01"
@@ -38,8 +50,11 @@
     {
         "id": "mech",
         "title": "Battle Mech",
+        "title_zh": "戰鬥機甲",
         "badge": "🤖 MECH DESIGN",
+        "badge_zh": "🤖 機甲設計",
         "description": "Heavy battle mech 3D model with weapon systems and armor details",
+        "description_zh": "重型戰鬥機甲 3D 模型，包含武器系統和裝甲細節",
         "image": "img/projects/mech/mech cover.jpg",
         "link": "project-mech.html",
         "date": "2023-05-01"
@@ -47,8 +62,11 @@
     {
         "id": "stylized",
         "title": "Stylized Mech",
+        "title_zh": "風格化機甲",
         "badge": "🎨 STYLIZED DESIGN",
+        "badge_zh": "🎨 風格化設計",
         "description": "Overwatch-inspired stylized mech with cartoon art style",
+        "description_zh": "受《鬥陣特攻》啟發的卡通風格機甲",
         "image": "img/projects/stylized/stylizedmechThumbNail.png",
         "link": "project-stylizedmech.html",
         "date": "2023-06-01"
@@ -56,8 +74,11 @@
     {
         "id": "junkrat",
         "title": "Junkrat Launcher",
+        "title_zh": "炸彈鼠榴彈發射器",
         "badge": "💥 WEAPON DESIGN",
+        "badge_zh": "💥 武器設計",
         "description": "Overwatch grenade launcher recreation with weathered materials",
+        "description_zh": "《鬥陣特攻》榴彈發射器重製，包含風化材質",
         "image": "img/projects/junkrat/junkrat launcher 1.png",
         "link": "project-junkratlauncher.html",
         "date": "2023-07-01"

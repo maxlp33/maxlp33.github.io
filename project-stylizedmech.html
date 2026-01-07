@@ -116,9 +116,9 @@
             <div id="lightbox" class="lightbox">
                 <div class="lightbox-content">
                     <span class="lightbox-close">&times;</span>
-                    <button class="lightbox-arrow lightbox-prev" onclick="changeLightboxImage(-1)">‹</button>
+                    <button class="lightbox-arrow lightbox-prev">‹</button>
                     <img id="lightbox-image" src="" alt="">
-                    <button class="lightbox-arrow lightbox-next" onclick="changeLightboxImage(1)">›</button>
+                    <button class="lightbox-arrow lightbox-next">›</button>
                     <div class="lightbox-counter">
                         <span id="current-image">1</span> / <span id="total-images">15</span>
                     </div>
@@ -181,160 +181,8 @@
     </section>
 
     <script src="enhancements.js"></script>
-    <script>
-        // Gallery functionality
-        const thumbnailItems = document.querySelectorAll('.thumbnail-item');
-        const mainGalleryImage = document.getElementById('main-gallery-image');
-        const lightbox = document.getElementById('lightbox');
-        const lightboxImage = document.getElementById('lightbox-image');
-        const lightboxClose = document.querySelector('.lightbox-close');
-        const currentImageSpan = document.getElementById('current-image');
-        const totalImagesSpan = document.getElementById('total-images');
-        
-        let currentImageIndex = 0;
-        let images = [];
-        
-        // Initialize gallery
-        thumbnailItems.forEach((item, index) => {
-            images.push({
-                src: item.dataset.src,
-                alt: item.dataset.alt
-            });
-            
-            item.addEventListener('click', () => {
-                currentImageIndex = index;
-                updateMainImage();
-                updateActiveThumbnail();
-            });
-        });
-        
-        // Update main image
-        function updateMainImage() {
-            mainGalleryImage.src = images[currentImageIndex].src;
-            mainGalleryImage.alt = images[currentImageIndex].alt;
-        }
-        
-        // Update active thumbnail
-        function updateActiveThumbnail() {
-            thumbnailItems.forEach((item, index) => {
-                item.classList.toggle('active', index === currentImageIndex);
-            });
-        }
-        
-        // Open lightbox
-        mainGalleryImage.addEventListener('click', () => {
-            lightboxImage.src = images[currentImageIndex].src;
-            lightboxImage.alt = images[currentImageIndex].alt;
-            currentImageSpan.textContent = currentImageIndex + 1;
-            totalImagesSpan.textContent = images.length;
-            lightbox.style.display = 'block';
-            document.body.classList.add('lightbox-open');
-        });
-        
-        // Close lightbox
-        lightboxClose.addEventListener('click', () => {
-            lightbox.style.display = 'none';
-            document.body.classList.remove('lightbox-open');
-        });
-        
-        // Close lightbox on background click
-        lightbox.addEventListener('click', (e) => {
-            if (e.target === lightbox) {
-                lightbox.style.display = 'none';
-                document.body.classList.remove('lightbox-open');
-            }
-        });
-        
-        // Lightbox navigation
-        function changeLightboxImage(direction) {
-            currentImageIndex += direction;
-            if (currentImageIndex < 0) currentImageIndex = images.length - 1;
-            if (currentImageIndex >= images.length) currentImageIndex = 0;
-            
-            lightboxImage.src = images[currentImageIndex].src;
-            lightboxImage.alt = images[currentImageIndex].alt;
-            currentImageSpan.textContent = currentImageIndex + 1;
-            updateActiveThumbnail();
-        }
-        
-        // Keyboard navigation
-        document.addEventListener('keydown', (e) => {
-            if (lightbox.style.display === 'block') {
-                if (e.key === 'ArrowLeft') changeLightboxImage(-1);
-                if (e.key === 'ArrowRight') changeLightboxImage(1);
-                if (e.key === 'Escape') lightbox.style.display = 'none';
-            }
-        });
-        
-        // Language switching functionality
-        const languageBtn = document.getElementById('language-btn');
-        const languageDropdown = document.getElementById('language-dropdown');
-        const currentLang = document.getElementById('current-lang');
-        const languageOptions = document.querySelectorAll('.language-option');
-
-        languageBtn.addEventListener('click', () => {
-            languageDropdown.classList.toggle('active');
-        });
-
-        languageOptions.forEach(option => {
-            option.addEventListener('click', () => {
-                const selectedLang = option.dataset.lang;
-                switchLanguage(selectedLang);
-                languageDropdown.classList.remove('active');
-            });
-        });
-
-        function switchLanguage(lang) {
-            const elements = document.querySelectorAll('[data-zh][data-en]');
-            
-            elements.forEach(element => {
-                if (lang === 'zh') {
-                    element.textContent = element.dataset.zh;
-                } else {
-                    element.textContent = element.dataset.en;
-                }
-            });
-            
-            currentLang.textContent = lang === 'zh' ? '中文' : 'English';
-            document.documentElement.lang = lang === 'zh' ? 'zh-TW' : 'en';
-        }
-
-        // Initialize page
-        switchLanguage('en');
-        
-        // Initialize starry background
-        const starryBg = document.getElementById('starry-bg');
-        
-        function createStar() {
-            const star = document.createElement('div');
-            star.className = 'star';
-            
-            const size = Math.random();
-            if (size > 0.8) {
-                star.classList.add('large');
-            } else if (size > 0.5) {
-                star.classList.add('medium');
-            } else {
-                star.classList.add('small');
-            }
-            
-            const speed = Math.random();
-            if (speed > 0.7) {
-                star.classList.add('fast');
-            } else if (speed < 0.3) {
-                star.classList.add('slow');
-            }
-            
-            star.style.left = Math.random() * 100 + '%';
-            star.style.top = Math.random() * 100 + '%';
-            star.style.animationDelay = Math.random() * 3 + 's';
-            
-            starryBg.appendChild(star);
-        }
-        
-        for (let i = 0; i < 150; i++) {
-            createStar();
-        }
-    </script>
+    <script src="scripts/language.js"></script>
+    <script src="scripts/starry-bg.js"></script>
+    <script src="scripts/project-detail.js"></script>
 </body>
 </html>

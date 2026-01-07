@@ -412,14 +412,23 @@ body {
     border: 1px solid rgba(255, 255, 255, 0.1);
     border-radius: 4px;
     margin-top: 5px;
-    display: none;
+    opacity: 0;
+    visibility: hidden;
+    transform: translateY(-10px);
+    transition: all 0.3s ease;
     flex-direction: column;
     min-width: 100px;
     overflow: hidden;
+    z-index: 1001; /* Ensure it stays on top */
+    pointer-events: none; /* Prevent clicks when hidden */
 }
 
 .language-dropdown.show {
-    display: flex;
+    display: flex; /* Keep this to maintain layout */
+    opacity: 1;
+    visibility: visible;
+    transform: translateY(0);
+    pointer-events: auto; /* Enable clicks when visible */
 }
 
 .language-option {

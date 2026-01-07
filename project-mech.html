@@ -114,9 +114,9 @@
         <div id="lightbox" class="lightbox">
             <div class="lightbox-content">
                 <span class="lightbox-close">&times;</span>
-                <button class="lightbox-arrow lightbox-prev" onclick="changeLightboxImage(-1)">‹</button>
+                <button class="lightbox-arrow lightbox-prev">‹</button>
                 <img id="lightbox-image" src="" alt="">
-                <button class="lightbox-arrow lightbox-next" onclick="changeLightboxImage(1)">›</button>
+                <button class="lightbox-arrow lightbox-next">›</button>
                 <div class="lightbox-counter">
                     <span id="current-image">1</span> / <span id="total-images">15</span>
                 </div>
@@ -178,79 +178,8 @@
     </section>
 
     <script src="enhancements.js"></script>
+    <script src="scripts/language.js"></script>
+    <script src="scripts/starry-bg.js"></script>
     <script src="scripts/project-detail.js"></script>
-    <script>
-        // Language switching functionality
-        let currentLanguage = 'en';
-
-        const languageBtn = document.getElementById('language-btn');
-        const languageDropdown = document.getElementById('language-dropdown');
-        const currentLang = document.getElementById('current-lang');
-        const languageOptions = document.querySelectorAll('.language-option');
-
-        languageBtn.addEventListener('click', () => {
-            languageDropdown.classList.toggle('active');
-        });
-
-        languageOptions.forEach(option => {
-            option.addEventListener('click', () => {
-                const selectedLang = option.dataset.lang;
-                switchLanguage(selectedLang);
-                languageDropdown.classList.remove('active');
-            });
-        });
-
-        function switchLanguage(lang) {
-            const elements = document.querySelectorAll('[data-zh][data-en]');
-            
-            elements.forEach(element => {
-                if (lang === 'zh') {
-                    element.textContent = element.dataset.zh;
-                } else {
-                    element.textContent = element.dataset.en;
-                }
-            });
-            
-            currentLang.textContent = lang === 'zh' ? '中文' : 'English';
-            document.documentElement.lang = lang === 'zh' ? 'zh-TW' : 'en';
-        }
-
-        // Initialize page
-        switchLanguage('en');
-        
-        // Initialize starry background
-        const starryBg = document.getElementById('starry-bg');
-        
-        function createStar() {
-            const star = document.createElement('div');
-            star.className = 'star';
-            
-            const size = Math.random();
-            if (size > 0.8) {
-                star.classList.add('large');
-            } else if (size > 0.5) {
-                star.classList.add('medium');
-            } else {
-                star.classList.add('small');
-            }
-            
-            const speed = Math.random();
-            if (speed > 0.7) {
-                star.classList.add('fast');
-            } else if (speed < 0.3) {
-                star.classList.add('slow');
-            }
-            
-            star.style.left = Math.random() * 100 + '%';
-            star.style.top = Math.random() * 100 + '%';
-            star.style.animationDelay = Math.random() * 3 + 's';
-            
-            starryBg.appendChild(star);
-        }
-        
-        for (let i = 0; i < 150; i++) {
-            createStar();
-        }
-    </script>
 </body>
 </html>
