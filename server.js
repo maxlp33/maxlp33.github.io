@@ -76,26 +76,40 @@ server.get("/contact", (req, res) => {
 });
 
 // API：接收聯絡表單
-server.post("/contact", (req, res) => {
-    ContactDB.insert(req.body); // 存入資料庫
-    
-    // 處理檔案上傳
-    if (req.files && req.files.myFile1) {
-        var upFile = req.files.myFile1;
-        // 加入時間戳記，避免檔名重複被覆蓋
-        var fileName = Date.now() + "_" + upFile.name;
-        // 確保 public/upload 資料夾存在 (Note: public is not static served by above config, but server can write to it)
-        // If user wants access to uploaded files, we might need: server.use("/public", express.static(__dirname + "/public"));
-        upFile.mv(__dirname + "/public/upload/" + fileName, function(err) {
-            if (err) {
-                res.send("檔案上傳失敗: " + err);
-            } else {
-                // 如果需要將檔名存入 DB，可以在這裡 update ContactDB
-                res.send("表單提交成功！我們已收到您的訊息與檔案：" + fileName);
+server.post("/contact", async (req, res) => {
+    try {
+        await ContactDB.insert(req.body); // 存入資料庫
+        
+        // 定義 helper function
+        const successScript = (msg) => `<script>alert("${msg}"); window.location.href="/#contact";</script>`;
+        const errorScript = (msg) => `<script>alert("Error: ${msg}"); window.location.href="/#contact";</script>`;
+
+        // 處理檔案上傳
+        if (req.files && req.files.myFile1) {
+            var upFile = req.files.myFile1;
+            // 加入時間戳記，避免檔名重複被覆蓋
+            var fileName = Date.now() + "_" + upFile.name;
+            
+            // 確保資料夾存在
+            const uploadPath = path.join(__dirname, "public", "upload");
+            if (!fs.existsSync(uploadPath)) {
+                fs.mkdirSync(uploadPath, { recursive: true });
             }
-        });
-    } else {
-        res.send(successScript("表單提交成功！(無檔案)"));
+
+            upFile.mv(path.join(uploadPath, fileName), function(err) {
+                if (err) {
+                    console.error("File Upload Error:", err);
+                    res.send(errorScript("檔案上傳失敗: " + err));
+                } else {
+                    res.send(successScript("表單提交成功！我們已收到您的訊息與檔案"));
+                }
+            });
+        } else {
+            res.send(successScript("表單提交成功！(無檔案)"));
+        }
+    } catch (error) {
+        console.error("Contact Form Error:", error);
+        res.status(500).send(`<script>alert("Server Error: ${error.message}"); window.location.href="/#contact";</script>`);
     }
 });
 
