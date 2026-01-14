@@ -3,14 +3,18 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <meta http-equiv="Content-Security-Policy" content="script-src 'self' 'unsafe-inline' https://fonts.googleapis.com https://unpkg.com https://cdn.jsdelivr.net; style-src 'self' 'unsafe-inline' https://fonts.googleapis.com;">
+    <meta http-equiv="Content-Security-Policy" content="script-src 'self' 'unsafe-inline' 'unsafe-eval' https://fonts.googleapis.com https://unpkg.com https://cdn.jsdelivr.net https://cdnjs.cloudflare.com; style-src 'self' 'unsafe-inline' https://fonts.googleapis.com;">
     <title>劉至庭 - Portfolio</title>
+    <!-- GSAP Libraries -->
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.5/gsap.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.5/ScrollTrigger.min.js"></script>
+
     <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@300;400;500;600;700&display=swap" rel="stylesheet">
-    <link rel="stylesheet" href="style.css">
-    <link rel="stylesheet" href="enhancements.css">
-    <link rel="stylesheet" href="slider.css">
-    <link rel="stylesheet" href="contact.css">
-    <link rel="stylesheet" href="animations.css">
+    <link rel="stylesheet" href="css/style.css">
+    <link rel="stylesheet" href="css/enhancements.css">
+    <link rel="stylesheet" href="css/slider.css">
+    <link rel="stylesheet" href="css/contact.css">
+    <link rel="stylesheet" href="css/animations.css">
     <script type="importmap">
     {
         "imports": {
@@ -35,7 +39,7 @@
             <div class="loading-text" id="loading-text" data-text="LOADING">LOADING</div>
         </div>
     </div>
-    <script src="scripts/loading.js"></script>
+    <script src="js/loading.js"></script>
 
     <!-- Starry Background -->
     <div class="starry-bg" id="starry-bg"></div>
@@ -123,7 +127,15 @@
             <div class="slider-wrap">
                 <button class="slider-nav" id="prev">‹</button>
                 <div class="slider-track" id="track">
-                    <!-- Projects will be loaded dynamically -->
+                    <article v-for="project in projects" class="slider-card" :key="project.id" :data-title="project.title">
+                        <img :src="project.image" :alt="project.title">
+                        <div class="project-content">
+                            <div class="project-badge" :data-zh="project.badge_zh" :data-en="project.badge">{{ project.badge }}</div>
+                            <h3 :data-zh="project.title_zh" :data-en="project.title">{{ project.title }}</h3>
+                            <p class="project-description" :data-zh="project.description_zh" :data-en="project.description">{{ project.description }}</p>
+                            <a :href="project.link" class="project-link" data-zh="查看專案" data-en="View Project">View Project</a>
+                        </div>
+                    </article>
                 </div>
                 <button class="slider-nav" id="next">›</button>
             </div>
@@ -140,6 +152,31 @@
                 <a href="https://www.artstation.com/maxlp332" target="_blank" class="split">Artstation</a>
                 <a href="https://www.fiverr.com/s/vvgmPNZ" target="_blank" class="split">Fiverr</a>
             </nav>
+
+            <!-- Message Form -->
+            <div class="contact-form-container">
+                <form action="/contact" method="POST" enctype="multipart/form-data" class="contact-form" id="msgForm">
+                    <div class="form-group">
+                        <label for="name" class="form-label" data-zh="姓名" data-en="Name">Name</label>
+                        <input type="text" id="name" name="name" class="form-input" required>
+                    </div>
+                    
+                    <div class="form-group">
+                        <label for="message" class="form-label" data-zh="訊息" data-en="Message">Message</label>
+                        <textarea id="message" name="msg" class="form-textarea" required></textarea>
+                    </div>
+
+                    <div class="form-group">
+                        <label class="form-label" data-zh="上傳圖片 (選填)" data-en="Upload Image (Optional)">Upload Image (Optional)</label>
+                        <div class="file-upload-wrapper">
+                            <input type="file" name="myFile1" class="file-upload-input" accept="image/*" id="fileInput">
+                            <span class="file-upload-text" id="fileText" data-zh="點擊或拖曳圖片至此" data-en="Click or drag image here">Click or drag image here</span>
+                        </div>
+                    </div>
+
+                    <button type="submit" class="submit-btn" data-zh="送出訊息" data-en="Send Message">Send Message</button>
+                </form>
+            </div>
         </div>
     </section>
 
@@ -149,6 +186,18 @@
     </footer>
 
     <script>
+        // File input change handler to show filename
+        document.getElementById('fileInput').addEventListener('change', function(e) {
+            const fileName = e.target.files[0] ? e.target.files[0].name : '';
+            const fileText = document.getElementById('fileText');
+            if (fileName) {
+                fileText.textContent = fileName;
+            } else {
+                // Reset to default text based on current language would be better, but simple fallback for now
+                fileText.textContent = "Click or drag image here"; 
+            }
+        });
+        
         // Mobile menu toggle
         const menuToggle = document.getElementById('menu-toggle');
         const navMenu = document.getElementById('nav-menu');
@@ -207,13 +256,16 @@
             observer.observe(el);
         });
     </script>
-    <script src="scripts/language.js"></script>
-    <script src="enhancements.js"></script>
-    <script src="scripts/db.js"></script> <!-- 資料庫模擬層 -->
-    <script type="module" src="scripts/three-scene.js"></script>
-    <script src="scripts/slider.js"></script>
-    <script src="scripts/projects.js"></script>
-    <script src="scripts/contact.js"></script>
-    <script src="scripts/eye.js"></script>
+    <script src="js/language.js"></script>
+    <script src="js/enhancements.js"></script>
+    <!-- <script src="js/db.js"></script> Removed: Using real backend -->
+    <script type="module" src="js/three-scene.js"></script>
+    <script src="js/slider.js"></script>
+    <!-- Vue.js Local -->
+    <script src="js/lib/vue.global.js"></script>
+    <script src="js/vue-projects.js"></script>
+    <!-- <script src="js/projects.js"></script> Removed: Replaced by Vue -->
+    <script src="js/contact.js"></script>
+    <script src="js/eye.js"></script>
 </body>
 </html>

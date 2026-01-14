@@ -7,6 +7,11 @@
     const wrap = track.parentElement;
     // Re-query cards and dots as they might have been added dynamically
     const cards = Array.from(track.children);
+    
+    if (cards.length === 0) {
+        return;
+    }
+
     const prev = document.getElementById("prev");
     const next = document.getElementById("next");
     const dotsBox = document.getElementById("dots");
