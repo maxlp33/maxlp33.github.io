@@ -114,8 +114,9 @@ server.post("/contact", async (req, res) => {
 });
 
 // 啟動伺服器
-const http = server.listen(8080, () => {
-    console.log("Server is running at http://localhost:8080");
+const PORT = process.env.PORT || 8080;
+const http = server.listen(PORT, () => {
+    console.log(`Server is running at http://localhost:${PORT}`);
 });
 http.on('error', (e) => {
     console.error("Server Error:", e);
